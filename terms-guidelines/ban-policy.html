@@ -1,34 +1,81 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>処罰規定およびBANガイドライン | 箱庭クラフト</title>
     <meta name="description" content="箱庭クラフトサーバーにおける違反行為への処罰基準およびBANガイドラインの詳細です。">
     <meta name="keywords" content="Minecraft, マイクラ, BAN, ガイドライン, 処罰規定, 箱庭クラフト">
-<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .content-page {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
         /* セクション装飾 */
-        .facility-section-h2 { border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-top: 40px; color: #333; font-size: 1.5rem; }
-        .facility-item { margin-top: 25px; }
-        .facility-item h3 { color: #e67e22; margin-bottom: 12px; font-size: 1.15rem; border-left: 4px solid #e67e22; padding-left: 12px; }
-        
-        .text-strong-black { font-weight: bold; color: #000; }
-        .text-caution { color: #d35400; }
-        
+        .facility-section-h2 {
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .facility-item {
+            margin-top: 25px;
+        }
+
+        .facility-item h3 {
+            color: #e67e22;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            border-left: 4px solid #e67e22;
+            padding-left: 12px;
+        }
+
+        .text-strong-black {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .text-caution {
+            color: #d35400;
+        }
+
         /* リスト調整 */
-        .rule-list { padding-left: 20px; margin-bottom: 15px; }
-        .rule-list li { margin-bottom: 8px; line-height: 1.6; }
+        .rule-list {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .rule-list li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
 
         /* ボタンデザイン */
         .btn-outline {
@@ -42,12 +89,14 @@
             transition: all 0.3s ease;
             margin-top: 15px;
         }
+
         .btn-outline:hover {
             background-color: #e67e22;
             color: #fff !important;
         }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
@@ -71,7 +120,8 @@
                     <ul class="rule-list">
                         <li><span class="text-strong-black">(1) 注意・警告：</span>ゲーム内チャットやメール、Discordによる口頭注意。</li>
                         <li><span class="text-strong-black">(2) 一時凍結（Temp-BAN）：</span>サーバーへの参加を一定期間禁止する措置。</li>
-                        <li><span class="text-strong-black">(3) 永久追放（Blacklist / Permanent-BAN）：</span>期間を定めず、サーバーへの参加を永続的に禁止する措置。</li>
+                        <li><span class="text-strong-black">(3) 永久追放（Blacklist /
+                                Permanent-BAN）：</span>期間を定めず、サーバーへの参加を永続的に禁止する措置。</li>
                     </ul>
                 </div>
             </section>
@@ -86,7 +136,8 @@
                         <li><span class="text-strong-black">3回目：</span>30日間の参加禁止</li>
                         <li><span class="text-strong-black">4回目：</span>永久追放（Permanent-BAN）へ移行</li>
                     </ul>
-                    <p class="text-caution">※上記の日数はあくまで目安であり、違反の態様や運営・鯖主の判断により、回数に関わらず日数が前後する場合があります。また、著しく悪質な場合は飛び級で重い処分を科すことがあります。</p>
+                    <p class="text-caution">
+                        ※上記の日数はあくまで目安であり、違反の態様や運営・鯖主の判断により、回数に関わらず日数が前後する場合があります。また、著しく悪質な場合は飛び級で重い処分を科すことがあります。</p>
                 </div>
             </section>
 
@@ -96,11 +147,14 @@
                     <p>以下の行為は、原則として即時永久BANおよび全資産没収の対象となります。</p>
                     <ul class="rule-list">
                         <li><span class="text-strong-black">(1) 荒らし行為：</span>他者の建築物の破壊、窃盗、および溶岩・水・火などを用いた広範囲の嫌がらせ。</li>
-                        <li><span class="text-strong-black">(2) 不正ツール・チートの使用：</span>透過（X-ray）、自動移動（Fly）、自動戦闘、パケット改ざん等の外部プログラム利用。</li>
-                        <li><span class="text-strong-black">(3) アイテム増殖・脆弱性の悪用：</span>システム上の不具合（バグ）を利用したアイテムの複製、および通常入手不可なアイテムの取得・保持。</li>
+                        <li><span class="text-strong-black">(2)
+                                不正ツール・チートの使用：</span>透過（X-ray）、自動移動（Fly）、自動戦闘、パケット改ざん等の外部プログラム利用。</li>
+                        <li><span class="text-strong-black">(3)
+                                アイテム増殖・脆弱性の悪用：</span>システム上の不具合（バグ）を利用したアイテムの複製、および通常入手不可なアイテムの取得・保持。</li>
                         <li><span class="text-strong-black">(4) サーバー攻撃：</span>DDoS攻撃や、サーバーのクラッシュを意図した負荷回路の設置。</li>
                     </ul>
-                    <p class="small-note">※永久BAN対象の行為であっても、運営および鯖主の判断により、情状酌量の余地があると認められた場合は、1ヶ月程度のTemp-BAN等に減じることがあります。</p>
+                    <p class="small-note">※永久BAN対象の行為であっても、運営および鯖主の判断により、情状酌量の余地があると認められた場合は、1ヶ月程度のTemp-BAN等に減じることがあります。
+                    </p>
                 </div>
             </section>
 
@@ -109,10 +163,12 @@
                 <div class="facility-item">
                     <ul class="rule-list">
                         <li><span class="text-strong-black">(1) ハラスメント：</span>特定個人への誹謗中傷、暴言、プライバシーの侵害、および執拗な付きまとい。</li>
-                        <li><span class="text-strong-black">(2) 経済秩序の破壊：</span>AdminShopの不適切な利用、大規模な買い占め、詐欺行為、およびリアルマネートレード（RMT）。</li>
+                        <li><span class="text-strong-black">(2)
+                                経済秩序の破壊：</span>AdminShopの不適切な利用、大規模な買い占め、詐欺行為、およびリアルマネートレード（RMT）。</li>
                         <li><span class="text-strong-black">(3) 運営妨害：</span>運営チームの指示に対する無視、虚偽の報告、および運営メンバーへの不当な攻撃。</li>
                         <li><span class="text-strong-black">(4) 宣伝・勧誘：</span>他サーバーへの過度な勧誘や、公序良俗に反するサイト・団体への誘導。</li>
-                        <li><span class="text-strong-black">(5) 軽微なルール違反の継続：</span>警告を受けたにも関わらず、同一の違反（ショップの放置、不適切な建築など）を改善しない場合。</li>
+                        <li><span class="text-strong-black">(5)
+                                軽微なルール違反の継続：</span>警告を受けたにも関わらず、同一の違反（ショップの放置、不適切な建築など）を改善しない場合。</li>
                     </ul>
                 </div>
             </section>
@@ -150,4 +206,5 @@
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

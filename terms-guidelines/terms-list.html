@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>規約・ガイドライン一覧 | 箱庭クラフト</title>
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
         /* 規約カードのグリッドレイアウト */
         .terms-grid {
             display: grid;
@@ -34,13 +43,13 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
         }
 
         /* カードホバー時 */
         .terms-card:hover {
             transform: translateY(-5px);
-            border-color: #e67e22; 
+            border-color: #e67e22;
             box-shadow: 0 12px 24px rgba(230, 126, 34, 0.15);
         }
 
@@ -67,12 +76,14 @@
             grid-template-columns: 1fr;
             gap: 12px;
         }
+
         .card-actions.has-easy-ver {
             grid-template-columns: 1fr 1fr;
         }
 
         /* ボタン共通設定 */
-        .btn-read, .btn-easy {
+        .btn-read,
+        .btn-easy {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -90,6 +101,7 @@
             color: #e67e22 !important;
             border: 1px solid #fbd38d;
         }
+
         .btn-read:hover {
             background-color: #e67e22 !important;
             color: #fff !important;
@@ -101,6 +113,7 @@
             color: #2d7a2d !important;
             border: 1px solid #cde7cd;
         }
+
         .btn-easy:hover {
             background-color: #2d7a2d !important;
             color: #fff !important;
@@ -118,11 +131,12 @@
             padding: 4px 12px;
             border-radius: 20px;
             font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 10;
         }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
@@ -130,7 +144,8 @@
         <h1 class="page-title">規約・ガイドライン一覧</h1>
         <p style="text-align: center; color: #888; margin-bottom: 40px;">
             箱庭クラフトでの生活を支える、大切なルールと指針をまとめています。<br>
-            <span style="font-size: 0.9rem; color: #2d7a2d;">※「やさしい解説」では、難しい言葉を避けて要点を説明しています。</span>
+            <span style="font-size: 0.9rem; color: #2d7a2d;">※「やさしい解説」では、難しい言葉を避けて要点を説明しています。</span><br>
+            ドキュメントサイト: <a href="https://docs.hakoniwa-craft.com/terms/" target="_blank" style="color: #e67e22; text-decoration: underline;">https://docs.hakoniwa-craft.com/terms/</a>
         </p>
 
         <div class="terms-grid">
@@ -227,4 +242,5 @@
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

@@ -1,0 +1,79 @@
+/* 全体を黒に統一 */
+body.character-page-theme {
+    background: #000 !important;
+    color: #eee !important;
+}
+
+.terms-card {
+    display: block !important;
+    max-width: 900px !important;
+    width: 95% !important;
+    margin: 40px auto !important;
+    background: #0a0a0a !important;
+    /* 背景を黒に変更 */
+    border: 3px solid #ff0000 !important;
+    /* 枠線を赤に */
+    border-radius: 10px;
+    padding: 50px 40px;
+    box-sizing: border-box;
+    color: #eee !important;
+    /* 文字を白に */
+    line-height: 1.8;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
+    animation: glitched 0.1s infinite;
+    /* 揺れを速く */
+}
+
+.terms-header {
+    text-align: center;
+    border-bottom: 2px solid #f00;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+.terms-header h1 {
+    color: #fff !important;
+}
+
+.warning-box {
+    background: #200;
+    /* 暗い赤 */
+    color: #ff0 !important;
+    /* 警告は黄色 */
+    border: 1px solid #f00;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-family: "Courier New", monospace;
+}
+
+h2 {
+    border-left: 10px solid #f00;
+    padding-left: 15px;
+    margin-top: 50px;
+    font-size: 1.3rem;
+    background: #1a1a1a;
+    /* 見出し背景も暗く */
+    color: #fff !important;
+}
+
+.clause-title {
+    color: #ff4444 !important;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.date-footer {
+    text-align: right;
+    color: #666 !important;
+    border-top: 1px solid #333;
+    margin-top: 60px;
+    padding-top: 20px;
+}
+
+.nav-link-btn-special {
+    background: #f00 !important;
+    color: #fff !important;
+    box-shadow: 0 0 20px #f00;
+}

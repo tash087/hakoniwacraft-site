@@ -1,34 +1,81 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>運営規約 | 箱庭クラフト</title>
     <meta name="description" content="箱庭クラフト運営チームにおける活動ルール、権利義務、および制作物の取り扱いに関する規定。">
     <meta name="keywords" content="Minecraft, マイクラ, 運営規約, ルール, 箱庭クラフト">
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
     <style>
         /* 他のポリシーファイル（ban-policy.html等）と完全に一致するスタイル */
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
-        
-        .facility-section-h2 { border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-top: 40px; color: #333; font-size: 1.5rem; }
-        .facility-item { margin-top: 25px; }
-        .facility-item h3 { color: #e67e22; margin-bottom: 12px; font-size: 1.15rem; border-left: 4px solid #e67e22; padding-left: 12px; }
-        
-        .text-strong-black { font-weight: bold; color: #000; }
-        .text-caution { color: #d35400; }
-        
-        .rule-list { padding-left: 20px; margin-bottom: 15px; }
-        .rule-list li { margin-bottom: 8px; line-height: 1.6; }
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .content-page {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .facility-section-h2 {
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .facility-item {
+            margin-top: 25px;
+        }
+
+        .facility-item h3 {
+            color: #e67e22;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            border-left: 4px solid #e67e22;
+            padding-left: 12px;
+        }
+
+        .text-strong-black {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .text-caution {
+            color: #d35400;
+        }
+
+        .rule-list {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .rule-list li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
 
         .btn-outline {
             display: inline-block;
@@ -41,6 +88,7 @@
             transition: all 0.3s ease;
             margin-top: 15px;
         }
+
         .btn-outline:hover {
             background-color: #e67e22;
             color: #fff !important;
@@ -55,6 +103,7 @@
             font-size: 1.1rem;
             box-shadow: 0 4px 10px rgba(230, 126, 34, 0.2);
         }
+
         .btn-apply:hover {
             background-color: #d35400;
             border-color: #d35400;
@@ -62,6 +111,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
     <main class="section-padding container">
@@ -70,7 +120,8 @@
 
             <section class="intro-text">
                 <p>本規約は、箱庭クラフト（以下「本サーバー」）運営チームが開発・建築等の制作活動に専念し、円滑なコミュニティ運営を行うための環境を整備することを目的とし、必要なルールを定めたものです。</p>
-                <p class="small-note" style="color: #d35400; font-size: 0.95rem; margin-top: 10px; background: #fff8f2; padding: 15px; border-radius: 10px; border: 1px dashed #e67e22;">
+                <p class="small-note"
+                    style="color: #d35400; font-size: 0.95rem; margin-top: 10px; background: #fff8f2; padding: 15px; border-radius: 10px; border: 1px dashed #e67e22;">
                     <span class="text-strong-black">【同意の確認】</span> 運営への応募（志願）を行った時点で、本規約の全ての内容を理解し、同意したものとみなします。
                 </p>
                 <p class="small-note" style="color: #888; font-size: 0.9rem; margin-top: 15px;">
@@ -85,7 +136,8 @@
                     <p>本規約で使用する用語の定義は以下の通りとします。</p>
                     <ul class="rule-list">
                         <li><span class="text-strong-black">オーナー：</span>本サーバーにおける全責任を負う者（tash087）。</li>
-                        <li><span class="text-strong-black">運営：</span>オーナーが認めた、本サーバーの開発、建築、広報、管理等の実務を行う者。オーナーも運営に含みます。</li>
+                        <li><span class="text-strong-black">運営：</span>オーナーが認めた、本サーバーの開発、建築、広報、管理等の実務を行う者。オーナーも運営に含みます。
+                        </li>
                         <li><span class="text-strong-black">鯖民：</span>本サーバーに接続した者、または公式Discordに参加した者。</li>
                     </ul>
                 </div>
@@ -113,7 +165,9 @@
                 <h2 class="facility-section-h2">第3章：制作物と知的財産権</h2>
                 <div class="facility-item">
                     <h3>第5条（権利の帰属）</h3>
-                    <p>1. 本サーバー運営として作成された一切の制作物（建築物、プラグイン、テクスチャ、デザイン等）に関する著作権（著作権法第27条および第28条の権利を含む）は、本サーバーに帰属（譲渡）するものとします。</p>
+                    <p>1.
+                        本サーバー運営として作成された一切の制作物（建築物、プラグイン、テクスチャ、デザイン等）に関する著作権（著作権法第27条および第28条の権利を含む）は、本サーバーに帰属（譲渡）するものとします。
+                    </p>
                     <p>2. 運営は、前項の制作物について著作者人格権を行使しないものとします。データの無断持ち出し、および脱退後の使用差し止めは一切禁止します。</p>
                     <p>3. 制作物の外部配布、OSSライセンス等による公開、または第三者への譲渡は、オーナーの承諾なく行ってはなりません。</p>
                 </div>
@@ -150,18 +204,22 @@
                 </div>
             </section>
 
-            <section class="section-block" style="border-top: 1px solid #eee; margin-top: 50px; padding-top: 30px; text-align: center;">
+            <section class="section-block"
+                style="border-top: 1px solid #eee; margin-top: 50px; padding-top: 30px; text-align: center;">
                 <h2 class="facility-section-h2" style="border: none;">運営への応募はこちら</h2>
                 <p style="margin-bottom: 25px; color: #666;">上記の規約内容を全て確認し、同意の上で応募してください。</p>
-                <a href="https://forms.gle/TvQuENouLozFnMso7" class="btn-outline btn-apply" target="_blank" rel="noopener">運営応募フォーム（Google Forms）</a>
-                
+                <a href="https://forms.gle/TvQuENouLozFnMso7" class="btn-outline btn-apply" target="_blank"
+                    rel="noopener">運営応募フォーム（Google Forms）</a>
+
                 <div style="margin-top: 30px;">
                     <p style="font-weight: bold;">箱庭クラフト 鯖主: tash087</p>
-                    <a href="https://discord.gg/g3g4AwuBRE" class="btn-outline btn-discord" target="_blank" rel="noopener" style="font-size: 0.9rem;">公式Discordに参加</a>
+                    <a href="https://discord.gg/g3g4AwuBRE" class="btn-outline btn-discord" target="_blank"
+                        rel="noopener" style="font-size: 0.9rem;">公式Discordに参加</a>
                 </div>
             </section>
         </div>
     </main>
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

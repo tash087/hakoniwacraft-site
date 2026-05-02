@@ -1,0 +1,82 @@
+/* 寄付ページ専用スタイル（以前のものを継承） */
+.donation-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.donation-lead {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+    color: #555;
+    background: #fff9f5;
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.donation-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.donation-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-donation {
+    display: block;
+    text-align: center;
+    background: var(--primary-color);
+    color: #fff !important;
+    padding: 12px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-donation:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.thanks-section {
+    background: #fff;
+    padding: 40px;
+    border-radius: 25px;
+    margin-bottom: 50px;
+    border: 1px solid #eee;
+}
+
+.note-box {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .donation-grid {
+        grid-template-columns: 1fr;
+    }
+}

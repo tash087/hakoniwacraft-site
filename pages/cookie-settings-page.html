@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie詳細設定 - 箱庭クラフト</title>
-    <link rel="stylesheet" href="../css/style.css">
+        <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
     <style>
         /* 専用ページのレイアウト設定 */
         body {
@@ -29,7 +34,7 @@
             padding: 40px;
             background: #fff;
             border-radius: 24px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
         }
 
         h2 {
@@ -113,7 +118,10 @@
         .slider {
             position: absolute;
             cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-color: #ccc;
             transition: .4s;
             border-radius: 34px;
@@ -129,18 +137,18 @@
             background-color: white;
             transition: .4s;
             border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        input:checked + .slider {
+        input:checked+.slider {
             background-color: #e67e22;
         }
 
-        input:checked + .slider:before {
+        input:checked+.slider:before {
             transform: translateX(26px);
         }
 
-        input:disabled + .slider {
+        input:disabled+.slider {
             background-color: #eee;
             cursor: not-allowed;
         }
@@ -200,6 +208,7 @@
     <script src="../js/day-count.js?randomcode=pQ7@9g33" defer></script>
     <script src="../js/slider.js?randomcode=pQ7@9g33" defer></script>
 </head>
+
 <body>
 
     <div class="settings-container">
@@ -207,9 +216,9 @@
         <p class="intro-text">
             箱庭クラフトでは、サービス向上のためCookieを使用しています。各項目の有効・無効を選択してください。
         </p>
-        
+
         <hr>
-        
+
         <div class="setting-item">
             <div class="setting-header">
                 <div class="setting-info">
@@ -234,9 +243,10 @@
                     <span class="slider"></span>
                 </label>
             </div>
-            
+
             <div class="setting-note">
-                ※Webサイトのセキュリティ保護に関する通信ログは、この設定に関わらず収集される場合があります（例：Cloudflare Web Analyticsのような、脅威検出やサイト保護を目的としたサービス）。これらはサイトの安全な運営に不可欠なものとして扱われます。
+                ※Webサイトのセキュリティ保護に関する通信ログは、この設定に関わらず収集される場合があります（例：Cloudflare Web
+                Analyticsのような、脅威検出やサイト保護を目的としたサービス）。これらはサイトの安全な運営に不可欠なものとして扱われます。
             </div>
         </div>
 
@@ -262,7 +272,7 @@
         // 2. 保存して戻る処理
         function saveAndGoBack() {
             const isPerfEnabled = document.getElementById('chk-perf-page').checked;
-            
+
             const settings = {
                 performance: isPerfEnabled,
                 updated: new Date().toISOString()
@@ -295,9 +305,10 @@
                 window.location.href = document.referrer;
             } else {
                 // 直接アクセスされた場合などはトップへ
-                window.location.href = "../index.html"; 
+                window.location.href = "../index.html";
             }
         }
     </script>
 </body>
+
 </html>

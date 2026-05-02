@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>寄付規約（Donation Policy） | 箱庭クラフト</title>
     <meta name="description" content="Minecraftサーバー『箱庭クラフト』の維持・運営を目的とした寄付に関する規約です。使途の透明性、返金不可の原則、特典について定めます。">
     <meta name="keywords" content="Minecraft, マイクラ, 寄付規約, Donation Policy, 箱庭クラフト, 運営情報">
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .policy-card { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 40px; }
-        .update-date { text-align: right; color: #888; font-size: 0.9rem; margin-bottom: 30px; }
-        
-        .section-block h2 { border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-top: 40px; color: #333; }
-        .section-block h3 { color: #e67e22; margin-top: 25px; border-left: 4px solid #e67e22; padding-left: 10px; font-size: 1.1rem; }
-        
-        .intro-text { line-height: 1.8; margin-bottom: 30px; }
-        .rule-list li { margin-bottom: 10px; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .policy-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 40px;
+        }
+
+        .update-date {
+            text-align: right;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .section-block h2 {
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        .section-block h3 {
+            color: #e67e22;
+            margin-top: 25px;
+            border-left: 4px solid #e67e22;
+            padding-left: 10px;
+            font-size: 1.1rem;
+        }
+
+        .intro-text {
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .rule-list li {
+            margin-bottom: 10px;
+        }
+
         /* 特定商取引法リンクエリア */
-        .tokushoho-box { background-color: #fdfaf6; border: 1px dashed #ddd; padding: 20px; border-radius: 10px; text-align: center; margin-top: 20px; }
+        .tokushoho-box {
+            background-color: #fdfaf6;
+            border: 1px dashed #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
@@ -38,10 +87,11 @@
 
         <div class="policy-card">
             <p class="update-date">最終改定日: 2026年2月15日</p>
-            
+
             <section class="intro-text">
                 <p>本規約は、Minecraftサーバー『箱庭クラフト』の維持・運営を目的とした継続的なサポート（寄付）を行う全ての利用者（以下「寄付者」という）に適用されます。<br>
-                <strong style="color: #333;">本規約に同意した上で寄付を行う行為をもって、本規約の全ての内容に同意したものとみなします。</strong></p>
+                    <strong style="color: #333;">本規約に同意した上で寄付を行う行為をもって、本規約の全ての内容に同意したものとみなします。</strong>
+                </p>
             </section>
 
             <section class="section-block">
@@ -58,7 +108,8 @@
                 </div>
                 <div class="facility-item">
                     <h3>第3条（サービスの継続性）</h3>
-                    <p>1. 寄付者は、寄付行為によってサーバー運営が永久に保証されるものではないことを理解し、同意するものとします。天災や運営上の重大な困難により運営が終了した場合でも、寄付金は返還されません。</p>
+                    <p>1. 寄付者は、寄付行為によってサーバー運営が永久に保証されるものではないことを理解し、同意するものとします。天災や運営上の重大な困難により運営が終了した場合でも、寄付金は返還されません。
+                    </p>
                 </div>
             </section>
 
@@ -88,7 +139,8 @@
                     <h3>第8条（特定商取引法に基づく表記）</h3>
                     <p>1. 本寄付は商品販売ではありませんが、運営の透明性確保のため、特定商取引法に準じた情報を公開しています。</p>
                     <div class="tokushoho-box">
-                        <a href="tokushoho.html" class="btn-detail" style="display: inline-block; padding: 10px 20px; color: #e67e22; border: 1px solid #e67e22; border-radius: 5px; text-decoration: none; font-weight: bold;">特定商取引法に基づく表記はこちら</a>
+                        <a href="tokushoho.html" class="btn-detail"
+                            style="display: inline-block; padding: 10px 20px; color: #e67e22; border: 1px solid #e67e22; border-radius: 5px; text-decoration: none; font-weight: bold;">特定商取引法に基づく表記はこちら</a>
                     </div>
                 </div>
             </section>
@@ -103,10 +155,12 @@
         </div>
 
         <div style="text-align: center; margin-top: 40px;">
-            <a href="terms-list.html" class="btn-outline" style="display: inline-block; padding: 10px 25px; border: 2px solid #e67e22; color: #e67e22; border-radius: 30px; text-decoration: none; font-weight: bold;">規約・ガイドライン一覧へ戻る</a>
+            <a href="terms-list.html" class="btn-outline"
+                style="display: inline-block; padding: 10px 25px; border: 2px solid #e67e22; color: #e67e22; border-radius: 30px; text-decoration: none; font-weight: bold;">規約・ガイドライン一覧へ戻る</a>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

@@ -1,72 +1,245 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お店のルール（やさしい解説） | 箱庭クラフト</title>
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .content-page {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
         /* セクション見出し */
-        .easy-section { margin-bottom: 45px; }
-        .easy-section h2 { color: #e67e22; border-bottom: 3px solid #fbd38d; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
-        
+        .easy-section {
+            margin-bottom: 45px;
+        }
+
+        .easy-section h2 {
+            color: #e67e22;
+            border-bottom: 3px solid #fbd38d;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* 基本のルールボックス */
-        .rule-box { background: #fffaf5; border-radius: 12px; padding: 25px; margin-bottom: 20px; border-left: 6px solid #e67e22; }
-        .rule-box h3 { margin-top: 0; font-size: 1.2rem; color: #333; margin-bottom: 15px; font-weight: bold; border-bottom: 1px dashed #fbd38d; padding-bottom: 5px; }
-        .rule-box p { margin: 0 0 10px 0; font-size: 1rem; color: #555; line-height: 1.8; }
+        .rule-box {
+            background: #fffaf5;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 6px solid #e67e22;
+        }
+
+        .rule-box h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-bottom: 1px dashed #fbd38d;
+            padding-bottom: 5px;
+        }
+
+        .rule-box p {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
 
         /* 特別エリア用ボックス */
-        .special-box { background: #f0f7ff; border-left-color: #3182ce; }
-        .special-box h3 { color: #2c5282; border-bottom-color: #bee3f8; }
+        .special-box {
+            background: #f0f7ff;
+            border-left-color: #3182ce;
+        }
+
+        .special-box h3 {
+            color: #2c5282;
+            border-bottom-color: #bee3f8;
+        }
 
         /* --- ランク表テーブル（詳細版と統一） --- */
-        .rule-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; background-color: #fff; }
-        .rule-table th, .rule-table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
-        .rule-table th { background-color: #fffaf5; color: #d35400; font-weight: bold; }
-        .rank-name { font-weight: bold; color: #555; }
-        .rank-takumi { font-weight: bold; color: #e67e22; background-color: #fffaf0; }
+        .rule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            background-color: #fff;
+        }
+
+        .rule-table th,
+        .rule-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .rule-table th {
+            background-color: #fffaf5;
+            color: #d35400;
+            font-weight: bold;
+        }
+
+        .rank-name {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .rank-takumi {
+            font-weight: bold;
+            color: #e67e22;
+            background-color: #fffaf0;
+        }
 
         /* 看板のプレビュー */
-        .sign-view { background: #a67c52; color: #1a1a1a; width: fit-content; padding: 20px 40px; border-radius: 4px; border: 5px solid #8d6239; font-family: 'Courier New', Courier, monospace; font-weight: bold; line-height: 1.6; margin: 20px auto; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.15); font-size: 1.1rem; }
+        .sign-view {
+            background: #a67c52;
+            color: #1a1a1a;
+            width: fit-content;
+            padding: 20px 40px;
+            border-radius: 4px;
+            border: 5px solid #8d6239;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            line-height: 1.6;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            font-size: 1.1rem;
+        }
 
         /* 強制撤去・禁止（赤枠） */
-        .bad-list { background: #fff5f5; border-left-color: #e74c3c; border-right: 1px solid #feb2b2; border-top: 1px solid #feb2b2; border-bottom: 1px solid #feb2b2; }
-        .bad-list h3 { color: #c0392b; border-bottom-color: #feb2b2; }
-        .bad-list ul { margin: 15px 0; padding-left: 20px; }
-        .bad-list li { margin-bottom: 12px; color: #c0392b; font-weight: bold; font-size: 0.95rem; line-height: 1.6; }
-        .bad-list .warning-footer { background: #c0392b; color: #fff; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-top: 15px; text-align: center; font-weight: bold; }
+        .bad-list {
+            background: #fff5f5;
+            border-left-color: #e74c3c;
+            border-right: 1px solid #feb2b2;
+            border-top: 1px solid #feb2b2;
+            border-bottom: 1px solid #feb2b2;
+        }
 
-        .notice-area { background: #fffaf5; border: 2px dashed #e67e22; padding: 20px; border-radius: 15px; font-size: 1rem; color: #d35400; margin-bottom: 40px; text-align: center; }
-        
-        .btn-outline { display: inline-block; padding: 15px 40px; border: 2px solid #e67e22; color: #e67e22 !important; border-radius: 40px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 25px; }
-        .btn-outline:hover { background-color: #e67e22; color: #fff !important; transform: translateY(-2px); }
-        .btn-outline-small { display: inline-block; padding: 8px 20px; border: 1px solid #e67e22; color: #e67e22 !important; border-radius: 20px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 10px; font-size: 0.85rem; }
-        .btn-outline-small:hover { background-color: #e67e22; color: #fff !important; }
-        
-        strong { color: #222; }
+        .bad-list h3 {
+            color: #c0392b;
+            border-bottom-color: #feb2b2;
+        }
+
+        .bad-list ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .bad-list li {
+            margin-bottom: 12px;
+            color: #c0392b;
+            font-weight: bold;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .bad-list .warning-footer {
+            background: #c0392b;
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .notice-area {
+            background: #fffaf5;
+            border: 2px dashed #e67e22;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1rem;
+            color: #d35400;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 2px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 40px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+        }
+
+        .btn-outline:hover {
+            background-color: #e67e22;
+            color: #fff !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-small {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        .btn-outline-small:hover {
+            background-color: #e67e22;
+            color: #fff !important;
+        }
+
+        strong {
+            color: #222;
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main class="container section-padding">
         <div class="content-page">
             <h1 class="page-title">ショップ運営ガイドライン（やさしい解説）</h1>
-            
+
             <div class="notice-area">
                 <p>このルールは、サーバーの中でお店を開くときに守るべき約束をまとめたものです。<br>
-                <strong>「知らなかった」では済まされない大事な内容</strong>なので、最後までしっかり読んでください。</p>
+                    <strong>「知らなかった」では済まされない大事な内容</strong>なので、最後までしっかり読んでください。
+                </p>
                 <p style="margin-top: 10px; font-size: 0.85rem; font-weight: bold;">最終改定日: 2026年2月15日</p>
             </div>
 
@@ -187,7 +360,7 @@
                 <div class="rule-box">
                     <h3>契約更新の看板（必須）</h3>
                     <p>お店の入り口に、必ず以下の形式で看板を立ててください。<strong>毎月最後の週</strong>に、自分で内容を書き換える必要があります。</p>
-                    
+
                     <div class="sign-view">
                         【契約更新希望】<br>
                         区画番号<br>
@@ -230,11 +403,14 @@
 
             <div style="text-align: center; margin-top: 50px;">
                 <a href="shop-guidelines.html" class="btn-outline">正式なガイドラインを見る</a><br>
-                <a href="terms-list.html" style="display: inline-block; margin-top: 25px; color: #666; text-decoration: none;">← 規約・ガイドライン一覧へ戻る</a>
+                <a href="terms-list.html"
+                    style="display: inline-block; margin-top: 25px; color: #666; text-decoration: none;">←
+                    規約・ガイドライン一覧へ戻る</a>
             </div>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

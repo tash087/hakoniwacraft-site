@@ -1,56 +1,157 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ショップ区画 ランク別制限緩和表 | 箱庭クラフト</title>
     <meta name="description" content="箱庭クラフトのショップ区画における、建築家ランク別のエンティティ上限および高度制限の案内です。">
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .content-page {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
         /* ランク緩和テーブル */
-        .rank-table-wrapper { width: 100%; overflow-x: auto; margin: 30px 0; border-radius: 12px; border: 1px solid #eee; }
-        .rank-table { width: 100%; border-collapse: collapse; text-align: center; min-width: 600px; }
-        .rank-table th { background-color: #e67e22; color: #fff; padding: 15px; font-weight: bold; }
-        .rank-table td { padding: 15px; border-bottom: 1px solid #eee; }
-        .rank-table tr:last-child td { border-bottom: none; }
-        .rank-table tr:hover { background-color: #fffaf5; }
+        .rank-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            min-width: 600px;
+        }
+
+        .rank-table th {
+            background-color: #e67e22;
+            color: #fff;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        .rank-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rank-table tr:hover {
+            background-color: #fffaf5;
+        }
 
         /* ランク名装飾 */
-        .rank-name { font-weight: bold; color: #d35400; }
-        .rank-takumi { color: #27ae60; font-weight: bold; } /* 匠ランク用の色 */
+        .rank-name {
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .rank-takumi {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* 匠ランク用の色 */
 
         /* 補足事項ボックス */
-        .info-block { background-color: #f9f9f9; border-radius: 12px; padding: 25px; margin-top: 30px; }
-        .info-block h3 { color: #333; font-size: 1.2rem; margin-bottom: 15px; border-bottom: 2px solid #e67e22; display: inline-block; }
-        
-        .caution-box { background-color: #fff5f5; border: 1px solid #feb2b2; color: #c53030; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .caution-box strong { text-decoration: underline; }
+        .info-block {
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .info-block h3 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e67e22;
+            display: inline-block;
+        }
+
+        .caution-box {
+            background-color: #fff5f5;
+            border: 1px solid #feb2b2;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .caution-box strong {
+            text-decoration: underline;
+        }
 
         /* 共通装飾 */
-        .text-strong-black { font-weight: bold; color: #000; }
-        .small-note { color: #888; font-size: 0.9rem; margin-top: 10px; }
-        .btn-outline { display: inline-block; padding: 12px 30px; border: 2px solid #e67e22; color: #e67e22 !important; border-radius: 30px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 30px; }
-        .btn-outline:hover { background-color: #e67e22; color: #fff !important; }
+        .text-strong-black {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .small-note {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .btn-outline:hover {
+            background-color: #e67e22;
+            color: #fff !important;
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main class="container section-padding">
         <div class="content-page">
             <h1 class="page-title">ショップ区画 ランク別制限緩和表</h1>
-            
+
             <section class="intro-text">
                 <p>
                     本表は、ショップ専用区画において、景観維持とサーバー負荷軽減を両立しつつ、建築家ランク保持者の表現の幅を広げるための基準です。
@@ -112,12 +213,14 @@
 
                 <div class="facility-item">
                     <h3>エンティティの定義</h3>
-                    <p>本制限における「エンティティ」とは、ショップ内で多用されやすい<strong>額縁、防具立て、絵画、吊り看板、家畜、村人、ボート、トロッコ等</strong>を指します。上限数は1チャンク（16×16）あたりの合計値です。</p>
+                    <p>本制限における「エンティティ」とは、ショップ内で多用されやすい<strong>額縁、防具立て、絵画、吊り看板、家畜、村人、ボート、トロッコ等</strong>を指します。上限数は1チャンク（16×16）あたりの合計値です。
+                    </p>
                 </div>
 
                 <div class="facility-item">
                     <h3>緩和の適用について</h3>
-                    <p>ショップ区画においてランク相応の緩和を受けるには、申請時に「景観の質が高い設計であること」の審査を通過する必要があります。ランクを保持しているだけで自動的に全ての制限が撤廃されるわけではありません。</p>
+                    <p>ショップ区画においてランク相応の緩和を受けるには、申請時に「景観の質が高い設計であること」の審査を通過する必要があります。ランクを保持しているだけで自動的に全ての制限が撤廃されるわけではありません。
+                    </p>
                 </div>
 
                 <div class="facility-item">
@@ -134,4 +237,5 @@
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

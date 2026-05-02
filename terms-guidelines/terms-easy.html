@@ -1,59 +1,148 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>やさしいルール解説 | 箱庭クラフト</title>
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
-
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .content-page {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
         /* セクション装飾 */
-        .easy-section { margin-bottom: 40px; }
-        .easy-section h2 { color: #e67e22; border-bottom: 3px solid #fbd38d; padding-bottom: 8px; margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
-        
+        .easy-section {
+            margin-bottom: 40px;
+        }
+
+        .easy-section h2 {
+            color: #e67e22;
+            border-bottom: 3px solid #fbd38d;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* 項目ボックス */
-        .rule-box { background: #fffaf5; border-radius: 12px; padding: 20px; margin-bottom: 15px; border-left: 5px solid #e67e22; }
-        .rule-box h3 { margin-top: 0; font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold; }
-        .rule-box p { margin: 0; font-size: 0.95rem; color: #555; line-height: 1.7; }
+        .rule-box {
+            background: #fffaf5;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #e67e22;
+        }
+
+        .rule-box h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .rule-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
 
         /* 禁止・罰則（赤） */
-        .bad-list { background: #fff5f5; border-left-color: #e74c3c; }
-        .bad-list h3 { color: #c0392b; }
+        .bad-list {
+            background: #fff5f5;
+            border-left-color: #e74c3c;
+        }
+
+        .bad-list h3 {
+            color: #c0392b;
+        }
 
         /* お金・ランク（緑） */
-        .good-list { background: #f0f9f0; border-left-color: #27ae60; }
-        .good-list h3 { color: #2d7a2d; }
+        .good-list {
+            background: #f0f9f0;
+            border-left-color: #27ae60;
+        }
+
+        .good-list h3 {
+            color: #2d7a2d;
+        }
 
         /* その他・法律（青） */
-        .info-list { background: #f0f7ff; border-left-color: #2980b9; }
-        .info-list h3 { color: #2980b9; }
+        .info-list {
+            background: #f0f7ff;
+            border-left-color: #2980b9;
+        }
 
-        .notice-area { background: #f0f7ff; padding: 15px; border-radius: 10px; font-size: 0.9rem; color: #2980b9; margin-bottom: 30px; text-align: center; }
-        
-        .btn-outline { display: inline-block; padding: 12px 30px; border: 2px solid #e67e22; color: #e67e22 !important; border-radius: 30px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 20px; }
-        .btn-outline:hover { background-color: #e67e22; color: #fff !important; }
+        .info-list h3 {
+            color: #2980b9;
+        }
+
+        .notice-area {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #2980b9;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-outline:hover {
+            background-color: #e67e22;
+            color: #fff !important;
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main class="container section-padding">
         <div class="content-page">
             <h1 class="page-title">箱庭クラフト サーバーのルール</h1>
-            
+
             <div class="notice-area">
                 <p>このルールは、みんなが自分の「箱庭」を大切にし、仲良く安全に遊ぶための約束事です。<br>
-                サーバーに入った人は、この約束をすべて守ることに同意したことになります。</p>
+                    サーバーに入った人は、この約束をすべて守ることに同意したことになります。</p>
                 <p style="margin-top: 5px; font-size: 0.8rem; font-weight: bold;">最終更新：2026年2月15日</p>
             </div>
 
@@ -65,7 +154,8 @@
                 </div>
                 <div class="rule-box">
                     <h3>2. ルールの変更</h3>
-                    <p>運営は、みんなに許可を取らなくてもルールを変えることができます。新しいルールは、サイトやDiscordで発表された瞬間からスタートします。こまめるに最新のルールを確認するようにしてください。</p>
+                    <p>運営は、みんなに許可を取らなくてもルールを変えることができます。新しいルールは、サイトやDiscordで発表された瞬間からスタートします。こまめるに最新のルールを確認するようにしてください。
+                    </p>
                 </div>
                 <div class="rule-box">
                     <h3>3. 参加できる人</h3>
@@ -89,7 +179,8 @@
                 </div>
                 <div class="rule-box bad-list">
                     <h3>5. ルールを破った時の罰</h3>
-                    <p>ルールを破ると、運営は「注意」「アイテム没収」「土地の取り上げ」「一時的な追放」「二度と入れなくする（永久BAN）」などの処分を行います。特にズル（チートやアイテム増殖）をした場合は、注意なしで一発で永久BANになり、持ち物もすべて消えます。どのくらいの罰にするかは運営が決めます。その理由は教えられない場合があります。</p>
+                    <p>ルールを破ると、運営は「注意」「アイテム没収」「土地の取り上げ」「一時的な追放」「二度と入れなくする（永久BAN）」などの処分を行います。特にズル（チートやアイテム増殖）をした場合は、注意なしで一発で永久BANになり、持ち物もすべて消えます。どのくらいの罰にするかは運営が決めます。その理由は教えられない場合があります。
+                    </p>
                 </div>
             </section>
 
@@ -97,11 +188,13 @@
                 <h2>第3章：建物と土地のルール</h2>
                 <div class="rule-box">
                     <h3>6. 土地の使い方</h3>
-                    <p>他の人の場所を大切にしてください。隣に建物を建てる時は、相手と相談して仲良く決めましょう。自分の土地として守ってもらいたい時は、運営が指定する方法で申請をしてください。周りの景色をひどく壊す建物や、サーバーの雰囲気に合わないものは、運営の判断で直させたり消したりすることがあります。</p>
+                    <p>他の人の場所を大切にしてください。隣に建物を建てる時は、相手と相談して仲良く決めましょう。自分の土地として守ってもらいたい時は、運営が指定する方法で申請をしてください。周りの景色をひどく壊す建物や、サーバーの雰囲気に合わないものは、運営の判断で直させたり消したりすることがあります。
+                    </p>
                 </div>
                 <div class="rule-box">
                     <h3>7. ワールドの管理と資源</h3>
-                    <p>生活用のワールドで大きな穴を掘ったり山を削ったりするのは控えてください。木や鉱石、砂などは「資源ワールド」で採りましょう。資源ワールドは定期的に新しくなり、前のデータは消えます。その際、預けたアイテムなどが消えても、運営は責任を負いません。長い間ログインしていない人の土地や建物は、新しい人が使うために運営が消したり移動させたりします。</p>
+                    <p>生活用のワールドで大きな穴を掘ったり山を削ったりするのは控えてください。木や鉱石、砂などは「資源ワールド」で採りましょう。資源ワールドは定期的に新しくなり、前のデータは消えます。その際、預けたアイテムなどが消えても、運営は責任を負いません。長い間ログインしていない人の土地や建物は、新しい人が使うために運営が消したり移動させたりします。
+                    </p>
                 </div>
             </section>
 
@@ -109,7 +202,8 @@
                 <h2>第4章：お金とランクのシステム</h2>
                 <div class="rule-box good-list">
                     <h3>8. サーバー内のお金（経済）</h3>
-                    <p>お仕事（Jobs）やお店（AdminShop）などのシステムは、みんなが楽しめる範囲で正しく使ってください。独り占めしたり、わざと価格を操作したり、放置して自動でお金を稼ぐようなことは禁止です。これらもズル（チート）と同じように扱います。</p>
+                    <p>お仕事（Jobs）やお店（AdminShop）などのシステムは、みんなが楽しめる範囲で正しく使ってください。独り占めしたり、わざと価格を操作したり、放置して自動でお金を稼ぐようなことは禁止です。これらもズル（チート）と同じように扱います。
+                    </p>
                 </div>
                 <div class="rule-box good-list">
                     <h3>9. 建築家ランクと制限の緩和</h3>
@@ -150,11 +244,13 @@
 
             <div style="text-align: center; margin-top: 40px;">
                 <a href="terms.html" class="btn-outline">正式な利用規約を確認する</a><br>
-                <a href="terms-list.html" style="display: inline-block; margin-top: 20px; color: #666; text-decoration: none;">← 規約一覧へ戻る</a>
+                <a href="terms-list.html"
+                    style="display: inline-block; margin-top: 20px; color: #666; text-decoration: none;">← 規約一覧へ戻る</a>
             </div>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

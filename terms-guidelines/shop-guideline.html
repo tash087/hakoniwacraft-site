@@ -1,58 +1,188 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ショップ運営ガイドライン | 箱庭クラフト</title>
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .content-page {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
         /* 章立てのデザイン */
-        .section-title { color: #333; border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-top: 40px; font-size: 1.5rem; }
-        .sub-title { color: #e67e22; margin: 25px 0 10px 0; font-size: 1.2rem; font-weight: bold; }
+        .section-title {
+            color: #333;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+
+        .sub-title {
+            color: #e67e22;
+            margin: 25px 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
 
         /* 条文スタイル */
-        .article { margin-bottom: 20px; line-height: 1.8; color: #444; }
-        .article-num { font-weight: bold; color: #333; margin-right: 10px; }
+        .article {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .article-num {
+            font-weight: bold;
+            color: #333;
+            margin-right: 10px;
+        }
 
         /* テーブル（制限緩和表） */
-        .rule-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; background-color: #fff; }
-        .rule-table th, .rule-table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
-        .rule-table th { background-color: #fffaf5; color: #d35400; font-weight: bold; }
-        
+        .rule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            background-color: #fff;
+        }
+
+        .rule-table th,
+        .rule-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .rule-table th {
+            background-color: #fffaf5;
+            color: #d35400;
+            font-weight: bold;
+        }
+
         /* ランク別の装飾 */
-        .rank-name { font-weight: bold; color: #555; }
-        .rank-takumi { font-weight: bold; color: #e67e22; background-color: #fffaf0; }
+        .rank-name {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .rank-takumi {
+            font-weight: bold;
+            color: #e67e22;
+            background-color: #fffaf0;
+        }
 
         /* 看板再現 */
-        .sign-frame { background-color: #a67c52; color: #1a1a1a; width: 220px; padding: 15px; border-radius: 4px; border: 4px solid #8d6239; font-family: 'Courier New', monospace; font-weight: bold; margin: 15px auto; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .sign-frame {
+            background-color: #a67c52;
+            color: #1a1a1a;
+            width: 220px;
+            padding: 15px;
+            border-radius: 4px;
+            border: 4px solid #8d6239;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin: 15px auto;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
         /* 警告・強調ボックス */
-        .warning-box { background: #fff5f5; border: 1px solid #feb2b2; color: #c53030; padding: 20px; border-radius: 12px; margin: 25px 0; }
-        .warning-box strong { text-decoration: underline; }
-        .info-box { background: #f0f7ff; border: 1px solid #bee3f8; color: #2b6cb0; padding: 20px; border-radius: 12px; margin: 25px 0; }
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            color: #c53030;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .warning-box strong {
+            text-decoration: underline;
+        }
+
+        .info-box {
+            background: #f0f7ff;
+            border: 1px solid #bee3f8;
+            color: #2b6cb0;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
 
         /* ボタンデザイン */
-        .btn-outline-small { display: inline-block; padding: 8px 20px; border: 1px solid #e67e22; color: #e67e22 !important; border-radius: 20px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 10px; font-size: 0.85rem; }
-        .btn-outline-small:hover { background-color: #e67e22; color: #fff !important; }
+        .btn-outline-small {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
 
-        .btn-back { display: inline-block; padding: 12px 30px; border: 2px solid #e67e22; color: #e67e22 !important; border-radius: 30px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 30px; }
-        .btn-back:hover { background-color: #e67e22; color: #fff !important; }
+        .btn-outline-small:hover {
+            background-color: #e67e22;
+            color: #fff !important;
+        }
 
-        ul.guideline-list { padding-left: 20px; margin-top: 5px; }
-        ul.guideline-list li { margin-bottom: 5px; }
+        .btn-back {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .btn-back:hover {
+            background-color: #e67e22;
+            color: #fff !important;
+        }
+
+        ul.guideline-list {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        ul.guideline-list li {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
@@ -70,17 +200,20 @@
                     <ul class="guideline-list">
                         <li><strong>ショップワールド（要申請・区画制）：</strong>メインの商業エリアです。本ガイドラインが全面的に適用されます。</li>
                         <li><strong>ガチャ商店街（要申請）：</strong>ショップワールド内のガチャ機特化エリアです。</li>
-                        <li><strong>資源ワールド（sigen_normal / nether / end）：</strong>申請不要。ただし、定期リセットによる消滅リスクを承諾したものとみなします。</li>
+                        <li><strong>資源ワールド（sigen_normal / nether / end）：</strong>申請不要。ただし、定期リセットによる消滅リスクを承諾したものとみなします。
+                        </li>
                     </ul>
                 </div>
                 <div class="article">
                     <span class="article-num">(2) 出店禁止ワールド：</span>
-                    <p><strong>生活ワールド（world / world_nether / world_the_end）：</strong>負荷分散および景観維持のため、ショップ開設は一切禁止です。発見次第、事前の通告なく運営により撤去いたします。</p>
+                    <p><strong>生活ワールド（world / world_nether /
+                            world_the_end）：</strong>負荷分散および景観維持のため、ショップ開設は一切禁止です。発見次第、事前の通告なく運営により撤去いたします。</p>
                 </div>
                 <div class="article">
                     <span class="article-num">(3) 資格・要件・窓口：</span>
                     <ul class="guideline-list">
-                        <li><strong>区画制限：</strong>通常のショップ区画は一人一箇所まで。ただし「ガチャ商店街」については別途一箇所まで<strong>並行所有が可能</strong>です。</li>
+                        <li><strong>区画制限：</strong>通常のショップ区画は一人一箇所まで。ただし「ガチャ商店街」については別途一箇所まで<strong>並行所有が可能</strong>です。
+                        </li>
                         <li><strong>管理義務：</strong>直近1週間以内にログインしており、継続的な管理が可能であること。</li>
                         <li><strong>申請窓口：</strong>Discord（ショップ申請用チャンネル）またはゲーム内メール（/mail send tash087）。</li>
                     </ul>
@@ -90,7 +223,7 @@
             <section>
                 <h2 class="section-title">第2条：区画制限と緩和規定</h2>
                 <p>ショップ区画は原則固定サイズですが、建築家ランクに応じて以下の緩和が適用されます。</p>
-                
+
                 <table class="rule-table">
                     <thead>
                         <tr>
@@ -143,7 +276,8 @@
                     地下室や地下倉庫の構築は全ランクで禁止されています。床面装飾や配線等のため最大3ブロック（y=-63）までの掘り下げのみ例外的に認められます。
                 </div>
 
-                <div style="background-color: #fffaf5; padding: 15px; border-radius: 10px; border: 1px dashed #e67e22; margin-top: 15px;">
+                <div
+                    style="background-color: #fffaf5; padding: 15px; border-radius: 10px; border: 1px dashed #e67e22; margin-top: 15px;">
                     <p style="font-size: 0.9rem; margin-bottom: 5px; color: #333;">
                         <span class="article-num">※詳細確認：</span>
                         各ランクごとの制限緩和の詳細については、以下の専用ページをご確認ください。
@@ -155,21 +289,24 @@
             <section>
                 <h2 class="section-title">第3条：契約更新と看板の設置</h2>
                 <div class="article">
-                    <p>店舗入口に以下の形式で看板を設置してください。<strong>毎月の最終週</strong>に、契約者本人が更新作業を行う必要があります。更新時は看板の日付を<strong>「翌月の最終日」</strong>に書き換えてください。</p>
+                    <p>店舗入口に以下の形式で看板を設置してください。<strong>毎月の最終週</strong>に、契約者本人が更新作業を行う必要があります。更新時は看板の日付を<strong>「翌月の最終日」</strong>に書き換えてください。
+                    </p>
                     <div class="sign-frame">
                         【契約更新希望】<br>
                         区画番号<br>
                         MCID<br>
                         更新期限（例：1/31）
                     </div>
-                    <p style="font-size: 0.85rem; color: #666; text-align: center;">※数カ月先の日付を記入して更新を先送りする行為は認められません（例：現在8月なのに12/31と記載するなど）。</p>
+                    <p style="font-size: 0.85rem; color: #666; text-align: center;">
+                        ※数カ月先の日付を記入して更新を先送りする行為は認められません（例：現在8月なのに12/31と記載するなど）。</p>
                 </div>
 
                 <div class="warning-box">
                     <strong>【重要】期限切れに伴う「即時撤去」のルール</strong><br>
                     看板の期限が切れた状態で新しい月を迎えた場合、以下の通り厳格な処置が行われます。
                     <ul style="margin-top: 10px;">
-                        <li><strong>予告なしの消滅：</strong>看板の日付（期限）が過ぎているにもかかわらず、更新手続き（看板の書き換え）をせずに翌月1日を迎えた店舗は、運営による事前の連絡なしに直ちに消去されます。</li>
+                        <li><strong>予告なしの消滅：</strong>看板の日付（期限）が過ぎているにもかかわらず、更新手続き（看板の書き換え）をせずに翌月1日を迎えた店舗は、運営による事前の連絡なしに直ちに消去されます。
+                        </li>
                         <li><strong>救済措置なし：</strong>撤去された建物内の商品、資材、備品などはすべて消失します。運営側での保管や補填、データの復旧などは一切行いません。</li>
                     </ul>
                     <hr style="border: 0; border-top: 1px solid #feb2b2; margin: 10px 0;">
@@ -206,4 +343,5 @@
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

@@ -1,178 +1,197 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ご支援について - 箱庭クラフト</title>
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
- <style>
-    /* =========================================
+    <style>
+        /* =========================================
        「ご支援について」専用装飾（フォント：デフォルト）
        ========================================= */
-    
-    /* 1. ページ全体の基本設定 */
-    .donation-main {
-        font-family: sans-serif !important; /* デフォルトフォント強制 */
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 60px 20px 100px;
-    }
 
-    /* 2. ヒーローボックス（画像1枚目のArchive風に装飾） */
-    .donation-hero {
-        background: #ffffff;
-        padding: 60px 20px;
-        border-radius: 20px;
-        text-align: center;
-        margin-bottom: 50px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        border: 1px solid #f0f0f0;
-    }
+        /* 1. ページ全体の基本設定 */
+        .donation-main {
+            font-family: sans-serif !important;
+            /* デフォルトフォント強制 */
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
 
-    .donation-hero h1 {
-        font-size: 2.2rem;
-        color: #333;
-        margin: 0;
-        font-weight: bold;
-    }
+        /* 2. ヒーローボックス（画像1枚目のArchive風に装飾） */
+        .donation-hero {
+            background: #ffffff;
+            padding: 60px 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0f0f0;
+        }
 
-    .donation-hero .motto-subtext {
-        color: var(--primary-color);
-        font-weight: bold;
-        margin-top: 10px;
-        display: block;
-        letter-spacing: 2px;
-        font-size: 0.9rem;
-    }
+        .donation-hero h1 {
+            font-size: 2.2rem;
+            color: #333;
+            margin: 0;
+            font-weight: bold;
+        }
 
-    /* 3. 情報ボックス（共通） */
-    .rule-info-box {
-        background: #ffffff;
-        padding: 30px;
-        border-radius: 15px;
-        border-left: 6px solid var(--primary-color);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-        margin-bottom: 20px;
-    }
+        .donation-hero .motto-subtext {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
 
-    /* EULAセクション用の緑アクセント */
-    .compliance-box {
-        border-left-color: #27ae60 !important;
-    }
+        /* 3. 情報ボックス（共通） */
+        .rule-info-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 6px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            margin-bottom: 20px;
+        }
 
-    /* 4. セクションタイトル */
-    .section-title {
-        font-size: 1.5rem;
-        margin: 40px 0 20px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+        /* EULAセクション用の緑アクセント */
+        .compliance-box {
+            border-left-color: #27ae60 !important;
+        }
 
-    .section-title span {
-        font-size: 0.8rem;
-        color: #999;
-        font-weight: normal;
-        margin-left: 10px;
-    }
+        /* 4. セクションタイトル */
+        .section-title {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    /* 5. テーブル装飾（特定商取引法） */
-    .legal-table-container {
-        background: #ffffff;
-        border-radius: 15px;
-        overflow: hidden;
-        border: 1px solid #eee;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    }
+        .section-title span {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: normal;
+            margin-left: 10px;
+        }
 
-    .legal-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+        /* 5. テーブル装飾（特定商取引法） */
+        .legal-table-container {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
 
-    .legal-table th {
-        width: 30%;
-        background-color: #fafafa;
-        padding: 20px;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-        color: #666;
-        font-size: 0.95rem;
-    }
+        .legal-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    .legal-table td {
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-        line-height: 1.6;
-        font-size: 0.95rem;
-    }
+        .legal-table th {
+            width: 30%;
+            background-color: #fafafa;
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            color: #666;
+            font-size: 0.95rem;
+        }
 
-    .legal-table tr:last-child th,
-    .legal-table tr:last-child td {
-        border-bottom: none;
-    }
+        .legal-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
 
-    /* 6. ボタンエリア（下線を完全排除） */
-    .button-area-flex {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 60px;
-    }
+        .legal-table tr:last-child th,
+        .legal-table tr:last-child td {
+            border-bottom: none;
+        }
 
-    .btn-nav {
-        text-decoration: none !important; /* 青い下線を絶対に出さない */
-        padding: 18px 35px;
-        border-radius: 50px;
-        font-weight: bold;
-        transition: 0.3s;
-        display: inline-block;
-        text-align: center;
-    }
+        /* 6. ボタンエリア（下線を完全排除） */
+        .button-area-flex {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 60px;
+        }
 
-    .btn-donation-form {
-        background: var(--primary-color) !important;
-        color: #ffffff !important;
-        box-shadow: 0 8px 20px rgba(230, 126, 34, 0.25);
-    }
+        .btn-nav {
+            text-decoration: none !important;
+            /* 青い下線を絶対に出さない */
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
 
-    .btn-outline-nav {
-        background: #ffffff;
-        color: #888 !important;
-        border: 1px solid #ddd !important;
-    }
+        .btn-donation-form {
+            background: var(--primary-color) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.25);
+        }
 
-    .btn-nav:hover {
-        transform: translateY(-3px);
-        opacity: 0.9;
-    }
+        .btn-outline-nav {
+            background: #ffffff;
+            color: #888 !important;
+            border: 1px solid #ddd !important;
+        }
 
-    /* 7. その他リスト装飾 */
-    .rule-list {
-        margin: 15px 0;
-        padding-left: 20px;
-    }
+        .btn-nav:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
 
-    .rule-list li {
-        margin-bottom: 10px;
-    }
+        /* 7. その他リスト装飾 */
+        .rule-list {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
 
-    /* スマホ対応 */
-    @media (max-width: 768px) {
-        .button-area-flex { flex-direction: column; }
-        .legal-table th, .legal-table td { display: block; width: 100%; }
-        .legal-table th { padding-bottom: 5px; background: #fdfdfd; }
-    }
-</style>
+        .rule-list li {
+            margin-bottom: 10px;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .button-area-flex {
+                flex-direction: column;
+            }
+
+            .legal-table th,
+            .legal-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .legal-table th {
+                padding-bottom: 5px;
+                background: #fdfdfd;
+            }
+        }
+    </style>
 
 <body>
     <div id="header-placeholder"></div>
@@ -185,7 +204,8 @@
 
         <section class="section">
             <div class="rule-info-box">
-                <p>いつも「箱庭クラフト！」をご利用いただき、誠にありがとうございます。当サーバーはこれまで個人の負担で運営を続けてまいりましたが、プレイヤー数の増加に伴う機材の強化や維持コストの増大により、有志の方によるご支援（寄付）を募ることを決断いたしました。</p>
+                <p>いつも「箱庭クラフト！」をご利用いただき、誠にありがとうございます。当サーバーはこれまで個人の負担で運営を続けてまいりましたが、プレイヤー数の増加に伴う機材の強化や維持コストの増大により、有志の方によるご支援（寄付）を募ることを決断いたしました。
+                </p>
                 <p style="margin-top: 10px;">皆様が安心して遊べる環境を末永く守っていくため、無理のない範囲でご協力をいただけますと幸いです。</p>
             </div>
         </section>
@@ -200,7 +220,8 @@
                     <li><strong>アクセスの平等性:</strong> 寄付者本人であっても、条件によりコードを使用できない場合がある「全体イベント」形式をとります。</li>
                 </ul>
                 <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">
-                    参照: <a href="https://www.minecraft.net/ja-jp/usage-guidelines" target="_blank" style="color: #27ae60; text-decoration: underline;">Minecraft 商業的利用ガイドライン</a>
+                    参照: <a href="https://www.minecraft.net/ja-jp/usage-guidelines" target="_blank"
+                        style="color: #27ae60; text-decoration: underline;">Minecraft 商業的利用ガイドライン</a>
                 </p>
             </div>
         </section>
@@ -241,7 +262,8 @@
                     <tr>
                         <th>お問い合わせ先</th>
                         <td>
-                            <a href="https://discord.gg/g3g4AwuBRE" target="_blank" style="color: var(--primary-color); font-weight: bold; text-decoration: underline;">公式Discordサーバー</a>
+                            <a href="https://discord.gg/g3g4AwuBRE" target="_blank"
+                                style="color: var(--primary-color); font-weight: bold; text-decoration: underline;">公式Discordサーバー</a>
                         </td>
                     </tr>
                 </table>
@@ -258,4 +280,5 @@
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

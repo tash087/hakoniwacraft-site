@@ -1,89 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サーバー維持・運営支援のご案内 - 箱庭クラフト！</title>
     <meta name="description" content="Minecraftサーバー「箱庭クラフト！」の安定した運営継続と、環境改善に向けた支援（サポーター制度）のご案内です。">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/staff.css">
-    <link rel="icon" href="../images/server_icon.png" type="image/png">
-    <script src="../js/include.js?randomcode=pQ7@9g33" defer></script>
-    <script src="../js/day-count.js?randomcode=pQ7@9g33" defer></script>
-    <script src="../js/slider.js?randomcode=pQ7@9g33" defer></script>
-    <style>
-        /* 寄付ページ専用スタイル（以前のものを継承） */
-        .donation-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-        .donation-lead {
-            max-width: 800px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
-            color: #555;
-            background: #fff9f5;
-            padding: 25px;
-            border-radius: 20px;
-            border-left: 5px solid var(--primary-color);
-        }
-        .donation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-        .donation-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
-            display: flex;
-            flex-direction: column;
-        }
-        .donation-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .btn-donation {
-            display: block;
-            text-align: center;
-            background: var(--primary-color);
-            color: #fff !important;
-            padding: 12px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn-donation:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
-        }
-        .thanks-section {
-            background: #fff;
-            padding: 40px;
-            border-radius: 25px;
-            margin-bottom: 50px;
-            border: 1px solid #eee;
-        }
-        .note-box {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        @media (max-width: 600px) {
-            .donation-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
+    <!-- 寄付ページ専用CSS -->
+    <link rel="stylesheet" href="/css/donation-v1.0.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -100,7 +37,7 @@
         </div>
 
         <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">💳 支援の方法を選択する</h2>
-        
+
         <div class="donation-grid">
             <div class="donation-card">
                 <h3>☕ 活動を直接支える</h3>
@@ -111,14 +48,16 @@
             <div class="donation-card">
                 <h3>📦 物品で応援する</h3>
                 <p>サーバー運営の効率化や、運営チームの活動を支える「物品」での寄付です。Amazonほしい物リストを通じて匿名での送付も可能です。</p>
-                <a href="https://www.amazon.jp/hz/wishlist/ls/1JR6BOFX3FCER" target="_blank" class="btn-donation">ほしい物リストを見る</a>
+                <a href="https://www.amazon.jp/hz/wishlist/ls/1JR6BOFX3FCER" target="_blank"
+                    class="btn-donation">ほしい物リストを見る</a>
             </div>
         </div>
 
         <div class="thanks-section">
             <h3 style="color: var(--primary-color); margin-bottom: 20px;">🎁 支援者様へのお礼</h3>
             <p>ご支援いただいた方には、感謝のしるしとして以下を提供させていただきます。</p>
-            <ul class="staff-data-list" style="border: none; margin-top: 15px; display: flex; flex-direction: column; gap: 20px;">
+            <ul class="staff-data-list"
+                style="border: none; margin-top: 15px; display: flex; flex-direction: column; gap: 20px;">
                 <li>
                     <strong style="color: var(--primary-color);">支援者リストへの掲載</strong><br>
                     <small>ゲーム内チャットおよびDiscordの専用チャンネルにお名前を掲載させていただきます。</small>
@@ -148,4 +87,5 @@
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>

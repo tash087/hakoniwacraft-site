@@ -1,58 +1,151 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>公共施設の使いかたガイド | 箱庭クラフト</title>
-<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83eb">
-<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83eb">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83eb" defer></script>
-<script src="https://uni-guild.com/js/slider.js?random=vhq09w83eb" defer></script>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-v2.1.2.js"></script>
 
     <style>
-        body { font-family: sans-serif !important; background-color: #fdfaf6; }
-        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
-        
+        body {
+            font-family: sans-serif !important;
+            background-color: #fdfaf6;
+        }
+
+        .content-page {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
         /* セクション装飾 */
-        .easy-section { margin-bottom: 40px; }
-        .easy-section h2 { color: #2980b9; border-bottom: 3px solid #bbdefb; padding-bottom: 8px; margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
-        
+        .easy-section {
+            margin-bottom: 40px;
+        }
+
+        .easy-section h2 {
+            color: #2980b9;
+            border-bottom: 3px solid #bbdefb;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* 項目ボックス */
-        .rule-box { background: #f0f7ff; border-radius: 12px; padding: 20px; margin-bottom: 15px; border-left: 5px solid #2980b9; }
-        .rule-box h3 { margin-top: 0; font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold; }
-        .rule-box p { margin: 0; font-size: 0.95rem; color: #555; line-height: 1.7; }
+        .rule-box {
+            background: #f0f7ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #2980b9;
+        }
+
+        .rule-box h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .rule-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
 
         /* 道路・マナー（緑） */
-        .nature-list { background: #f0f9f0; border-left-color: #27ae60; }
-        .nature-list h3 { color: #2d7a2d; }
+        .nature-list {
+            background: #f0f9f0;
+            border-left-color: #27ae60;
+        }
+
+        .nature-list h3 {
+            color: #2d7a2d;
+        }
 
         /* 有料・注意（オレンジ） */
-        .point-box { background: #fffaf5; border-left-color: #e67e22; }
-        .point-box h3 { color: #d35400; }
+        .point-box {
+            background: #fffaf5;
+            border-left-color: #e67e22;
+        }
+
+        .point-box h3 {
+            color: #d35400;
+        }
 
         /* 警告（赤） */
-        .bad-list { background: #fff5f5; border-left-color: #e74c3c; }
-        .bad-list h3 { color: #c0392b; }
+        .bad-list {
+            background: #fff5f5;
+            border-left-color: #e74c3c;
+        }
 
-        .notice-area { background: #f0f7ff; border: 1px dashed #2980b9; padding: 15px; border-radius: 10px; font-size: 0.9rem; color: #2980b9; margin-bottom: 30px; text-align: center; }
-        
-        .btn-outline { display: inline-block; padding: 12px 30px; border: 2px solid #2980b9; color: #2980b9 !important; border-radius: 30px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 20px; }
-        .btn-outline:hover { background-color: #2980b9; color: #fff !important; }
-        
-        strong { color: #333; }
+        .bad-list h3 {
+            color: #c0392b;
+        }
+
+        .notice-area {
+            background: #f0f7ff;
+            border: 1px dashed #2980b9;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #2980b9;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #2980b9;
+            color: #2980b9 !important;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-outline:hover {
+            background-color: #2980b9;
+            color: #fff !important;
+        }
+
+        strong {
+            color: #333;
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main class="container section-padding">
         <div class="content-page">
             <h1 class="page-title">公共施設の使いかた・作りかたガイドライン</h1>
-            
+
             <div class="notice-area">
                 <p>このルールは、みんなで使う場所（公共施設）をきれいに保ち、便利に使うための約束事です。</p>
                 <p style="margin-top: 5px; font-size: 0.8rem; font-weight: bold;">最終改定日: 2026/02/15</p>
@@ -122,11 +215,13 @@
 
             <div style="text-align: center; margin-top: 40px;">
                 <a href="public-facility.html" class="btn-outline">正式な公共施設ガイドラインを確認する</a><br>
-                <a href="terms-list.html" style="display: inline-block; margin-top: 20px; color: #666; text-decoration: none;">← 規約一覧へ戻る</a>
+                <a href="terms-list.html"
+                    style="display: inline-block; margin-top: 20px; color: #666; text-decoration: none;">← 規約一覧へ戻る</a>
             </div>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 </body>
+
 </html>
