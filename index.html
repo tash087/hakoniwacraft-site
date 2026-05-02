@@ -1,58 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>箱庭クラフト | 共に育む小さな世界</title>
     <meta name="description" content="Minecraftサーバー「箱庭クラフト」の公式サイト。自由な創造と共有をテーマにした1.21.4対応サーバーです。">
     <meta name="keywords" content="箱庭クラフト,HAKONIWACRAFT,Minecraft,マイクラ,1.21.4,Ver1.21.4,マルチサーバー,Server,サバイバル">
-<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+
 <body>
 
-    <div id="header-placeholder">
-        <header>
-            <div class="header-inner">
-                <a href="index.html" class="header-link">
-                    <img src="images/server_icon.png" alt="箱庭クラフト ロゴ" class="server-icon">
-                </a>
-                <button id="menu-toggle" class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <nav id="main-nav">
-                    <ul>
-                        <li><a href="index.html">ホーム</a></li>
-                        <li class="dropdown">
-                            <a href="pages/operation.html#server-info">サーバー情報</a>
-                            <div class="dropdown-content">
-                                <a href="pages/how_to_join-bedrock.html">統合版接続ガイド！</a>
-                                <a href="pages/facility_list.php">有料公共施設案内</a>
-                                <a href="pages/operation.html#server-info">サーバー構成</a>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="pages/about.html">運営・お問い合わせ</a>
-                            <div class="dropdown-content">
-                                <a href="pages/about.html">運営紹介・モットー</a>
-                                <a href="pages/operation.html">運営情報</a>
-                                <a href="contact/index.html">お問い合わせ</a>
-                                <a href="plugins/index.html">独自プラグイン</a>
-                            </div>
-                        </li>
-                        <li><a href="pages/terms-list.html" style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a></li>
-                        <li class="dynamic-auth"><a href="donator/login.php" class="btn-nav btn-primary-nav" style="padding: 5px 20px; min-width: auto; font-size: 0.85rem;">ログイン</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    </div>
+    <div id="header-placeholder"></div>
 
     <main>
         <section class="hero">
@@ -87,18 +52,22 @@
                 単なるサバイバルではなく、プレイヤー一人一人が「箱庭」を作るように丁寧に世界を構築し、<br class="pc-only">
                 それをみんなで共有・発展させていくことを目指します。
             </p>
-            <div class="card-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div class="concept-card card-green" style="background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
+            <div class="card-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="concept-card card-green"
+                    style="background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
                     <div class="card-icon-wrap" style="font-size: 3rem; margin-bottom: 20px;">🌱</div>
                     <h3 style="color: #2e7d32; margin-bottom: 15px;">自由な創造</h3>
                     <p>自分のエリアを「箱庭」として愛でる建築。領地保護により、あなたの理想の空間を誰にも邪魔されず形にできます。</p>
                 </div>
-                <div class="concept-card card-orange" style="background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
+                <div class="concept-card card-orange"
+                    style="background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
                     <div class="card-icon-wrap" style="font-size: 3rem; margin-bottom: 20px;">🤝</div>
                     <h3 style="color: #e67e22; margin-bottom: 15px;">共有する喜び</h3>
                     <p>Discordと連携した密なコミュニティ。あなたの何気ない提案が、世界の新しいルールや施設に繋がる一歩になります。</p>
                 </div>
-                <div class="concept-card card-blue" style="background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
+                <div class="concept-card card-blue"
+                    style="background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
                     <div class="card-icon-wrap" style="font-size: 3rem; margin-bottom: 20px;">🏠</div>
                     <h3 style="color: #1976d2; margin-bottom: 15px;">共に育む世界</h3>
                     <p>徹底した負荷対策と経済バランス。一過性の流行ではなく、長く住み続けられる「第二の家」のような環境を約束します。</p>
@@ -111,23 +80,27 @@
         <footer>
             <div class="footer-links">
                 <div class="footer-group">
-                    <a href="pages/operation.html">運営情報</a> <span class="footer-separator">|</span>
-                    <a href="pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
-                    <a href="pages/staff-recruit-info.html">採用情報</a> <span class="footer-separator">|</span>
-                    <a href="pages/ai-policy.html">生成AIの利用に関する規定</a> <span class="footer-separator">|</span>
-                    <a href="pages/contact.html">お問い合わせ</a> <span class="footer-separator">|</span>
-                    <a href="pages/terms-list.html" style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a> <span class="footer-separator">|</span>
-                    <a href="pages/tokushoho.html">特定商取引法表記</a> <span class="footer-separator">|</span>
+                    <a href="/pages/operation.html">運営情報</a> <span class="footer-separator">|</span>
+                    <a href="/pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
+                    <a href="/pages/staff-recruit-info.html">採用情報</a> <span class="footer-separator">|</span>
+                    <a href="/pages/ai-policy.html">生成AIの利用に関する規定</a> <span class="footer-separator">|</span>
+                    <a href="/pages/contact.html">お問い合わせ</a> <span class="footer-separator">|</span>
+                    <a href="/pages/terms-list.html"
+                        style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a> <span
+                        class="footer-separator">|</span>
+                    <a href="/pages/tokushoho.html">特定商取引法表記</a> <span class="footer-separator">|</span>
                     <a class="ot-sdk-show-settings" style="cursor:pointer;">Cookie詳細設定</a>
                 </div>
             </div>
             <div class="server-history-container">
-                <div id="disp-hakoniwa" class="server-counter-box reborn-days">箱庭クラフト 始動から <span class="counter-highlight">99</span> 日経過</div>
-                <div id="disp-total" class="server-counter-box" style="opacity: 0.8; font-size: 0.75rem;">サーバー開始通算[tash鯖時代～] 212 日</div>
+                <div id="disp-hakoniwa" class="server-counter-box reborn-days">箱庭クラフト 始動から <span
+                        class="counter-highlight">99</span> 日経過</div>
+                <div id="disp-total" class="server-counter-box" style="opacity: 0.8; font-size: 0.75rem;">
+                    サーバー開始通算[tash鯖時代～] 212 日</div>
             </div>
             <p><small>©箱庭クラフト 2025-2026 All rights reserved.<br> Powered by © 2003-2026 Shin Cloud Inc. </small></p>
             <p><small>Minecraft は Mojang AB の登録商標です。<br>本サーバーは Mojang社から承認されておらず、関係ありません。</small></p>
-            <p style="margin-top: 15px;"><small>※ページ作成に生成AIを使用しております。</small></p>
+            <p style="margin-top: 15px;"> </p>
         </footer>
     </div>
 
@@ -138,7 +111,7 @@
                 const response = await fetch('admin/news.json');
                 if (!response.ok) throw new Error('News file not found');
                 const newsData = await response.json();
-                
+
                 if (!Array.isArray(newsData) || newsData.length === 0) {
                     newsContainer.innerHTML = '<p style="text-align:center; color:#999;">現在お知らせはありません。</p>';
                     return;
@@ -151,7 +124,7 @@
                         <span class="news-card-title">${item.title}</span>
                     </a>
                 `).join('');
-                
+
                 newsContainer.innerHTML = html;
             } catch (error) {
                 console.error('ニュースの読み込み失敗:', error);
@@ -160,4 +133,5 @@
         });
     </script>
 </body>
+
 </html>
