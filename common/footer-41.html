@@ -1,0 +1,69 @@
+<style>
+    .footer-41 {
+        background-color: #000 !important;
+        color: #fff !important;
+        border-top: 2px solid #f00 !important;
+        padding: 60px 20px 40px !important;
+        text-align: center !important;
+    }
+    .footer-group { 
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px;
+    }
+    .footer-group a { color: #ff4444 !important; font-size: 0.9rem; text-decoration: none; font-weight: bold; }
+
+    /* サーバーカウンターのスマホ最適化 */
+    .server-counter-box {
+        display: flex; align-items: center; justify-content: center;
+        padding: 10px 20px; 
+        background: #000 !important; 
+        border: 1px solid #f00 !important;
+        color: #ff4444 !important;
+        font-family: 'Courier New', monospace;
+        margin: 10px auto;
+        box-shadow: inset 0 0 10px #f00;
+        width: fit-content;
+        max-width: 100%; /* 画面幅を超えない */
+        min-width: 300px;
+    }
+
+    .counter-highlight {
+        color: #fff !important;
+        text-shadow: 0 0 15px #f00;
+        font-size: 1.4rem;
+        margin: 0 8px;
+    }
+
+    /* スマホ専用微調整 */
+    @media (max-width: 600px) {
+        .server-counter-box {
+            min-width: 100%; /* 横幅いっぱい */
+            font-size: 0.75rem;
+            flex-direction: column; /* 狭い場合は縦に並べる */
+            height: auto;
+            padding: 15px;
+        }
+        .counter-highlight {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+        .footer-group a { font-size: 0.8rem; }
+    }
+</style>
+
+<footer class="footer-41">
+    <div class="footer-links">
+        <div class="footer-group">
+            <a href="#">おじさん紹介</a>
+            <a href="#">50,000dpiの秘密</a>
+            <a href="https://uni-guild.com/special/terms/termsapril-ojisan.html">特別利用規約</a>
+        </div>
+    </div>
+
+    <div class="server-history-container">
+        <div id="disp-hakoniwa" class="server-counter-box"></div>
+        <div id="disp-total" class="server-counter-box" style="opacity: 0.7; font-size: 0.7rem;"></div>
+    </div>
+
+    <p style="margin-top:30px;"><small>©箱庭クラフト エイプリルフール 2026<br> 
+    技術担当tash087による特別オーバーロード仕様</small></p>
+</footer>

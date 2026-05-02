@@ -1,0 +1,143 @@
+<style>
+    /* ヘッダー全体 */
+    .header-41 {
+        background: #000 !important;
+        border-bottom: 1px solid #f00 !important;
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+    }
+    .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        height: 60px;
+    }
+
+    /* ナビゲーション共通 */
+    #main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin: 0; padding: 0;
+    }
+    #main-nav ul li a {
+        color: #fff !important;
+        text-decoration: none;
+        font-weight: 700;
+        text-shadow: 0 0 5px #f00;
+    }
+
+    /* PC版ドロップダウン */
+    .dropdown { position: relative; }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #111 !important;
+        border: 1px solid #f00 !important;
+        min-width: 200px;
+        z-index: 10001;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a {
+        padding: 12px 16px;
+        display: block;
+        color: #ff4444 !important;
+        border-bottom: 1px solid #222;
+    }
+
+    /* ハンバーガーボタン（デフォルト非表示） */
+    .menu-toggle {
+        display: none;
+        background: none; border: none; cursor: pointer;
+        padding: 10px; z-index: 10002;
+    }
+    .menu-toggle .bar {
+        display: block; width: 25px; height: 3px;
+        background: #f00; margin: 5px 0;
+        transition: 0.3s;
+    }
+
+    /* =========================================
+       ★スマホ表示（768px以下）の調整
+       ========================================= */
+    @media (max-width: 768px) {
+        .menu-toggle { display: block; } /* ボタン表示 */
+
+        #main-nav {
+            position: fixed;
+            top: 60px; right: -100%; /* 初期は画面外 */
+            width: 80%; height: calc(100vh - 60px);
+            background: rgba(0, 0, 0, 0.95);
+            border-left: 2px solid #f00;
+            transition: 0.4s;
+            padding: 40px 20px;
+            overflow-y: auto;
+        }
+        #main-nav.is-active { right: 0; } /* メニュー開く */
+
+        #main-nav ul {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        /* スマホではドロップダウンを常時展開、または簡略化 */
+        .dropdown-content {
+            display: block; /* スマホでは最初から見せる */
+            position: static;
+            background: none !important;
+            border: none !important;
+            box-shadow: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .dropdown-content a {
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        .dropdown > a { color: #ff0 !important; font-size: 1.1rem; }
+    }
+</style>
+
+<header class="header-41">
+    <div class="header-inner">
+        <a href="https://uni-guild.com/index.html" class="header-link"> 
+            <div class="logo-wrapper" style="position: relative;">
+                <img src="https://uni-guild.com/images/server_icon.png" alt="箱庭クラフト ロゴ" class="server-icon" style="height:40px; filter: grayscale(1) invert(1) sepia(1) saturate(10) hue-rotate(-50deg);">
+                <span style="position:absolute; top:0; left:0; background:red; color:white; font-size:10px; padding:2px; font-weight:bold;">50,000dpi</span>
+            </div>
+        </a>
+        
+        <button id="menu-toggle" class="menu-toggle" onclick="document.getElementById('main-nav').classList.toggle('is-active')">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="https://uni-guild.com/index.html">現実へ戻る</a></li>
+                <li class="dropdown">
+                    <a href="#">⚠ 異常検知</a>
+                    <div class="dropdown-content">
+                        <a href="#">高画質すぎて網膜が痛い</a>
+                        <a href="#">おじさんと目が合った</a>
+                        <a href="#">部屋に缶コーヒーがある</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://uni-guild.com/special/terms/termsapril-ojisan.html" style="font-weight: 900; color: #fff !important; background: #f00; padding: 10px 20px; border-radius: 4px;">
+                        特別利用規約
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,154 @@
+<style>
+    /* --- ヘッダー全体：ノイズの走る黒い帯 --- */
+    .header-41 {
+        background: #000 !important;
+        border-bottom: 2px solid #f00 !important;
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+        width: 100%;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        font-family: 'Courier New', Courier, monospace;
+        overflow: hidden;
+    }
+
+    /* 背景を流れるスキャンライン（バグ演出） */
+    .header-41::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(255, 0, 0, 0.05) 50%, transparent 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+        animation: scanline 8s linear infinite;
+    }
+
+    .header-inner {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* 左右に振り分け */
+        padding: 0 20px;
+    }
+
+    /* ロゴエリア */
+    .logo-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+    }
+
+    .dpi-badge {
+        background: #f00;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        font-weight: 900;
+        border: 1px solid #fff;
+        margin-left: -5px;
+        margin-top: -15px;
+        transform: rotate(-10deg);
+        box-shadow: 2px 2px 0 #000;
+        white-space: nowrap;
+    }
+
+    /* --- ナビゲーション --- */
+    #main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-item {
+        color: #fff !important;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        transition: 0.3s;
+        text-shadow: 0 0 5px #f00;
+        border: 1px solid transparent;
+    }
+
+    .nav-item:hover {
+        color: #ff0 !important;
+        border: 1px solid #ff0;
+        background: rgba(255, 255, 0, 0.1);
+    }
+
+    /* 特別規約ボタン */
+    .terms-btn {
+        background: #f00 !important;
+        color: #fff !important;
+        text-shadow: none !important;
+        box-shadow: 0 0 10px #f00;
+        animation: pulse 2s infinite;
+    }
+
+    /* --- スマホ最適化 (重要) --- */
+    @media (max-width: 768px) {
+        .header-41 {
+            height: auto;
+            padding: 10px 0;
+        }
+        .header-inner {
+            flex-direction: column; /* スマホでは上下2段に */
+            gap: 10px;
+        }
+        #main-nav {
+            width: 100%;
+            overflow-x: auto; /* はみ出たら横スクロール */
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        #main-nav ul {
+            justify-content: flex-start;
+            padding: 5px 15px;
+            gap: 10px;
+        }
+        .nav-item {
+            font-size: 0.8rem;
+            padding: 6px 10px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #f00;
+        }
+        #main-nav::-webkit-scrollbar { display: none; } /* スクロールバー隠す */
+    }
+
+    /* アニメーション */
+    @keyframes scanline {
+        from { background-position: 0 0; }
+        to { background-position: 0 100%; }
+    }
+    @keyframes pulse {
+        0% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.05); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+</style>
+
+<header class="header-41">
+    <div class="header-inner">
+        <a href="https://uni-guild.com/index.html" class="logo-link">
+            <img src="https://uni-guild.com/images/server_icon.png" alt="ロゴ" style="height:32px; filter: invert(1) brightness(2);">
+            <span class="dpi-badge">ULTRA 50,000dpi</span>
+        </a>
+        
+        <nav id="main-nav">
+            <ul>
+                <li><a href="https://uni-guild.com/character/" class="nav-item">Reality / 現実へ</a></li>
+                <li><a href="#" class="nav-item" style="color: #ff0 !important;" onclick="alert('ERROR: 同期率が限界を超えています')">⚠ ERROR</a></li>
+                <li><a href="https://uni-guild.com/special/terms/termsapril-ojisan.html" class="nav-item terms-btn">特別規約</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

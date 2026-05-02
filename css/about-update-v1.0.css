@@ -1,0 +1,118 @@
+/* =========================================
+   運営紹介ページ アップデート用追加CSS
+   ========================================= */
+
+.aspect-16-9 {
+    width: 100%;
+    height: auto; /* 高さを自動にする */
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.team-wallpaper-img {
+    width: 100%;
+    height: auto; /* 高さを自動にする */
+    display: block;
+}
+
+
+/* 2. 歴代メンバー (Special Thanks) のデザイン */
+.thanks-section {
+    margin-top: 100px;
+    padding-bottom: 60px;
+}
+
+.thanks-message-box {
+    background: #ffffff;
+    border: 2px solid #fdf2e9;
+    border-radius: 30px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.thanks-message-box p {
+    color: var(--light-text);
+    margin-bottom: 40px;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.thanks-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.thanks-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+    background: #fdfaf6;
+    border-radius: 20px;
+    min-width: 280px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.thanks-item:hover {
+    transform: translateY(-3px);
+    border-color: #ffe0b2;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.thanks-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    /* 落ち着いた印象を出すために少しだけ彩度を落とす */
+    filter: grayscale(0.1); 
+}
+
+.thanks-meta {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.thanks-meta strong {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.thanks-meta span {
+    font-size: 0.8rem;
+    color: var(--light-text);
+    margin-top: 2px;
+}
+
+/* 3. スタッフ募集カードの微調整 */
+.recruit-card {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #e0ddd9 !important;
+    background: rgba(0,0,0,0.01) !important;
+    box-shadow: none !important;
+    text-align: center;
+}
+
+.recruit-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .thanks-item {
+        width: 100%;
+        max-width: 320px;
+        justify-content: flex-start;
+    }
+}

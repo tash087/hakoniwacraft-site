@@ -1,0 +1,303 @@
+/* =========================================
+   Building & Staff Common Style v1.2.2
+   ========================================= */
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e67e22;
+    --light-text: #888;
+    --loading-bg: #ffffff;
+    --header-height: 80px; /* ヘッダーの高さ（環境に合わせて調整してください） */
+}
+
+/* --- 0. Layout Fix (ヘッダー被り対策) --- */
+/* mainタグやcontainerに対して、ヘッダー分の余白を強制的に確保します */
+.section-padding {
+    padding-top: calc(var(--header-height) + 40px) !important;
+}
+
+/* --- 1. Loading Screen Area --- */
+.loading-full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--loading-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* ヘッダーより上に表示 */
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loading-full-screen.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.loading-5 span {
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: 800;
+    font-size: 3rem;
+    animation: animation-bounce 1s infinite ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .loading-5 span { font-size: 2rem; }
+}
+
+.loading-5 span.loading-space {
+    width: 1rem;
+    animation: none;
+}
+
+@keyframes animation-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* 遅延設定 */
+.loading-5 span:nth-of-type(1) { animation-delay: 0.0s; }
+.loading-5 span:nth-of-type(2) { animation-delay: 0.1s; }
+.loading-5 span:nth-of-type(3) { animation-delay: 0.2s; }
+.loading-5 span:nth-of-type(4) { animation-delay: 0.3s; }
+.loading-5 span:nth-of-type(5) { animation-delay: 0.4s; }
+.loading-5 span:nth-of-type(6) { animation-delay: 0.5s; }
+.loading-5 span:nth-of-type(7) { animation-delay: 0.6s; }
+.loading-5 span:nth-of-type(8) { animation-delay: 0.7s; }
+.loading-5 span:nth-of-type(10) { animation-delay: 0.8s; }
+.loading-5 span:nth-of-type(11) { animation-delay: 0.9s; }
+.loading-5 span:nth-of-type(12) { animation-delay: 1.0s; }
+.loading-5 span:nth-of-type(13) { animation-delay: 1.1s; }
+.loading-5 span:nth-of-type(14) { animation-delay: 1.2s; }
+
+.loading-sub-text {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    letter-spacing: 1px;
+}
+
+/* --- 2. Building Grid & Cards --- */
+.building-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.building-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none !important;
+    color: inherit;
+    z-index: 1; /* navのドロップダウンより下に配置 */
+}
+
+.building-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.15);
+    border-color: rgba(230, 126, 34, 0.3);
+}
+
+.building-card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background: #fdfcfb;
+    overflow: hidden;
+}
+
+.building-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 404画像用（パスは変えず images/building/404_building.png 前提） */
+.building-card-img[src*="404_building.png"] {
+    object-fit: contain;
+    padding: 30px;
+    filter: grayscale(0.5) opacity(0.7);
+}
+
+.building-card-content {
+    padding: 20px;
+}
+
+.hlid-badge {
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.building-card-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.building-card-category {
+    font-size: 0.85rem;
+    color: var(--light-text);
+}
+
+.building-status-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    background: #f8f9fa;
+    color: #7f8c8d;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-top: 15px;
+    border: 1px solid #eee;
+    font-weight: bold;
+}
+
+/* --- 3. Detail Page Layout --- */
+.staff-detail-container {
+    max-width: 950px;
+    margin: 40px auto;
+}
+
+.staff-hero {
+    text-align: center;
+    margin-bottom: 50px;
+    /* ヘッダーとの干渉を防ぐ */
+    position: relative;
+    z-index: 5;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.staff-role-lead {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
+
+.staff-main-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 850px) {
+    .staff-main-layout { grid-template-columns: 1fr; }
+}
+
+.staff-info-card {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+/* PC時のみサイドバーを追従させる（ヘッダーの高さを考慮） */
+@media (min-width: 851px) {
+    .staff-info-card {
+        position: sticky;
+        top: calc(var(--header-height) + 20px);
+        z-index: 5;
+    }
+}
+
+.staff-visual { text-align: center; margin-bottom: 25px; }
+
+.staff-large-icon {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 4px solid #f8f8f8;
+    margin-bottom: 15px;
+}
+
+.staff-status {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.staff-data-list dt {
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: var(--light-text);
+    margin-top: 20px;
+}
+
+.staff-data-list dd {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-left: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.staff-content-body {
+    background: #fff;
+    padding: 45px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.content-block h3 {
+    font-size: 1.4rem;
+    border-left: 6px solid var(--accent-color);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* --- 4. Navigation Override (ヘッダーの邪魔をさせない設定) --- */
+/* ドロップダウンメニューがカードの背面に隠れないように z-index を調整 */
+#main-nav {
+    z-index: 1000 !important;
+}
+
+.dropdown-content {
+    z-index: 1100 !important;
+}
+
+@media (max-width: 768px) {
+.loading-5 span {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.8rem;
+    animation: animation-loading-5 1s infinite;
+}

@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
+<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+<!-- queryパラ取得 限定[js] -->
+<script src="https://uni-guild.com/js/query/query-v2.1.2.js"></script>

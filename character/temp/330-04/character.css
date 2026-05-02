@@ -1,0 +1,181 @@
+/* character.css - Ultimate Premium Character Gallery */
+
+.char-section {
+    background: radial-gradient(circle at top right, #fffaf5 0%, #ffffff 100%);
+    padding-bottom: 120px;
+    overflow: hidden;
+}
+
+/* カルーセルラッパー */
+.char-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    margin-top: 50px;
+    perspective: 2000px;
+}
+
+.char-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* キャラクターカード：共通スタイル */
+.char-card {
+    position: absolute;
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 60px;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 40px 100px rgba(230, 126, 34, 0.08);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 3Dステート */
+.char-card.active { 
+    opacity: 1; 
+    z-index: 10; 
+    transform: translate3d(0, 0, 100px); 
+    pointer-events: auto; 
+}
+.char-card.prev { 
+    opacity: 0.4; 
+    z-index: 5; 
+    transform: translate3d(-50%, 0, -250px) rotateY(25deg); 
+    pointer-events: auto;
+}
+.char-card.next { 
+    opacity: 0.4; 
+    z-index: 5; 
+    transform: translate3d(50%, 0, -250px) rotateY(-25deg); 
+    pointer-events: auto;
+}
+
+/* ビジュアル容器とLoading */
+.char-visual-container {
+    flex: 1.4;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.char-main-illust {
+    width: 115%;
+    height: auto;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.18));
+}
+
+.is-loaded .char-main-illust {
+    opacity: 1;
+    transform: translateY(0);
+    animation: floatingPremium 6s ease-in-out infinite;
+}
+
+.loading-wave-container {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center; gap: 15px;
+    transition: opacity 0.4s;
+}
+
+.is-loaded .loading-wave-container { opacity: 0; visibility: hidden; }
+
+/* テキスト装飾系 */
+.char-jp-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #2d3436 0%, #e67e22 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.status-tag {
+    background: #fff;
+    border: 1px solid rgba(230, 126, 34, 0.15);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #e67e22;
+    font-weight: bold;
+}
+
+/* Coming Soon 枠 */
+.coming-soon {
+    justify-content: center;
+    background: rgba(245, 245, 245, 0.4);
+    border: 2px dashed #eee;
+}
+
+.cs-content { text-align: center; color: #bbb; }
+.cs-icon { font-size: 3rem; animation: csPulse 3s infinite; }
+
+/* ナビゲーションボタン */
+.carousel-nav {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 20;
+}
+
+.nav-btn {
+    background: #fff;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.nav-btn:hover { background: #e67e22; color: #fff; }
+
+/* アニメーション */
+@keyframes floatingPremium {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(0.5deg); }
+}
+
+@keyframes csPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* モバイル対応 */
+@media (max-width: 1024px) {
+    .char-carousel-wrapper { height: auto; perspective: none; }
+    .char-slider { flex-direction: column; }
+    .char-card { 
+        position: relative; width: 95%; height: auto; 
+        transform: none !important; opacity: 1; pointer-events: auto;
+        flex-direction: column; padding: 40px 20px; margin-bottom: 30px;
+    }
+    .carousel-nav { display: none; }
+}

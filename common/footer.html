@@ -1,0 +1,111 @@
+<style>
+    footer {
+        background-color: #fcfaf7 !important;
+        padding: 60px 20px 40px !important;
+        text-align: center !important;
+        border-top: 1px solid #f0eee9 !important;
+        font-family: sans-serif !important;
+    }
+    .server-history-container {
+        margin: 20px 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .server-counter-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        background: #fff;
+        border-radius: 50px;
+        border: 1px solid #f0eee9;
+        font-weight: bold;
+        color: #555;
+        min-width: 280px;
+        height: 45px;
+        box-sizing: border-box; /* パディングによる幅の増大を防止 */
+    }
+    .reborn-days { 
+        border: 1.5px solid #e67e22 !important; 
+    }
+    .counter-highlight { 
+        color: #e67e22; 
+        font-size: 1.2rem; 
+        margin: 0 4px; 
+    }
+
+    .footer-group { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        align-items: center;
+        gap: 8px 15px; 
+        margin-bottom: 25px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-group a { 
+        color: #666 !important; 
+        font-size: 0.9rem; 
+        text-decoration: none;
+        white-space: nowrap; /* 単語の途中での改行を防止 */
+        transition: color 0.2s;
+    }
+    .footer-group a:hover {
+        color: #e67e22 !important;
+    }
+    .footer-separator { 
+        color: #ddd; 
+        user-select: none;
+    }
+    
+    footer p small { 
+        display: block; 
+        font-size: 0.75rem; 
+        color: #d2b48c; /* 旧:#999 */
+        line-height: 1.8; 
+        margin-bottom: 8px;
+    }
+
+    /* スマホ表示での最適化 */
+    @media (max-width: 600px) {
+        .footer-separator {
+            display: none; /* スマホでは区切り線を消して間隔(gap)だけで調整 */
+        }
+        .footer-group {
+            gap: 12px 20px;
+        }
+        .server-counter-box {
+            min-width: 100%; /* 横幅いっぱいに広げる */
+            font-size: 0.85rem;
+        }
+    }
+</style>
+
+<footer>
+    <div class="footer-links">
+　　<div class="footer-group">
+    <a href="https://uni-guild.com/pages/operation.html">運営情報</a> <span class="footer-separator">|</span>
+    <a href="https://uni-guild.com/pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
+    <a href="https://uni-guild.com/pages/staff-recruit-info.html">採用情報</a> <span class="footer-separator">|</span>
+    <a href="https://uni-guild.com/pages/ai-policy.html">生成AIの利用に関する規定</a> <span class="footer-separator">|</span>
+    <a href="https://uni-guild.com/pages/contact.html">お問い合わせ</a> <span class="footer-separator">|</span>
+    <a href="https://uni-guild.com/pages/terms-list.html" style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a> <span class="footer-separator">|</span>
+    <a href="https://uni-guild.com/pages/tokushoho.html">特定商取引法表記</a> <span class="footer-separator">|</span>
+    <a class="ot-sdk-show-settings" style="cursor:pointer;">Cookie詳細設定</a>
+</div>
+    </div>
+
+    <div class="server-history-container">
+        <div id="disp-hakoniwa" class="server-counter-box reborn-days"></div>
+        <div id="disp-total" class="server-counter-box" style="opacity: 0.8; font-size: 0.75rem;"></div>
+    </div>
+
+    <p><small>©箱庭クラフト 2025-2026 All rights reserved.<br> </small></p>
+    <p><small>© 2026 HAKONIWA Studio All Rights Reserved.<br>Designed and Developed by HAKONIWA Studio.<br></small></p>
+    <p><small>Minecraft は Mojang AB の登録商標です。<br>本サーバーは Mojang社から承認されておらず、関係ありません。</small></p>
+    <p style="margin-top: 15px;"><small>※ページ作成に生成AIを使用しております。</small></p>
+</footer>

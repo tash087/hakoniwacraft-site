@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンセプト & 発案者紹介 | 箱庭クラフト</title>
+    
+    <link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+    <link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+    
+    <script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
+    <script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
+    <script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+
+    <style>
+        /* --- ページ全体設定 --- */
+        :root {
+            --primary-orange: #f39800;
+            --soft-bg: #fdfaf5;
+            --text-main: #4a4a4a;
+            --card-bg: #ffffff;
+        }
+
+        body.concept-page {
+            background-color: var(--soft-bg);
+            color: var(--text-main);
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- ヘッダーセクション --- */
+        .concept-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .status-label {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: #fff;
+            padding: 4px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 0.1em;
+        }
+
+        .concept-title {
+            font-size: 2.2rem;
+            color: #333;
+            margin: 0 0 10px;
+            font-weight: 800;
+        }
+
+        .concept-subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        /* --- カード共通スタイル --- */
+        .concept-card, .creator-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .concept-card h2 {
+            font-size: 1.4rem;
+            color: var(--primary-orange);
+            border-bottom: 2px solid #fff5e6;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* --- ロゴ紹介セクション --- */
+        .logo-flex {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .concept-logo-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .logo-description {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* --- 発案者カード --- */
+        .creator-inner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .creator-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #fff5e6;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .creator-details {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .creator-role {
+            font-size: 0.75rem;
+            color: var(--primary-orange);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .creator-name {
+            font-size: 1.6rem;
+            margin: 0 0 15px;
+            color: #333;
+        }
+
+        .creator-message {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-orange);
+        }
+
+        .view-profile {
+            display: inline-block;
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+
+        .view-profile:hover {
+            transform: translateX(5px);
+            text-decoration: underline;
+        }
+
+        /* --- モバイル対応 --- */
+        @media (max-width: 600px) {
+            .container { padding: 40px 15px; }
+            .concept-title { font-size: 1.8rem; }
+            .concept-card, .creator-card { padding: 25px; }
+            .logo-flex, .creator-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .creator-message { border-left: none; padding-left: 0; }
+        }
+    </style>
+</head>
+<body class="concept-page">
+
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <div class="concept-header">
+            <span class="status-label">CONCEPT & CREATOR</span>
+            <h1 class="concept-title">名称・ロゴの由来</h1>
+            <p class="concept-subtitle">「箱庭クラフト」に込められた想い</p>
+        </div>
+
+        <section class="concept-card">
+            <h2>🏷️ サーバー名の変更について</h2>
+            <p>「箱庭クラフト」という名称は、発案者であるModok1_様の意向により従来の表記から「！」を取り除いた形へと変更されました。落ち着いた居心地の良さを重視し、誰もが自分のペースで世界を創り上げられる場所でありたいという願いを込めています。</p>
+        </section>
+
+        <section class="concept-card">
+            <h2>🎨 ロゴデザインのこだわり</h2>
+            <div class="logo-flex">
+                <img src="https://uni-guild.com/images/server_icon.png" alt="ロゴ" class="concept-logo-img">
+                <div class="logo-description">
+                    <p>温かみのあるオレンジを採用。丸みのあるデザインは、初心者からベテランまで馴染みやすい「柔らかいコミュニティ」を象徴しています。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="creator-card">
+            <div class="creator-inner">
+                <img src="https://uni-guild.com/images/modok1__icon.png" alt="Modok1_" class="creator-avatar">
+                <div class="creator-details">
+                    <span class="creator-role">ORIGINAL DESIGNER</span>
+                    <h3 class="creator-name">Modok1_</h3>
+                    <p class="creator-message">「みんなが自分だけの『箱庭』を自由に広げていけるような、温かい場所にしたくてデザインしました。」</p>
+                    <a href="https://uni-guild.com/staff/modok1_.html" class="view-profile">プロフィールを見る →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>

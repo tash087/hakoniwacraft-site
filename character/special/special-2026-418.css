@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/* 背景全体 */
+.character-page-theme {
+    background: #000 !important;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* ロード画面：不気味な明滅とERROR表示 */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    transition: opacity 0.6s ease;
+}
+
+.loading-5 {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2rem;
+    color: #f00;
+    font-weight: bold;
+    animation: flash 0.5s step-end infinite;
+}
+
+/* メインカード：画像に合わせた全幅構造 */
+.char-card {
+    display: block !important;
+    max-width: 1000px !important;
+    width: 95% !important;
+    margin: 40px auto !important;
+    background: #fff !important;
+    border: 5px solid #ff0000 !important;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: glitched 0.2s infinite ease-in-out;
+}
+
+/* 画像エリア：隙間を許さない全幅表示 [cite: 73, 74] */
+.char-visual-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    background: #000 !important;
+    line-height: 0; /* 下の隙間を完全に除去 */
+    cursor: crosshair;
+}
+
+/* Lサイズ(6720px)を無加工・全幅で表示 [cite: 75] */
+.char-illust-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain;
+    filter: contrast(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* テキストエリア */
+.char-profile-box {
+    width: 100% !important;
+    padding: 40px !important;
+    color: #333;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.char-name-ja {
+    font-size: 3rem !important;
+    color: #f00 !important;
+    margin-bottom: 20px !important;
+    font-weight: 900;
+}
+
+/* アニメーション：画面の歪み [cite: 9, 10] */
+@keyframes glitched {
+    0% { transform: translate(0) skew(0deg); }
+    10% { transform: translate(-2px, -1px) skew(-0.5deg); }
+    20% { transform: translate(2px, 1px) skew(0.5deg); }
+    100% { transform: translate(0) skew(0deg); }
+}
+
+@keyframes flash {
+    50% { opacity: 0; }
+}
+
+/* スマホ最適化 [cite: 216, 218] */
+@media (max-width: 600px) {
+    .char-name-ja { font-size: 1.8rem !important; }
+    .char-profile-box { padding: 20px !important; }
+}

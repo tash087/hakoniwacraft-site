@@ -1,0 +1,227 @@
+/* character.css - Ultimate Premium Edition */
+
+/* 背景装飾 */
+.char-section {
+    background: radial-gradient(circle at top right, #fffaf5 0%, #ffffff 100%);
+    padding-bottom: 120px;
+    overflow: hidden;
+}
+
+/* ヒーローエリア */
+.char-hero-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.char-hero-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* 展示カード（画像主役レイアウト） */
+.char-display {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* 画像を大きくするため隙間を最適化 */
+    margin: 100px auto;
+    padding: 80px 60px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 60px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 40px 120px rgba(230, 126, 34, 0.08);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    max-width: 1250px;
+}
+
+.char-display:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 50px 150px rgba(230, 126, 34, 0.15);
+}
+
+/* ビジュアルエリア：巨大化とエフェクト */
+.char-visual-container {
+    flex: 1.4; /* 画像をテキストより広く取る */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.char-main-illust {
+    width: 110%; /* カードからはみ出す勢いで大きく */
+    max-width: 750px;
+    height: auto;
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.15));
+    z-index: 2;
+    position: relative;
+    animation: floatingPremium 5s ease-in-out infinite;
+}
+
+.char-eye-glow {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 130%;
+    height: 130%;
+    background: radial-gradient(circle, rgba(135, 206, 235, 0.5) 0%, rgba(135, 206, 235, 0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    mix-blend-mode: screen;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* テキストエリア */
+.char-details {
+    flex: 0.8;
+    z-index: 3;
+}
+
+.char-en-name {
+    color: var(--primary-color);
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.char-jp-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #333 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.char-sub-name-en {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    letter-spacing: 0.4em;
+    margin-top: 5px;
+    -webkit-text-fill-color: initial; /* グラデーション解除 */
+}
+
+.status-badge-container {
+    margin: 25px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.status-tag {
+    background: #fff;
+    border: 1px solid rgba(230, 126, 34, 0.15);
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    transition: 0.3s;
+}
+
+.char-story {
+    font-size: 1.15rem;
+    line-height: 2.3;
+    color: #444;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 20px;
+    margin-bottom: 35px;
+}
+
+.illustrator-credit {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #fdfaf7;
+    border-radius: 50px;
+    color: #777;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.illustrator-credit:hover {
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    color: var(--primary-color);
+}
+
+/* ガイドラインボックス */
+.guideline-box {
+    background: #fff;
+    padding: 70px 40px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+}
+
+.guideline-title {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+}
+
+.guideline-text {
+    text-align: center;
+    line-height: 2.2;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.ip-policy-wrapper {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.btn-ip-policy {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.4s;
+    background: rgba(230, 126, 34, 0.02);
+}
+
+.btn-ip-policy:hover {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
+}
+
+.hashtag-highlight {
+    color: var(--accent-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* アニメーション */
+@keyframes floatingPremium {
+    0%, 100% { transform: translateY(0) scale(1.05); }
+    50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* モバイル */
+@media (max-width: 1024px) {
+    .char-display { flex-direction: column; padding: 50px 25px; }
+    .char-main-illust { width: 95%; transform: none !important; animation: floatingPremium 4s ease-in-out infinite; }
+    .char-details { text-align: center; }
+    .char-story { border-left: none; padding-left: 0; }
+}

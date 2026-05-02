@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# 1. もし /staff/member/名前 でアクセスが来たら、
+# クエリパラメータ形式 (?name=名前) へ「外部リダイレクト」させる場合
+RewriteRule ^member/([^/]+)/?$ /staff/member?name=$1 [R=301,L,QSA]
+
+# 2. もし /staff/member?name=名前 というリクエストを
+# 内部の member.php で処理する場合
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^member$ member.php [L,QSA]

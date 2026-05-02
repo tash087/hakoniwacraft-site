@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>店舗状況</title>
+    <link rel="stylesheet" href="../css/shop/style.css">
+    <style>
+        .shop-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        .shop-table th, .shop-table td { border: 1px solid #eee; padding: 12px; text-align: center; }
+        .shop-table th { background: #ffd700; }
+    </style>
+<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83e">
+<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83e">
+<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83e">
+<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83e">
+
+<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+
+<script src="https://uni-guild.com/js/include.js?random=vhq09w83e" defer></script>
+<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83e" defer></script>
+<script src="https://uni-guild.com/js/slider.js?random=vhq09w83e" defer></script>
+</head>
+<div id="header-placeholder"></div>
+
+<body>
+<div class="container">
+    <h1>店舗空き状況一覧</h1>
+    <div id="display-container">読み込み中...</div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../js/common.js"></script>
+<script>
+async function renderView() {
+    const container = document.getElementById('display-container');
+    const allData = await loadData();
+    container.innerHTML = '';
+    for (let key in SHOP_CONFIG) {
+        const data = allData[key] || [];
+        const section = document.createElement('div');
+        section.innerHTML = `<h2>${SHOP_CONFIG[key].title}</h2>`;
+        const table = document.createElement('table');
+        table.className = 'shop-table';
+        table.innerHTML = `<thead><tr><th>番地</th><th>MCID</th><th>期限</th><th>備考</th></tr></thead><tbody>${data.map(r=>`<tr><td>${r.id}</td><td>${r.mcid||'空き'}</td><td>${r.date||'-'}</td><td>${r.note||''}</td></tr>`).join('')}</tbody>`;
+        section.appendChild(table);
+        container.appendChild(section);
+    }
+}
+window.onload = renderView;
+</script>
+</body>
+</html>

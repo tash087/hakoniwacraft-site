@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ページが見つかりません | 箱庭クラフト！</title>
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #fdf2e9;
+            line-height: 1;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .error-description {
+            color: var(--light-text);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        .error-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
+<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+<!-- queryパラ取得 限定[js] -->
+<script src="https://uni-guild.com/js/query/query-v2.1.2.js"></script>
+<style>
+@media (max-width: 768px) {
+.button-area-flex { display: flex !important; justify-content: center; align-items: center; gap: 20px; margin-top: 60px; padding-top: 40px; border-top: 2px dashed #e0ddd9; }
+.btn-nav { display: inline-flex; align-items: center; justify-content: center; text-decoration: none !important; font-weight: bold; padding: 15px 25px; border-radius: 12px; transition: all 0.3s ease; min-width: auto;
+ font-size: 14px; }
+.btn-primary-nav { background-color: var(--primary-color) !important; color: #fff !important; }
+.btn-primary-nav:hover { background-color: var(--accent-color) !important; transform: translateY(-3px); }
+.btn-outline-nav { background-color: #fff !important; color: var(--text-color) !important; border: 2px solid #e0ddd9 !important; }
+.btn-outline-nav:hover { border-color: var(--primary-color) !important; color: var(--primary-color) !important; transform: translateY(-3px); }
+}
+
+/* ビデオ表示用の専用スタイル */
+.staff-large-video {
+    width: 100%;
+    /* 16:9の比率を維持 */
+    aspect-ratio: 16 / 9;
+    /* 角丸の設定 */
+    border-radius: 15px;
+    /* 枠内に収めつつ余白を出さない */
+    object-fit: cover;
+    /* 建築らしい重厚感を出す外枠（任意） */
+    border: 4px solid #f8f8f8;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* 既存のクラス名 (p-mainVisual__video) に合わせる場合の指定 */
+.p-mainVisual__video {
+    /* 必要に応じて追加のレイアウト制御を記述 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+</style>
+</head>
+<body class="status-page">
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <div class="error-container">
+            <span class="error-icon">🏗️</span>
+            <div class="error-code">404</div>
+            <h1 class="error-message">ページが見つかりませんでした</h1>
+            <p class="error-description">
+                お探しのページは移動したか、削除された可能性があります。<br>
+                URLにお間違いがないかご確認ください。<br>
+                ！または運営者にお問い合わせください！
+            </p>
+<p>暇な方へ以下紹介動画！！！</p>
+<div class="staff-visual">
+    <video class="staff-large-video p-mainVisual__video" playsinline="" autoplay="" loop="" muted="">
+        <source src="../videos/build/introductory-vdeo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+            
+            <div class="button-area-flex">
+                <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                <a href="../contact/" class="btn-nav btn-outline-nav">お問い合わせ</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+    /* ダークモード */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --white: #1f1f2e;
+            --text-color: #e4e4e7;
+            --light-text: #a1a1aa;
+            --bg-gray: #2a2a35;
+            --border-light: #3f3f46;
+        }
+        
+        .news-detail-container {
+            background: #1f1f2e;
+        }
+        
+        .box-blue {
+            background: #1a2a3f;
+        }
+        
+        .cmd-table th {
+            background: #2a2a35;
+            border-bottom-color: #3f3f46;
+        }
+        
+        .cmd-table td {
+            border-bottom-color: #2d2d35;
+        }
+        
+        .owner-message {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-color: #2d2d44;
+        }
+    }

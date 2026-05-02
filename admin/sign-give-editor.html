@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft 1.21.4 Sign Give Editor - Fixed v2</title>
+    <style>
+        :root { --bg: #1a1a1a; --card: #2d2d2d; --accent: #3498db; --text: #f5f5f5; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 950px; margin: auto; background: var(--card); padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .side-editor { background: #3d3d3d; padding: 15px; border-radius: 8px; border-top: 4px solid var(--accent); }
+        .line-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+        input[type="text"] { flex: 1; padding: 6px; border-radius: 4px; border: 1px solid #555; background: #eee; color: #000; font-weight: bold; }
+        select { padding: 6px; border-radius: 4px; cursor: pointer; }
+        .cmd-box { margin-top: 15px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px; }
+        .cmd-input { width: 100%; box-sizing: border-box; font-family: monospace; color: #57ff57; background: #111; border: 1px solid #444; padding: 10px; margin-top: 5px; border-radius: 4px; }
+        .output-area { width: 100%; height: 180px; margin-top: 20px; background: #000; color: #00ff00; font-family: 'Consolas', monospace; padding: 15px; box-sizing: border-box; border-radius: 8px; border: 2px solid var(--accent); resize: none; word-break: break-all; }
+        button { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 1.1em; cursor: pointer; margin-top: 20px; }
+        button:hover { background: #2980b9; }
+        h2 { text-align: center; margin-top: 0; color: var(--accent); }
+        label { font-size: 0.85em; color: #bbb; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Sign Give Generator (1.21.4 Fixed)</h2>
+    
+    <div class="grid">
+        <div class="side-editor" style="border-top-color: #3498db;">
+            <h3 style="margin-top:0">表面 (Front Side)</h3>
+            <div id="front-lines"></div>
+            <div class="cmd-box">
+                <label>クリック時の動作</label>
+                <div style="display:flex; gap:5px;">
+                    <select id="f_action" style="width: 100px;">
+                        <option value="run_command">コマンド</option>
+                        <option value="open_url">URL開く</option>
+                    </select>
+                    <input type="text" id="f_cmd" class="cmd-input" placeholder="/tellraw @a ..." style="margin-top:0">
+                </div>
+            </div>
+        </div>
+
+        <div class="side-editor" style="border-top-color: #e67e22;">
+            <h3 style="margin-top:0">裏面 (Back Side)</h3>
+            <div id="back-lines"></div>
+            <div class="cmd-box">
+                <label>クリック時の動作</label>
+                <div style="display:flex; gap:5px;">
+                    <select id="b_action" style="width: 100px;">
+                        <option value="run_command">コマンド</option>
+                        <option value="open_url">URL開く</option>
+                    </select>
+                    <input type="text" id="b_cmd" class="cmd-input" placeholder="/say Hello!" style="margin-top:0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:20px; display: flex; justify-content: space-between; align-items: center;">
+        <select id="sign_type">
+            <option value="oak_sign">オーク</option>
+            <option value="spruce_sign">マツ</option>
+            <option value="cherry_sign">サクラ</option>
+            <option value="crimson_sign">真紅</option>
+        </select>
+        <button style="width: 200px; margin-top:0" onclick="generate()">Give生成</button>
+    </div>
+
+    <textarea id="result" class="output-area" readonly></textarea>
+</div>
+
+<script>
+const mcColors = ["black", "dark_blue", "dark_green", "dark_aqua", "dark_red", "dark_purple", "gold", "gray", "dark_gray", "blue", "green", "aqua", "red", "light_purple", "yellow", "white"];
+
+function setup(id, prefix) {
+    const container = document.getElementById(id);
+    for (let i = 1; i <= 4; i++) {
+        container.innerHTML += `
+            <div class="line-row">
+                <input type="text" id="${prefix}_t${i}" placeholder="行 ${i}">
+                <select id="${prefix}_c${i}">${mcColors.map(c => `<option value="${c}">${c}</option>`).join('')}</select>
+                <input type="checkbox" id="${prefix}_b${i}"> <span style="font-size:12px">太字</span>
+            </div>`;
+    }
+}
+setup('front-lines', 'f');
+setup('back-lines', 'b');
+
+function generate() {
+    const type = document.getElementById('sign_type').value;
+
+    function buildSide(prefix, cmdId, actionId) {
+        let messages = [];
+        let rawCmd = document.getElementById(cmdId).value;
+        const action = document.getElementById(actionId).value;
+
+        for (let i = 1; i <= 4; i++) {
+            let lineObj = {
+                text: document.getElementById(`${prefix}_t${i}`).value,
+                color: document.getElementById(`${prefix}_c${i}`).value,
+                bold: document.getElementById(`${prefix}_b${i}`).checked
+            };
+
+            // 1行目にクリックイベントをセット
+            if (i === 1 && rawCmd) {
+                lineObj.clickEvent = { action: action, value: rawCmd };
+            }
+
+            // JSON文字列化。このときダブルクォートは \" になる
+            let jsonStr = JSON.stringify(lineObj);
+            
+            // 看板の messages 配列はシングルクォートで囲まれるため、
+            // その中の \" をさらにエスケープして \\" にする必要がある。
+            // ただし、JSON.stringify ですでに \" になっているので、
+            // バックスラッシュを1つ増やすだけで正解。
+            jsonStr = jsonStr.replace(/\\"/g, '\\\\"');
+
+            messages.push(`'${jsonStr}'`);
+        }
+        return `messages:[${messages.join(',')}]`;
+    }
+
+    const front = buildSide('f', 'f_cmd', 'f_action');
+    const back = buildSide('b', 'b_cmd', 'b_action');
+
+    const cmd = `/give @p ${type}[block_entity_data={id:"sign",front_text:{${front}},back_text:{${back}}}] 1`;
+    document.getElementById('result').value = cmd;
+}
+</script>
+</body>
+</html>

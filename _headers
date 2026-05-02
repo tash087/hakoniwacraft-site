@@ -1,0 +1,20 @@
+# =========================================
+# エラーページ用ヘッダー設定
+# =========================================
+
+# 全エラーページ共通設定
+/400.html
+/401.html
+/403.html
+/404.html
+/500.html
+/503.html
+/510.html
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+# 404ページ特別設定
+/404.html
+  Cache-Control: public, max-age=86400

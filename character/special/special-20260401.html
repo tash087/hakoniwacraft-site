@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【緊急】公式キャラクター実体化に関するお知らせ | 箱庭クラフト</title>
+
+<link rel="stylesheet" href="https://uni-guild.com/css/common.css?rc=april41">
+<link rel="stylesheet" href="https://uni-guild.com/css/style.css?rc=april41">
+<link rel="stylesheet" href="https://uni-guild.com/character/special/character.css?rc=april41">
+<link rel="stylesheet" href="special-41-v1.0.1.css?v=20260401">
+
+<style>
+    /* ヘッダー・ナビゲーションの基本スタイル */
+    .header-41 { background: #000 !important; border-bottom: 1px solid #f00 !important; position: sticky; top: 0; z-index: 10000; height: 60px; }
+    .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 100%; }
+    #main-nav ul { list-style: none; display: flex; gap: 20px; align-items: center; margin: 0; padding: 0; }
+    #main-nav ul li a { color: #fff !important; text-decoration: none; font-weight: 700; text-shadow: 0 0 5px #f00; transition: 0.3s; }
+    
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: #111 !important; border: 1px solid #f00 !important; min-width: 220px; z-index: 10001; box-shadow: 0 8px 16px rgba(255,0,0,0.3); }
+    .dropdown-content a { padding: 12px 16px; display: block; color: #ff4444 !important; border-bottom: 1px solid #222; font-size: 0.9rem; }
+    @media (min-width: 769px) { .dropdown:hover .dropdown-content { display: block; } }
+
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 10002; position: relative; width: 44px; height: 44px; }
+    .menu-toggle .bar { display: block; width: 25px; height: 2px; background: #f00; margin: 6px auto; transition: 0.3s; }
+
+    @media (max-width: 768px) {
+        .menu-toggle { display: block; }
+        .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        #main-nav { position: fixed; top: 60px; right: -100%; width: 80%; height: calc(100vh - 60px); background: rgba(0, 0, 0, 0.95); border-left: 2px solid #f00; transition: 0.4s; padding: 40px 20px; z-index: 9999; overflow-y: auto; }
+        #main-nav.is-active { right: 0; }
+        #main-nav ul { flex-direction: column; align-items: flex-start; gap: 25px; }
+        .dropdown-content { display: block !important; position: static !important; border: none !important; padding-left: 15px; }
+    }
+
+    .nav-overlay { display: none; position: fixed; top: 60px; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9998; }
+    .nav-overlay.is-active { display: block; }
+
+    /* 演出用アニメーション */
+    @keyframes fadeOutUp { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-20px); } }
+    @keyframes glitched { 0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(-2px, -2px); } 60% { transform: translate(2px, 2px); } 80% { transform: translate(2px, -2px); } 100% { transform: translate(0); } }
+
+    #page-loader { position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; transition: 0.6s; }
+</style>
+</head>
+
+<body class="character-page-theme">
+
+<div id="page-loader">
+    <div class="loading-5" style="color:#f00; font-family:monospace; text-shadow:0 0 10px #f00;">ERROR: 50,000dpi INITIALIZING...</div>
+</div>
+
+<header class="header-41">
+    <div class="header-inner">
+        <a href="https://uni-guild.com/index.html">
+            <div style="position: relative;">
+                <img src="https://uni-guild.com/images/server_icon.png" style="height:35px; filter: grayscale(1) invert(1) sepia(1) saturate(10) hue-rotate(-50deg);">
+                <span style="position:absolute; top:-5px; left:-5px; background:red; color:white; font-size:9px; padding:2px; font-weight:bold;">50,000dpi</span>
+            </div>
+        </a>
+        <button id="menu-toggle" class="menu-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="https://uni-guild.com/index.html">現実へ戻る</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger" style="color:#ff0 !important;">⚠ 異常検知</a>
+                    <div class="dropdown-content">
+                        <a href="#">高画質すぎて網膜が痛い</a>
+                        <a href="#">おじさんと目が合った</a>
+                        <a href="#">部屋に缶コーヒーがある</a>
+                    </div>
+                </li>
+                <li><a href="https://uni-guild.com/special/terms/termsapril-ojisan.html" style="background:#f00; color:#fff !important; padding:10px 20px; border-radius:4px;">特別利用規約</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="nav-overlay" class="nav-overlay"></div>
+
+<main class="char-main-content">
+    <section style="padding-top: 60px; text-align: center;">
+        <div style="background:#f00; color:#fff; display:inline-block; padding:5px 15px; font-weight:bold; margin-bottom:20px;">SYSTEM OVERLOAD</div>
+        <h1 style="color:#fff; font-size:2.2rem;">高画質化の果てに、<span style="color:#ff4400; text-shadow:0 0 10px #f00;">実体化した何か。</span></h1>
+    </section>
+
+    <div class="char-gallery-wrapper">
+        <article class="char-card">
+            <div class="char-visual-wrapper" id="target-visual" style="cursor:crosshair;">
+                <img src="https://uni-guild.com/images/character/ojisan_50000dpi.jpg" alt="実体化したおじさん" class="char-illust-img" id="main-img">
+            </div>
+            <div class="char-profile-box">
+                <span style="color:#f00; font-weight:bold;">[ TYPE: ULTRA HIGH-RES ENTITY ]</span>
+                <h2 class="char-name-ja" id="target-name">はこにわちゃん (50,000dpi)</h2>
+                <div class="char-bio" style="color:#333;">
+                    <p>開発者の狂気により、ピクセルは細胞へ、スカイブルーの瞳は「徹夜明けの充血した眼」へと進化しました。</p>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+
+<script>
+    // --- 1. エラー回避用：関数を最初に定義 ---
+    window.showFloatingText = function(text, color, x, y) {
+        const span = document.createElement('span');
+        span.innerText = text;
+        span.style.cssText = `position:fixed; left:${x}px; top:${y}px; color:${color}; font-weight:bold; z-index:20000; pointer-events:none; animation:fadeOutUp 1s forwards; text-shadow:0 0 5px #000; white-space:nowrap; font-family:monospace;`;
+        document.body.appendChild(span);
+        setTimeout(() => span.remove(), 1000);
+    };
+
+    window.triggerGlitchedEffect = function(msg) {
+        document.body.style.animation = "glitched 0.1s infinite";
+        setTimeout(() => {
+            alert(`[ERROR] ${msg}`);
+            document.body.style.animation = "";
+        }, 100);
+    };
+
+    window.trigger16BitRegression = function() {
+        const img = document.getElementById('main-img');
+        if (img) {
+            img.style.imageRendering = "pixelated";
+            img.style.filter = "contrast(2) sepia(1) brightness(0.5)";
+        }
+        const msg = document.createElement('div');
+        msg.style.cssText = "position:fixed; inset:0; background:rgba(0,0,0,0.95); color:#f00; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:30000; font-family:monospace; text-align:center;";
+        msg.innerHTML = "<h1>CRITICAL ERROR</h1><p>解像度が退行しました。</p>";
+        document.body.appendChild(msg);
+        setTimeout(() => location.reload(), 2000);
+    };
+
+    // --- 2. 各種イベントバインド ---
+    document.addEventListener("DOMContentLoaded", () => {
+        // メニュー制御
+        const btn = document.getElementById('menu-toggle');
+        const nav = document.getElementById('main-nav');
+        const overlay = document.getElementById('nav-overlay');
+        btn.onclick = () => { btn.classList.toggle('is-active'); nav.classList.toggle('is-active'); overlay.classList.toggle('is-active'); };
+        overlay.onclick = btn.onclick;
+
+        // キャラクター操作（画像クリック）
+        const visual = document.getElementById('target-visual');
+        let poreCount = 0;
+        if (visual) {
+            visual.onclick = (e) => {
+                poreCount++;
+                window.showFloatingText(`毛穴計数中... ${poreCount}`, 'red', e.clientX, e.clientY);
+                if (poreCount > 10) {
+                    window.triggerGlitchedEffect("同時接続枠超過: 計測を中止してください");
+                    poreCount = 0;
+                }
+            };
+        }
+
+        // キャラ名右クリック
+        const charName = document.getElementById('target-name');
+        if (charName) {
+            charName.oncontextmenu = (e) => { e.preventDefault(); window.trigger16BitRegression(); };
+        }
+
+        // ロード画面解除
+        window.onload = () => {
+            setTimeout(() => {
+                const loader = document.getElementById('page-loader');
+                if(loader) { loader.style.opacity = '0'; setTimeout(() => { loader.style.display = 'none'; }, 600); }
+            }, 1000);
+        };
+    });
+</script>
+</body>
+</html>

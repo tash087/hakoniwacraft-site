@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公式キャラクター紹介 | 箱庭クラフト</title>
+    
+    <link rel="stylesheet" href="https://uni-guild.com/css/common.css?randomcode=4B76cj7IE0">
+    <link rel="stylesheet" href="https://uni-guild.com/css/style.css?randomcode=4B76cj7IE0">
+    <link rel="stylesheet" href="https://uni-guild.com/css/staff.css?randomcode=4B76cj7IE0">
+    <link rel="stylesheet" href="https://uni-guild.com/css/news.css?randomcode=4B76cj7IE0">
+    <link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?randomcode=4B76cj7IE0">
+    <link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+    
+    <script src="https://uni-guild.com/js/include.js?randomcode=4B76cj7IE0" defer></script>
+    <script src="https://uni-guild.com/js/day-count.js?randomcode=4B76cj7IE0" defer></script>
+    <script src="https://uni-guild.com/js/slider.js?randomcode=4B76cj7IE0" defer></script>
+    
+    <link rel="stylesheet" href="character.css?v=330-1-2026">
+</head>
+<body class="status-page">
+    <div id="header-placeholder"></div>
+
+    <main class="char-section">
+        <section class="section-padding char-reveal" style="text-align: center; padding-top: 100px;">
+            <div class="container">
+                <div class="char-hero-title">
+                    <span class="status-label">OFFICIAL CHARACTERS GALLERY</span>
+                </div>
+                <h1 class="main-motto">三人三様、<span class="text-primary-color">それぞれの輝き。</span></h1>
+                <p class="motto-subtext">
+                    一人のキャラクターが、絵師様たちの感性によって三者三様の魅力で描かれます。<br>
+                    箱庭を彩る多彩な表情をお楽しみください。
+                </p>
+            </div>
+        </section>
+
+        <div class="container overflow-visible">
+            <div class="char-carousel-wrapper">
+                <div id="mainSlider" class="char-slider">
+                    
+                    <article class="char-card active" data-index="0">
+                        <div class="char-visual-container">
+                            <div class="loading-wave-container">
+                                <div class="wave">
+                                    <div class="bar-item"></div><div class="bar-item"></div><div class="bar-item"></div><div class="bar-item"></div><div class="bar-item"></div>
+                                </div>
+                                <span class="loading-text">PREPARING...</span>
+                            </div>
+                            <div class="char-eye-glow"></div>
+                            <img src="https://uni-guild.com/images/character/madu_hako_main.png" 
+                                 alt="はこにわちゃん" 
+                                 class="char-main-illust" 
+                                 loading="lazy"
+                                 onload="imageLoaded(this)"
+                                 onerror="this.parentElement.classList.add('is-loaded')">
+                        </div>
+                        
+                        <div class="char-details">
+                            <div class="char-title-group">
+                                <span class="char-en-name">The Pride of Hakoniwa Craft</span>
+                                <h2 class="char-jp-name">はこにわちゃん</h2>
+                                <span class="char-sub-name-en">Original Style</span>
+                            </div>
+                            <div class="status-badge-container">
+                                <span class="status-tag">#スカイブルーの瞳</span>
+                                <span class="status-tag">#公式マスコット</span>
+                            </div>
+                            <p class="char-story">
+                                箱庭クラフトの空の色を映したような瞳を持つ少女。サーバーの歴史を優しく見守る、象徴的な姿です。
+                            </p>
+                            <a href="https://x.com/reo01077" target="_blank" class="illustrator-credit" onclick="event.stopPropagation()">🎨 Illustrator: まづもと 様</a>
+                        </div>
+                    </article>
+
+                    <article class="char-card next" data-index="1">
+                        <div class="coming-soon-content">
+                            <div class="cs-icon">✦</div>
+                            <p class="cs-text">ANOTHER STYLE<br>COMING SOON</p>
+                        </div>
+                    </article>
+
+                    <article class="char-card far-next" data-index="2">
+                        <div class="coming-soon-content">
+                            <div class="cs-icon">✦</div>
+                            <p class="cs-text">SPECIAL STYLE<br>COMING SOON</p>
+                        </div>
+                    </article>
+
+                    <article class="char-card far-prev" data-index="3">
+                        <div class="coming-soon-content">
+                            <div class="cs-icon">✦</div>
+                            <p class="cs-text">GALLERY<br>COMING SOON</p>
+                        </div>
+                    </article>
+
+                </div>
+                
+                <div class="carousel-nav">
+                    <button id="prevBtn" class="nav-btn" aria-label="Previous">←</button>
+                    <button id="nextBtn" class="nav-btn" aria-label="Next">→</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const cards = document.querySelectorAll('.char-card');
+        const slider = document.getElementById('mainSlider');
+        let currentIndex = 0;
+
+        // Loading状態の管理
+        function imageLoaded(img) {
+            img.closest('.char-visual-container').classList.add('is-loaded');
+        }
+
+        // カルーセル更新処理
+        function updateCarousel() {
+            cards.forEach((card, i) => {
+                card.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+                const n = cards.length;
+                const diff = (i - currentIndex + n) % n;
+
+                if (diff === 0) card.classList.add('active');
+                else if (diff === 1) card.classList.add('next');
+                else if (diff === n - 1) card.classList.add('prev');
+                else if (diff === 2) card.classList.add('far-next');
+                else card.classList.add('far-prev');
+            });
+        }
+
+        // クリック位置に基づいた切り替えロジック
+        slider.addEventListener('click', (e) => {
+            // クレジットリンクなどは除外
+            if (e.target.closest('.illustrator-credit')) return;
+
+            const rect = slider.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+
+            if (clickX > width / 2) {
+                currentIndex = (currentIndex + 1) % cards.length;
+            } else {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            }
+            updateCarousel();
+        });
+
+        // ボタン操作
+        document.getElementById('nextBtn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateCarousel();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateCarousel();
+        });
+
+        // 初期化とキャッシュ対策
+        window.addEventListener('load', () => {
+            updateCarousel();
+            document.querySelectorAll('.char-main-illust').forEach(img => {
+                if (img.complete) imageLoaded(img);
+            });
+        });
+    </script>
+</body>
+</html>

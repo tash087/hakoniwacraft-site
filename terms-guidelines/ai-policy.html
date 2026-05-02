@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成AIの利用に関する規定 | 箱庭クラフト</title>
+    <meta name="description" content="箱庭クラフト運営チームにおける生成AI（人工知能）の利用基準と責任の所在に関する規定です。">
+    <meta name="keywords" content="Minecraft, マイクラ, 生成AI, 運営規定, ガイドライン, 箱庭クラフト">
+<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
+<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+<style>
+        /* 共通デザインの継承 */
+        body { font-family: sans-serif !important; background-color: #fdfaf6; }
+        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
+        
+        .facility-section-h2 { border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-top: 40px; color: #333; font-size: 1.5rem; }
+        .facility-item { margin-top: 25px; }
+        .facility-item h3 { color: #e67e22; margin-bottom: 12px; font-size: 1.15rem; border-left: 4px solid #e67e22; padding-left: 12px; }
+        
+        .text-strong-black { font-weight: bold; color: #000; }
+        .text-caution { color: #d35400; }
+        
+        .rule-list { padding-left: 20px; margin-bottom: 15px; }
+        .rule-list li { margin-bottom: 8px; line-height: 1.6; }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+        .btn-outline:hover {
+            background-color: #e67e22;
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+<!-- queryパラ取得 限定[js] -->
+<script src="https://uni-guild.com/js/query/query-v2.1.2.js"></script>
+    <div id="header-placeholder"></div>
+    <main class="section-padding container">
+        <div class="content-page">
+            <h1 class="page-title">生成AIの利用に関する規定</h1>
+
+            <section class="intro-text">
+                <p>本規定は、箱庭クラフト運営チーム（以下「運営」）が、本サーバーの運営業務において生成AI（人工知能）を利用する際の基準と責任の所在を明らかにするものです。</p>
+                <p class="small-note" style="color: #888; font-size: 0.9rem; margin-top: 15px;">
+                    <span class="text-strong-black">制定日:</span> 2026年3月21日
+                </p>
+            </section>
+
+            <section class="section-block">
+                <h2 class="facility-section-h2">第1章：利用の目的</h2>
+                <div class="facility-item">
+                    <h3>第1条（補助的利用の範囲）</h3>
+                    <p>運営は、以下の目的において生成AIを補助ツールとして利用する場合があります。</p>
+                    <ul class="rule-list">
+                        <li>規約、ガイドライン、告知文等の文書草案の作成および校正。</li>
+                        <li>プレイヤーからの問い合わせに対する回答案の作成。</li>
+                        <li>ログ解析、データ整理、およびトラブル調査の効率化。</li>
+                        <li>イベント企画や建築アイデアのブレインストーミング。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="facility-section-h2">第2章：判断の責任と公平性</h2>
+                <div class="facility-item">
+                    <h3>第2条（最終判断の主体）</h3>
+                    <p>1. 生成AIはあくまで補助的なツールであり、処罰の決定、規約の最終確定、および重大なトラブルへの対応方針については、必ず運営メンバー（人間）が内容を精査し、最終的な判断を行います。</p>
+                    <p>2. 生成AIの出力結果のみを根拠として、自動的にプレイヤーへの処罰（BAN等）が執行されることはありません。すべての処罰は、人間がログや証拠を確認した上で行われます。</p>
+                </div>
+                <div class="facility-item">
+                    <h3>第3条（公平性と客観性の担保）</h3>
+                    <p>1. 運営は、個人の感情に左右されない公平な判断を行うため、ログ解析の補助としてAIの客観的な分析結果を参考にすることがあります。</p>
+                    <p>2. 生成AIを利用して作成された回答や告知であっても、その内容に関する一切の責任は箱庭クラフト運営チームが負うものとします。</p>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="facility-section-h2">第3章：情報管理とプライバシー</h2>
+                <div class="facility-item">
+                    <h3>第4条（機密保持）</h3>
+                    <p>1. 運営が生成AIを利用する際、プレイヤーのパスワードや個人情報など、機密性の高い情報を外部のAIサービスに入力することはありません。</p>
+                    <p>2. 入力する情報は、ゲーム内ログや申請内容など、運営業務の遂行に必要な範囲に限定されます。</p>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="facility-section-h2 text-caution">第4章：運用と更新</h2>
+                <div class="facility-item">
+                    <h3>第5条（規定の更新）</h3>
+                    <p>AI技術の発展や運用状況の変化に伴い、本規定は必要に応じて予告なく更新される場合があります。最新の規定は常に本ページにて公開されます。</p>
+                </div>
+            </section>
+
+            <section class="section-block" style="border-top: 1px solid #eee; margin-top: 50px; padding-top: 30px; text-align: center;">
+                <p style="font-weight: bold; margin-bottom: 20px;">箱庭クラフト 運営チーム</p>
+                <div class="link-area" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <a href="terms.html" class="btn-outline">利用規約</a>
+                    <a href="privacy.html" class="btn-outline">プライバシーポリシー</a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+</body>
+</html>

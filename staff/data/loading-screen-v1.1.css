@@ -1,0 +1,95 @@
+/* ローディング画面全体の背景 */
+.loading-full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+/* フェードアウト */
+.loading-full-screen.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+/* 上：HAKONIWA CRAFT */
+.loading-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.loading-5 span {
+    display: inline-block;
+    color: var(--primary-orange, #ff8c00);
+    font-weight: 700;
+    font-size: 3rem;
+    animation: animation-loading-5 1s infinite ease-in-out;
+}
+/* 文字スマホ用変更 */
+@media (max-width: 600px) {
+.loading-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.loading-5 span {
+    display: inline-block;
+    color: var(--primary-orange, #ff8c00);
+    font-weight: 700;
+    font-size: 2rem;
+    animation: animation-loading-5 1s infinite ease-in-out;
+}
+}
+/* スペースの幅調整 */
+.loading-5 span.loading-space {
+    width: 1rem;
+    animation: none; /* スペースは動かさない */
+}
+
+/* アニメーションの遅延（1文字ずつずらす） */
+.loading-5 span:nth-of-type(1) { animation-delay: 0.0s; }
+.loading-5 span:nth-of-type(2) { animation-delay: 0.1s; }
+.loading-5 span:nth-of-type(3) { animation-delay: 0.2s; }
+.loading-5 span:nth-of-type(4) { animation-delay: 0.3s; }
+.loading-5 span:nth-of-type(5) { animation-delay: 0.4s; }
+.loading-5 span:nth-of-type(6) { animation-delay: 0.5s; }
+.loading-5 span:nth-of-type(7) { animation-delay: 0.6s; }
+.loading-5 span:nth-of-type(8) { animation-delay: 0.7s; }
+/* スペース飛ばして CRAFT分 */
+.loading-5 span:nth-of-type(10) { animation-delay: 0.8s; }
+.loading-5 span:nth-of-type(11) { animation-delay: 0.9s; }
+.loading-5 span:nth-of-type(12) { animation-delay: 1.0s; }
+.loading-5 span:nth-of-type(13) { animation-delay: 1.1s; }
+.loading-5 span:nth-of-type(14) { animation-delay: 1.2s; }
+
+@keyframes animation-loading-5 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* 下：Connecting to... */
+.loading-sub-text {
+    font-size: 1rem;
+    color: #666;
+}
+.loading-staff-name {
+    color: var(--primary-orange, #ff8c00);
+    font-weight: 600;
+}

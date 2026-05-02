@@ -1,0 +1,238 @@
+/* =========================================
+   共通設定 & 変数 (Site Foundation)
+   ========================================= */
+:root {
+    --primary-color: #e67e22;    /* 温かみのあるオレンジ */
+    --accent-color: #d35400;     /* 濃いオレンジ（ホバー用） */
+    --bg-color: #fdfaf6;         /* 柔らかな背景色 */
+    --text-color: #4a4a4a;       /* メイン文字色 */
+    --light-text: #888888;       /* 補助文字色 */
+    --white: #ffffff;
+    --header-height: 80px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.8;
+    overflow-x: hidden;
+    /* overflow: hidden; が直接記述されていた場合は削除してください */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   共通ヘッダー (Header)
+   ========================================= */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    z-index: 9999; /* ヘッダーを最前面に保持 */
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.server-icon {
+    height: 50px;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* ナビゲーション */
+#main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+#main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+#main-nav a:hover { color: var(--primary-color); }
+
+/* ドロップダウンの修正 */
+.dropdown { position: relative; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* 親メニューの直下に配置 */
+    left: 0;
+    background-color: #ffffff; /* 明示的に白を指定 */
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    padding: 10px 0;
+    z-index: 10000; /* ヘッダー内の他の要素より前面へ */
+}
+
+.dropdown-content a {
+    padding: 10px 20px;
+    display: block;
+    font-size: 0.85rem !important;
+    color: var(--text-color) !important;
+    line-height: 1.4;
+    transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #fff9f5;
+    color: var(--primary-color) !important;
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+
+/* --- スマホ用トグルボタン --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    z-index: 10001;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* クリック時（activeクラスがついた時）の変形 */
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* =========================================
+   共通ボタン・エリア
+   ========================================= */
+.button-area-flex {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px dashed #e0ddd9;
+}
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    font-size: 16px;
+}
+
+.btn-primary-nav {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+}
+.btn-primary-nav:hover {
+    background-color: var(--accent-color) !important;
+    transform: translateY(-3px);
+}
+
+.btn-outline-nav {
+    background-color: #fff !important;
+    color: var(--text-color) !important;
+    border: 2px solid #e0ddd9 !important;
+}
+.btn-outline-nav:hover {
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   共通フッター (Footer)
+   ========================================= */
+footer {
+    background-color: #f0ede9;
+    padding: 60px 20px 40px;
+    text-align: center;
+    border-top: 1px solid #e0ddd9;
+    position: relative;
+    z-index: 10; /* コンテンツの下に配置されるよう調整 */
+}
+
+.footer-group { margin-bottom: 25px; font-size: 0.85rem; }
+.footer-group a { text-decoration: none; color: var(--text-color); margin: 0 10px; }
+.footer-group a:hover { color: var(--primary-color); }
+footer p { font-size: 0.8rem; color: var(--light-text); }
+
+/* =========================================
+   共通レスポンシブ (Common Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    #main-nav {
+        display: none; 
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        z-index: 9998;
+    }
+    #main-nav.open { display: block; }
+    #main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        text-align: center;
+        background: #fafafa;
+        width: 100%;
+        display: none; /* スマホ時はクリック等での制御が必要な場合はここを調整 */
+    }
+    /* スマホ時にホバーで出すのは難しいため、常時出すかJSで開閉させるのが一般的です */
+    .dropdown:hover .dropdown-content { display: block; }
+}

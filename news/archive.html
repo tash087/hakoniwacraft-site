@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュースアーカイブ | 箱庭クラフト</title>
+    
+    <link rel="stylesheet" href="../css/common.css?v=20260304">
+    <link rel="stylesheet" href="../css/style.css?v=20260304">
+    <link rel="stylesheet" href="../css/news.css?v=20260304">
+    
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <script src="../js/include.js?randomcode=pW2gXHsRJw" defer></script>
+    <script src="../js/day-count.js?randomcode=pW2gXHsRJw" defer></script>
+
+    <style>
+        /* =========================================
+           アーカイブページ固有のUI改善
+           ========================================= */
+        
+        /* セクション間の余白調整：共通ヘッダー(固定)の下に潜り込まないように設定 */
+        .section-padding {
+            padding-top: calc(var(--header-height, 80px) + 20px) !important;
+            padding-bottom: 100px;
+        }
+
+        /* ページヒーローエリア：共通ヘッダーとデザインを分ける */
+        .archive-hero {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #fffaf5, transparent);
+            border-radius: 30px;
+        }
+
+        .archive-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #333;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .archive-hero .sub-title {
+            display: block;
+            font-size: 1rem;
+            color: #e67e22;
+            font-weight: 700;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* 絞り込みエリア */
+        .filter-container {
+            display: flex;
+            gap: 12px;
+            margin: 0 0 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 5px 0 15px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .filter-btn {
+            background: #fff;
+            border: 2px solid #eee;
+            color: #666;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .filter-btn:hover {
+            border-color: #e67e22;
+            color: #e67e22;
+            transform: translateY(-2px);
+            background: #fffaf5;
+        }
+
+        .filter-btn.active {
+            background: #e67e22;
+            border-color: #e67e22;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
+
+        /* ニュースリスト */
+        .news-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .news-card-item {
+            display: grid;
+            grid-template-columns: 120px 140px 1fr;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 16px;
+            text-decoration: none !important;
+            color: inherit;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .news-card-item:hover {
+            transform: scale(1.02);
+            border-color: #e67e22;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #999;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .news-card-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .news-card-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 20px;
+            }
+            .archive-hero h1 { font-size: 2rem; }
+        }
+
+        .loading-area {
+            text-align: center;
+            padding: 60px 0;
+            color: #999;
+        }
+    </style>
+</head>
+<body class="sub-page archive-page">
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <section class="archive-hero">
+            <h1>News Archive</h1>
+            <span class="sub-title">過去の記事一覧</span>
+        </section>
+
+        <nav id="filter-area" class="filter-container" aria-label="記事カテゴリ絞り込み">
+            <button type="button" class="filter-btn active" data-category="all">すべて表示</button>
+        </nav>
+
+        <div id="archive-list" class="news-list-container" aria-live="polite">
+            <div class="loading-area">
+                <p>記事データを読み込んでいます...</p>
+            </div>
+        </div>
+
+        <div class="news-footer" style="margin-top: 60px; text-align: center;">
+            <a href="../index.html" class="btn-nav btn-primary-nav" style="padding: 15px 40px; border-radius: 50px;">トップページへ戻る</a>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const listContainer = document.getElementById('archive-list');
+            const filterArea = document.getElementById('filter-area');
+            let allNews = [];
+
+            function renderNews(category) {
+                const filtered = category === 'all' 
+                    ? allNews 
+                    : allNews.filter(item => item.category === category);
+
+                if (filtered.length === 0) {
+                    listContainer.innerHTML = `
+                        <div style="text-align:center; padding: 60px; background:#fff; border-radius:20px;">
+                            <p style="color:#999;">該当する記事が見つかりませんでした。</p>
+                        </div>`;
+                    return;
+                }
+
+                listContainer.innerHTML = filtered.map(item => `
+                    <a href="${item.url}" class="news-card-item">
+                        <span class="news-date">${item.date}</span>
+                        <span class="news-category-badge">${item.category}</span>
+                        <span class="news-card-title">${item.title}</span>
+                    </a>
+                `).join('');
+            }
+
+            try {
+                const response = await fetch('../admin/news.json');
+                if (!response.ok) throw new Error('Network error');
+                
+                const data = await response.json();
+                
+                // 日付の降順（新しい順）にソート
+                allNews = data.sort((a, b) => new Date(b.date.replace(/\./g, '-')) - new Date(a.date.replace(/\./g, '-')));
+
+                if (allNews.length === 0) {
+                    listContainer.innerHTML = '<p style="text-align:center; padding: 50px;">記事がありません。</p>';
+                    return;
+                }
+
+                // カテゴリボタンの動的生成
+                const categories = [...new Set(allNews.map(item => item.category))];
+                categories.forEach(cat => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'filter-btn';
+                    btn.textContent = cat;
+                    btn.dataset.category = cat;
+                    filterArea.appendChild(btn);
+                });
+
+                // フィルタリング処理
+                filterArea.addEventListener('click', (e) => {
+                    const targetBtn = e.target.closest('.filter-btn');
+                    if (!targetBtn) return;
+
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    targetBtn.classList.add('active');
+
+                    renderNews(targetBtn.dataset.category);
+                });
+
+                renderNews('all');
+
+            } catch (error) {
+                console.error('Fetch error:', error);
+                listContainer.innerHTML = `
+                    <div style="text-align:center; padding: 40px; color:#e74c3c; font-weight:bold;">
+                        データの読み込みに失敗しました。
+                    </div>`;
+            }
+        });
+    </script>
+</body>
+</html>

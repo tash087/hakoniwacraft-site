@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建築物紹介 - 箱庭クラフト！</title>
+
+    <link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+    <link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
+    <link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
+    <link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+    <script src="https://uni-guild.com/js/include.js" defer></script>
+    <script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
+    <script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+
+    <link rel="stylesheet" href="data/building-v1.2.2.2.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <header class="staff-hero">
+            <h1 class="page-title"><span class="text-primary-color">BUILDINGS</span></h1>
+            <p class="staff-role-lead">箱庭クラフトを彩る建築物・ランドマークの一覧</p>
+        </header>
+
+        <div id="building-list-container" class="building-grid">
+            <p class="loading-text">SCANNING LANDSCAPE...</p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadBuildingList() {
+            const container = document.getElementById('building-list-container');
+            try {
+                // buildings.jsonを読み込み
+                const response = await fetch('data/buildings.json');
+                if (!response.ok) throw new Error('Fetch failed');
+                
+                const data = await response.json();
+                const buildings = data.buildings;
+
+                container.innerHTML = ''; // 表示をクリア
+
+                Object.keys(buildings).forEach(key => {
+                    const b = buildings[key];
+                    const card = document.createElement('a');
+                    
+                    // 詳細ページへのリンク
+                    card.href = `id/${key}`;
+                    card.className = 'building-card';
+                    
+                    // カードのHTML構造 (画像パスを指示通り ../images/building/ に固定)
+                    card.innerHTML = `
+                        <div class="building-card-img-wrapper">
+                            <img src="../images/building/${key}_main.jpg" 
+                                 class="building-card-img" 
+                                 alt="${b.name}" 
+                                 onerror="this.src='../images/building/404_building.png'">
+                        </div>
+                        <div class="building-card-content">
+                            <div class="hlid-badge">HLID: ${b.hlid}</div>
+                            <div class="building-card-name">${b.icon_emoji} ${b.name}</div>
+                            <div class="building-card-category">${b.category}</div>
+                            <div class="building-status-tag">${b.status}</div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (e) {
+                console.error(e);
+                container.innerHTML = '<p class="loading-text">SCANNING ERROR</p>';
+            }
+        }
+
+        // ページ読み込み完了時に実行
+        document.addEventListener('DOMContentLoaded', loadBuildingList);
+    </script>
+</body>
+</html>

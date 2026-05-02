@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+:root {
+    --primary-orange: #ff9800;
+    --light-orange: #fff3e0;
+    --bg-white: #ffffff;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   Page Loader - 復活・修正
+   ========================================================================== */
+#page-loader {
+    position: fixed; inset: 0; background: #fff; z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+    transition: opacity 0.6s ease;
+}
+#page-loader.fade-out { opacity: 0; visibility: hidden; }
+
+.loading-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px; /* 文字間の微調整 */
+}
+
+.loading-5 span {
+    display: inline-block;
+    color: var(--primary-orange); font-weight: 700;
+    font-size: 3rem;
+    animation: animation-loading-5 1s infinite;
+}
+/* 復活させた詳細な遅延設定 */
+.loading-5 span:nth-of-type(2) { animation-delay: .1s; }
+.loading-5 span:nth-of-type(3) { animation-delay: .2s; }
+.loading-5 span:nth-of-type(4) { animation-delay: .3s; }
+.loading-5 span:nth-of-type(5) { animation-delay: .4s; }
+.loading-5 span:nth-of-type(6) { animation-delay: .5s; }
+.loading-5 span:nth-of-type(7) { animation-delay: .6s; }
+.loading-5 span:nth-of-type(8) { animation-delay: .7s; }
+.loading-5 span:nth-of-type(9) { animation-delay: .8s; }
+.loading-5 span:nth-of-type(10) { animation-delay: .9s; }
+.loading-5 span:nth-of-type(11) { animation-delay: .10s; }
+.loading-5 span:nth-of-type(12) { animation-delay: .10.5s; }
+.loading-5 span:nth-of-type(13) { animation-delay: .11s; }
+.loading-5 span:nth-of-type(14) { animation-delay: .12s; }
+
+@keyframes animation-loading-5 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); } /* 下に沈む動き */
+}
+
+/* ==========================================================================
+   Main Content Styles (前回の修正を維持)
+   ========================================================================== */
+.char-intro-section { padding: 80px 20px 40px; text-align: center; }
+.title-badge {
+    display: inline-block; color: var(--primary-orange); background: var(--light-orange);
+    padding: 4px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px;
+}
+.hero-catchcopy { font-size: 2.4rem; font-weight: 900; margin-bottom: 20px; color: #333; }
+.highlight-orange { color: var(--primary-orange); }
+
+/* Slider Container */
+.char-gallery-wrapper { position: relative; padding: 40px 0; overflow: hidden; }
+.char-slider-container {
+    display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 20px calc(50% - 450px); scrollbar-width: none;
+}
+.char-slider-container::-webkit-scrollbar { display: none; }
+
+/* Character Card */
+.char-card {
+    flex: 0 0 900px; background: var(--bg-white); border-radius: 40px;
+    display: flex; box-shadow: var(--shadow-soft); scroll-snap-align: center;
+    overflow: hidden; border: 1px solid #f2f2f2;
+}
+
+.char-visual-wrapper {
+    flex: 1; background: #fdf8f0; display: flex; 
+    justify-content: center; align-items: flex-end; padding: 40px;
+}
+.char-illust-img { max-height: 480px; width: auto; animation: floating 4s ease-in-out infinite; }
+@keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+.char-profile-box { flex: 1.1; padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; }
+.char-header-group { margin-bottom: 5px; }
+.char-category { display: block; color: #aaa; font-size: 0.85rem; margin-bottom: 8px; }
+.char-name-ja { font-size: 2.4rem; font-weight: 800; color: #333; line-height: 1.2; margin-bottom: 12px; }
+.char-tags { display: flex; gap: 8px; margin-bottom: 15px; }
+.tag { font-size: 0.75rem; color: var(--primary-orange); background: var(--light-orange); padding: 4px 12px; border-radius: 6px; font-weight: bold; }
+.char-name-en { color: #ccc; font-size: 0.9rem; margin-bottom: 25px; letter-spacing: 0.05em; }
+.char-bio { line-height: 1.9; color: var(--text-sub); margin-bottom: 30px; font-size: 0.95rem; }
+.author-link { color: #888; text-decoration: underline; text-underline-offset: 4px; font-size: 0.85rem; }
+
+/* OTHER ILLUSTRATION Card */
+.cs-card { justify-content: center; align-items: center; background: #fafafa; border: 2px dashed #eee; }
+.cs-inner { text-align: center; color: #bbb; padding: 40px; }
+.cs-sparkle { font-size: 2.5rem; margin-bottom: 15px; color: var(--primary-orange); opacity: 0.5; }
+.cs-label { font-size: 1.4rem; font-weight: 800; line-height: 1.4; margin-bottom: 10px; }
+.cs-label span { color: #ddd; font-size: 1rem; }
+.cs-subtext { font-size: 0.85rem; color: #ccc; }
+
+/* Guideline Card */
+.guideline-card {
+    max-width: 800px; margin: 0 auto; padding: 50px; background: #fff;
+    border-radius: 30px; box-shadow: var(--shadow-soft); border-left: 8px solid var(--primary-orange);
+}
+.gl-btn {
+    display: inline-block; margin: 25px 0; padding: 15px 40px; background: #333;
+    color: #fff; border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s;
+}
+.gl-btn:hover { background: var(--primary-orange); transform: translateY(-3px); }
+
+/* トップページへ戻るボタン修正 */
+.page-foot-nav { margin-top: 50px; text-align: center; }
+.nav-link-btn.primary-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: var(--text-main);
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    border: 2px solid #eee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link-btn.primary-back:hover {
+    background: var(--primary-orange);
+    color: #fff;
+    border-color: var(--primary-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .char-card { flex-direction: column; flex: 0 0 85vw; border-radius: 30px; }
+    .char-visual-wrapper { min-height: 320px; padding: 30px; }
+    .char-profile-box { padding: 40px 25px; text-align: center; }
+    .char-name-ja { font-size: 1.8rem; }
+    .char-tags { justify-content: center; }
+    .char-bio { text-align: left; }
+    .hero-catchcopy { font-size: 1.8rem; }
+}
+
+.slider-controls { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+.ctrl-btn { width: 55px; height: 55px; border-radius: 50%; border: 1px solid #eee; background: #fff; cursor: pointer; box-shadow: var(--shadow-soft); font-size: 1.2rem; }

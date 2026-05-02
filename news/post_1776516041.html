@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【重要】独自開発のルール同意システム「RuleAgree」導入と参加手順の変更について - 箱庭クラフト</title>
+    <meta name="description" content="箱庭クラフト運営チームです。サーバーの健全なコミュニティ維持と、ルール把握の徹底を目的として、独自開発のカスタムプラグイン 「RuleAgree」 を導入いたしました。
+
+
+    🛡️ システ...">
+    
+    <link rel="stylesheet" href="../css/common.css?v=1776516041">
+    <link rel="stylesheet" href="../css/style.css?v=1776516041">
+    <link rel="stylesheet" href="../css/news.css?v=1776516041">    
+    <script src="../js/include.js?v=1776516041" defer></script>
+    <script src="../js/day-count.js?v=1776516041" defer></script>
+    <script src="../js/slider.js?v=1776516041" defer></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <style>
+        /* =========================================
+            ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+            padding-bottom: 80px;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトルのレスポンシブ対応 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 箇条書きとテーブルの調整 */
+        .news-content ul { padding-left: 1.5rem; margin: 1.5rem 0; }
+        .news-content li { margin-bottom: 0.8rem; }
+        .cmd-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem; }
+        .cmd-table th, .cmd-table td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; }
+        .cmd-table th { background-color: #fafafa; color: #333; font-weight: bold; }
+        .cmd-table code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #d35400; }
+
+        /* フッターナビゲーション */
+        .news-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px dashed #e0ddd9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-footer-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* 本文内の画像装飾 */
+        .news-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* スライダースタイル */
+        .event-slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #1a1a1a;
+        }
+        .event-slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .event-slide { min-width: 100%; display: flex; justify-content: center; }
+        .event-slide img { width: 100%; height: auto; object-fit: contain; }
+    </style>
+</head>
+<body class="sub-page news-detail">
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.04.18</span>
+                    <span class="news-category-badge">重要</span>
+                </div>
+                <h1 class="news-title">【重要】独自開発のルール同意システム「RuleAgree」導入と参加手順の変更について</h1>
+                <div class="news-author-info">Posted by <strong>tash087</strong></div>
+            </header>
+
+            <section class="news-content">
+                <p>箱庭クラフト運営チームです。サーバーの健全なコミュニティ維持と、ルール把握の徹底を目的として、独自開発のカスタムプラグイン <strong>「RuleAgree」</strong> を導入いたしました。</p>
+
+<div style="background: #f0f9ff; border: 1px solid #bae6fd; padding: 25px; border-radius: 12px; margin: 30px 0;">
+    <h3 style="margin-top: 0; color: #0369a1; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">🛡️ システム導入の背景</h3>
+    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+        近年他鯖様でも増加しているBOT/SPAM対策また、チャット荒らし等対策の強化、およびルール未確認によるトラブルを未然に防ぐため、本システムを開発・導入しました。プレイヤーの皆様が最新の規約を確認した上で、安心してプレイを開始できる環境を整えるためのアップデートです。
+    </p>
+</div>
+
+<h3>📋 「RuleAgree」による参加手順</h3>
+<p>未同意の状態では、サーバー内での<strong>チャット送信機能が制限</strong>されます。以下の手順で同意を完了させてください。</p>
+
+<div style="background: #ffffff; border: 2px solid #e2e8f0; padding: 20px; border-radius: 12px; margin: 25px 0;">
+    <ol style="line-height: 2; padding-left: 20px; margin-bottom: 0;">
+        <li><strong>URLを確認：</strong> 参加時、チャット欄に表示される「ルール確認用URL」をクリックします。</li>
+        <li><strong>固有IDを取得：</strong> 表示されたサイト内で、あなた専用の<strong>認証ID（例: a3f7...）</strong>を確認してください。</li>
+        <li><strong>同意コマンドを実行：</strong> ゲーム内で <code>/ruleagree [確認したID]</code> を入力します。</li>
+        <li><strong>プレイ開始：</strong> 正しいIDが入力されると制限が解除され、自由にチャットが可能になります。</li>
+    </ol>
+</div>
+
+<div style="background: #fff8e1; border-left: 5px solid #ffc107; padding: 15px; border-radius: 4px; margin: 25px 0;">
+    <p style="margin: 0; font-size: 0.95rem; font-weight: bold; color: #856404;">
+        ⚠️ 既存住民の皆様へ
+    </p>
+    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #856404;">
+        システム移行に伴い、すでに活動中の皆様も初回ログイン時に<strong>一度だけ再同意</strong>が必要となります。お手数をおかけしますが、ご協力をお願いいたします。
+    </p>
+</div>
+
+<h3>🛠️ 技術仕様・開発情報</h3>
+<table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; color: #475569;">
+    <tr>
+        <td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold; width: 120px;">プラグイン名</td>
+        <td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">RuleAgree (v1.0.0)</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">データ保存</td>
+        <td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">SQLiteによる永続化（再ログイン時の再同意不要）</td>
+    </tr>
+</table>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: right;">
+    <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 5px;">
+        今後も「箱庭クラフト」をより安全で快適な場所にできるよう、改善に努めてまいります。
+    </p>
+    <p style="font-weight: bold; color: #1e293b;">箱庭クラフト運営チーム</p>
+</div>            </section>
+
+            <footer class="news-footer">
+                <div class="news-footer-nav">
+                    <a href="archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ戻る</a>
+                    <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="../pages/about.html" style="font-size: 0.85rem; color: var(--light-text); text-decoration: underline;">サーバーについて詳しく知る</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
+    

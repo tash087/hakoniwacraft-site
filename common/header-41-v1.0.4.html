@@ -1,0 +1,142 @@
+<style>
+    /* --- 基本スタイル --- */
+    .header-41 {
+        background: #000 !important;
+        border-bottom: 2px solid #f00 !important;
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+        height: 65px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .header-inner {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+    /* ロゴエリア */
+    .logo-link {
+        text-decoration: none;
+        flex-shrink: 0;
+        margin-right: 15px;
+    }
+
+    /* --- ナビゲーション制御 --- */
+    #main-nav {
+        display: block;
+        overflow-x: auto; /* スマホで横スクロールを許可 */
+        -webkit-overflow-scrolling: touch;
+    }
+    #main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap; /* 改行させない */
+    }
+    #main-nav ul li a {
+        color: #fff !important;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-shadow: 0 0 5px #f00;
+        transition: 0.3s;
+    }
+
+    /* ⚠異常検知（ドロップダウン）はPCのみ機能、スマホでは単体リンク化 */
+    .dropdown { position: relative; }
+    .dropdown-content {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #111 !important;
+        border: 1px solid #f00 !important;
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(255,0,0,0.2);
+    }
+    .dropdown-content a {
+        padding: 12px 16px;
+        display: block;
+        font-size: 0.8rem;
+        border-bottom: 1px solid #333;
+    }
+    /* PCでのホバー挙動 */
+    @media (min-width: 769px) {
+        .dropdown:hover .dropdown-content { display: block; }
+    }
+
+    /* 利用規約ボタン（赤背景） */
+    .terms-btn {
+        font-weight: 900;
+        color: #fff !important;
+        background: #f00;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.8rem !important;
+        text-shadow: none !important;
+    }
+
+    /* --- スマホ専用設定（バーガーメニューなし） --- */
+    @media (max-width: 768px) {
+        .header-41 {
+            height: auto;
+            padding: 10px 0;
+        }
+        .header-inner {
+            flex-direction: column; /* ロゴとメニューを上下に */
+            gap: 10px;
+        }
+        #main-nav {
+            width: 100%;
+            padding-bottom: 5px; /* スクロールバー用の余白 */
+        }
+        #main-nav ul {
+            padding: 0 10px;
+            justify-content: flex-start; /* 左詰めで流す */
+        }
+        /* スマホではドロップダウンを無効化（誤爆防止のため） */
+        .dropdown-content { display: none !important; }
+        .dropdown-trigger { color: #aaa !important; pointer-events: none; }
+    }
+
+    /* スクロールバーの非表示（デザイン優先） */
+    #main-nav::-webkit-scrollbar { display: none; }
+</style>
+
+<header class="header-41">
+    <div class="header-inner">
+        <a href="https://uni-guild.com/index.html" class="logo-link">
+            <div style="position:relative; display:inline-block;">
+                <img src="https://uni-guild.com/images/server_icon.png" alt="ロゴ" class="server-icon" style="height:30px; filter: grayscale(1) invert(1) sepia(1) saturate(10) hue-rotate(-50deg);">
+                <span style="position:absolute; top:-5px; left:-5px; background:red; color:white; font-size:8px; padding:1px 3px; font-weight:bold; box-shadow: 0 0 8px #f00;">50,000dpi</span>
+            </div>
+        </a>
+        
+        <nav id="main-nav">
+            <ul>
+                <li><a href="https://uni-guild.com/index.html">現実へ戻る</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger" style="color: #ff0 !important;">⚠ 異常検知</a>
+                    <div class="dropdown-content">
+                        <a href="#">高画質すぎて網膜が痛い</a>
+                        <a href="#">おじさんと目が合った</a>
+                        <a href="#">部屋に缶コーヒーがある</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://uni-guild.com/special/terms/termsapril-ojisan.html" class="terms-btn">特別規約</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

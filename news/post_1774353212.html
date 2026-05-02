@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【セキュリティ】サイト全域への「Cloudflare Turnstile」導入による保護強化のお知らせ - 箱庭クラフト</title>
+    
+    <link rel="stylesheet" href="../css/common.css?v=1774353212">
+    <link rel="stylesheet" href="../css/style.css?v=1774353212">
+    <link rel="stylesheet" href="../css/news.css?v=1774353212">
+    
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    
+    <script src="../js/include.js?randomcode=pW2gXHsRJw" defer></script>
+    <script src="../js/day-count.js?randomcode=pW2gXHsRJw" defer></script>
+    <script src="../js/slider.js" defer></script>
+
+    <style>
+        /* =========================================
+            ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+            padding-bottom: 80px;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトルのレスポンシブ対応 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 箇条書きとテーブルの調整 */
+        .news-content ul { padding-left: 1.5rem; margin: 1.5rem 0; }
+        .news-content li { margin-bottom: 0.8rem; }
+        .cmd-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem; }
+        .cmd-table th, .cmd-table td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; }
+        .cmd-table th { background-color: #fafafa; color: #333; font-weight: bold; }
+        .cmd-table code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #d35400; }
+
+        /* フッターナビゲーション */
+        .news-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px dashed #e0ddd9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-footer-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* 本文内の画像装飾 */
+        .news-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* スライダースタイル */
+        .event-slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #1a1a1a;
+        }
+        .event-slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .event-slide { min-width: 100%; display: flex; justify-content: center; }
+        .event-slide img { width: 100%; height: auto; object-fit: contain; }
+    </style>
+</head>
+<body class="sub-page news-detail">
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.03.24</span>
+                    <span class="news-category-badge">重要</span>
+                </div>
+                <h1 class="news-title">【セキュリティ】サイト全域への「Cloudflare Turnstile」導入による保護強化のお知らせ</h1>
+                <div class="news-author-info">Posted by <strong>tash087</strong></div>
+            </header>
+
+            <section class="news-content">
+                <p>箱庭クラフト住民の皆様、こんにちは。鯖主の tash087 です。</p>
+
+<p>公式サイト（uni-guild.com）をより安全に、かつ快適にご利用いただくため、本日よりサイト全域に最新のセキュリティシステム<strong>「Cloudflare Turnstile（ターンタイル）」</strong>を導入いたしました。</p>
+
+<div style="background: #e1f5fe; border: 2px solid #03a9f4; padding: 25px; border-radius: 12px; margin: 30px 0;">
+    <h3 style="margin-top: 0; color: #01579b; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">🛡️ 導入の目的</h3>
+    <p>悪意のあるボットによるスパム投稿や、不正アクセス（総当たり攻撃）をサーバーに到達する前に遮断し、サイトの安定性と皆様の情報を守るのが目的です。</p>
+</div>
+
+<h3>✨ 新システムの仕組みとメリット</h3>
+<p>これまでの「読みにくい文字を入力する」といった煩わしい操作は必要ありません。最新の<strong>「マネージド チャレンジ」</strong>テクノロジーを採用しています。</p>
+
+<div style="background: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; border-radius: 8px; margin: 25px 0;">
+    <ul>
+        <li><strong>自動判定：</strong> 通常のアクセスでは、バックグラウンドで「人間であること」が自動判定されます。</li>
+        <li><strong>ストレスフリー：</strong> ボットの疑いがある場合にのみ、確認用のチェックボックスが表示されます。</li>
+        <li><strong>高い利便性：</strong> ユーザーの皆様の手間を最小限に抑えつつ、最高水準のセキュリティを実現します。</li>
+    </ul>
+</div>
+
+<div style="background: #fff8e1; border-left: 5px solid #ffc107; padding: 15px 20px; border-radius: 4px; margin: 30px 0;">
+    <strong style="color: #856404;">💡 閲覧時に確認画面が出た場合</strong><br>
+    <p style="margin: 5px 0 0; font-size: 0.95rem; color: #856404;">
+        ネットワーク環境等により「人間であることを確認します」といった画面が表示されることがありますが、画面の指示に従ってチェックを入れるだけでページへ進めますのでご安心ください。
+    </p>
+</div>
+
+<hr style="border: none; border-top: 2px dashed #e0ddd9; margin: 40px 0;">
+<p style="text-align: center; font-weight: bold; color: #333;">
+    これからも、安心・安全なウェブサイト運営に努めてまいります！
+</p>            </section>
+
+            <footer class="news-footer">
+                <div class="news-footer-nav">
+                    <a href="archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ戻る</a>
+                    <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="../pages/about.html" style="font-size: 0.85rem; color: var(--light-text); text-decoration: underline;">サーバーについて詳しく知る</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

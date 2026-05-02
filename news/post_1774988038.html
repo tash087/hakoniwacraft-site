@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【緊急】運営ルーム占拠および公式キャラ実写化に関するご報告（高解像度化の失敗） - 箱庭クラフト</title>
+    <meta name="description" content="箱庭クラフト住民の皆様、大変なことが起きました。
+
+本日未明、鯖主 tash087 による過度な高画質化設定（50,000dpi）の試行中、公式キャラ「はこにわちゃん」が想定外の形で実体化。現在、...">
+    
+    <link rel="stylesheet" href="../css/common.css?v=1774988038">
+    <link rel="stylesheet" href="../css/style.css?v=1774988038">
+    <link rel="stylesheet" href="../css/news.css?v=1774988038">    
+    <script src="../js/include.js?v=1774988038" defer></script>
+    <script src="../js/day-count.js?v=1774988038" defer></script>
+    <script src="../js/slider.js?v=1774988038" defer></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <style>
+        /* =========================================
+            ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+            padding-bottom: 80px;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトルのレスポンシブ対応 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 箇条書きとテーブルの調整 */
+        .news-content ul { padding-left: 1.5rem; margin: 1.5rem 0; }
+        .news-content li { margin-bottom: 0.8rem; }
+        .cmd-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem; }
+        .cmd-table th, .cmd-table td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; }
+        .cmd-table th { background-color: #fafafa; color: #333; font-weight: bold; }
+        .cmd-table code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #d35400; }
+
+        /* フッターナビゲーション */
+        .news-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px dashed #e0ddd9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-footer-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* 本文内の画像装飾 */
+        .news-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* スライダースタイル */
+        .event-slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #1a1a1a;
+        }
+        .event-slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .event-slide { min-width: 100%; display: flex; justify-content: center; }
+        .event-slide img { width: 100%; height: auto; object-fit: contain; }
+    </style>
+</head>
+<body class="sub-page news-detail">
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.04.01</span>
+                    <span class="news-category-badge">重要</span>
+                </div>
+                <h1 class="news-title">【緊急】運営ルーム占拠および公式キャラ実写化に関するご報告（高解像度化の失敗）</h1>
+                <div class="news-author-info">Posted by <strong>tash087</strong></div>
+            </header>
+
+            <section class="news-content">
+                <p style="color: #d63031; font-weight: bold; font-size: 1.2rem;">箱庭クラフト住民の皆様、大変なことが起きました。</p>
+
+<p>本日未明、鯖主 tash087 による過度な高画質化設定（50,000dpi）の試行中、公式キャラ「はこにわちゃん」が想定外の形で実体化。現在、運営ルームが完全に占拠されております。</p>
+
+<div style="background: #1a1a1a; color: #ff4d4d; border: 2px solid #ff4d4d; padding: 25px; border-radius: 12px; margin: 30px 0; font-family: 'Courier New', Courier, monospace;">
+    <h3 style="margin-top: 0; border-bottom: 1px solid #ff4d4d; padding-bottom: 10px;">⚠️ CURRENT STATUS: CRITICAL ERROR</h3>
+    <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li>・公式キャラが実写化し、なぜか<strong>「おじさん」</strong>の姿で現出。</li>
+        <li>・運営用PCの前から動かず、スタッフのコーヒーを勝手に飲用中。</li>
+        <li>・高解像度（50,000dpi）につき、毛穴までくっきり描写。</li>
+    </ul>
+</div>
+
+<h3>🛠️ 対応状況について</h3>
+<p>現在、技術担当の <strong>kosasokami</strong> と共に解像度を下げる緊急パッチを当てておりますが、書き出しに時間がかかっており復旧の目処は立っておりません。</p>
+
+<div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px 20px; border-radius: 4px; margin: 25px 0;">
+    <p style="margin: 0; font-weight: bold; color: #856404;">
+        住民の皆様へ：衝撃的な姿となっておりますが、これは現時点での「仕様」です。
+    </p>
+</div>
+
+<div style="text-align: center; margin: 40px 0;">
+    <p style="font-weight: bold; margin-bottom: 15px;">▼ その目で「真実」をお確かめください</p>
+    <a href="https://uni-guild.com/sh/?id=character" target="_blank" style="display: inline-block; background: #ff4d4d; color: #fff; padding: 15px 40px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 0 #c0392b;">【閲覧注意】実写版はこにわちゃんを確認</a>
+</div>
+
+<div style="border-top: 1px solid #eee; margin-top: 50px; padding-top: 20px; font-size: 0.9rem; color: #999; text-align: center;">
+    <p>#箱庭クラフト #実写化おじさん　※エイプリルフール企画2026</p>
+    <p style="margin-top: 10px;">※本日は4月1日です。運営ルームは（一応）平和です。</p>
+</div>            </section>
+
+            <footer class="news-footer">
+                <div class="news-footer-nav">
+                    <a href="archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ戻る</a>
+                    <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="../pages/about.html" style="font-size: 0.85rem; color: var(--light-text); text-decoration: underline;">サーバーについて詳しく知る</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
+    

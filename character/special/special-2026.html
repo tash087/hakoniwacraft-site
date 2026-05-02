@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「はこにわちゃん」公式キャラクター紹介 | 箱庭クラフト</title>
+    <script src="include-2026-418.js"></script>
+    <link rel="stylesheet" href="special-2026.css?FID=0402-2026">
+<script>
+(function() {
+    // 1. 強制展開フラグが立っているかチェック
+    const isForceMode = window.location.hash === "#force" || localStorage.getItem('force_ojisan') === 'true';
+
+    if (isForceMode) {
+        if(window.location.hash !== "#force") window.location.hash = "#force";
+        return; 
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const now = new Date();
+        // 2026年4月1日を過ぎているか判定
+        const isPast = (now.getFullYear() > 2026 || (now.getFullYear() === 2026 && (now.getMonth() > 3 || (now.getMonth() === 3 && now.getDate() > 1))));
+
+        if (isPast) {
+            const mainContent = document.querySelector('.char-main-content');
+            if (mainContent) mainContent.remove();
+            const loader = document.getElementById('page-loader');
+            if (loader) loader.remove();
+
+            const voidLayer = document.createElement('div');
+            voidLayer.innerHTML = `
+                <section style="padding: 100px 20px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; color: #fff; font-family: sans-serif; position: relative; z-index: 10001;">
+                    <div style="font-size: 5rem; margin-bottom: 20px; filter: grayscale(1); opacity: 0.5;">🌌</div>
+                    <h1 style="font-size: 1.8rem; font-weight: 900; margin-bottom: 10px;">
+                        50,000dpiの「おじさん」は<br>
+                        <span style="color: #666;">無事に駆除されました。</span>
+                    </h1>
+                    <p style="color: #444; font-size: 0.9rem; margin-bottom: 40px; letter-spacing: 0.1em;">
+                        運営ルームの占拠は解除され、平和なドット絵の世界が戻りました。
+                    </p>
+                    
+                    <div style="background: rgba(255, 0, 0, 0.05); border: 1px solid #300; padding: 25px; border-radius: 10px; max-width: 500px; width: 90%; margin: 0 auto;">
+                        <p style="color: #f00; font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; letter-spacing: 0.05em;">
+                            ⚠️ 警告：バックアップデータ内に残留思念を確認しました。
+                        </p>
+                        <button onclick="activateForceMode()" style="background: none; border: none; color: #ff4400; font-weight: bold; text-decoration: underline; font-size: 1.1rem; cursor: pointer; display: block; width: 100%; margin-bottom: 10px;">
+                            [ アーカイブされた50,000dpiを強制展開する ]
+                        </button>
+                        <p style="color: #555; font-size: 0.7rem;">※クリックすると高画質化バグが再発する恐れがあります。</p>
+                    </div>
+
+                    <a href="https://uni-guild.com/character/" onclick="localStorage.removeItem('force_ojisan');" style="margin-top: 50px; color: #888; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid #444; padding-bottom: 2px;">
+                        🏠 現実（トップページ）へ戻る
+                    </a>
+                </section>
+            `;
+            document.body.appendChild(voidLayer);
+            document.body.classList.remove('is-loading');
+        }
+    });
+
+    // 強制展開（おじさん召喚）
+    window.activateForceMode = function() {
+        localStorage.setItem('force_ojisan', 'true');
+        window.location.hash = "#force";
+        window.location.reload();
+    };
+
+    // フラグ削除（おじさん駆除）
+    window.clearForceMode = function() {
+        localStorage.removeItem('force_ojisan');
+    };
+})();
+</script>
+</head>
+<body class="character-page-theme is-loading">
+    <div id="header-container"></div>
+
+    <div id="page-loader">
+        <div class="loader-content">
+            <div class="loading-5">SYSTEM OVERLOAD: 50,000dpi</div>
+            <div id="load-percent">0%</div>
+            <div class="loader-status">RECONSTRUCTING PIXELS...</div>
+        </div>
+    </div>
+
+    <main class="char-main-content">
+        <section style="padding: 60px 20px; text-align: center;">
+            <div style="background: #f00; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; letter-spacing: 2px; box-shadow: 0 0 15px #f00;">WARNING: SYSTEM OVERLOAD</div>
+            <h1 style="font-size: 2.2rem; margin-top: 20px; font-weight: 900;">高画質化の果てに、<br><span style="color: #ff4400; text-shadow: 0 0 15px #f00;">実体化した何か。</span></h1>
+        </section>
+
+        <article class="char-card">
+            <div class="char-visual-wrapper" id="target-visual">
+                <img src="https://uni-guild.com/images/character/ojisan_50000dpi.jpg" alt="50,000dpiの実体" class="char-illust-img" id="main-img">
+            </div>
+            
+            <div class="char-profile-box">
+                <span style="color: #f00; font-weight: bold; letter-spacing: 0.2em; display: block; margin-bottom: 10px;">[ TYPE: ULTRA HIGH-RES ENTITY ]</span>
+                
+                <h2 class="char-name-ja" data-text="はこにわちゃん (50,000dpi)">はこにわちゃん (50,000dpi)</h2>
+                
+                <div class="char-bio">
+                    <p style="font-weight: bold; font-size: 1.3rem; color: #fff; margin-bottom: 20px; text-shadow: 0 0 5px rgba(255,0,0,0.5);">「もっと高画質に…もっとリアルに…」</p>
+                    <p style="line-height: 1.8; color: #ccc; margin-bottom: 0;">
+                        開発者の狂気的なメンテナンスにより、ピクセルは細胞へ進化。<br>
+                        現在、運営ルームのコーヒーをすべて飲み干し、サーバーの再起動を阻止しています。
+                    </p>
+                </div>
+
+              
+            </div>
+        </article>
+
+<div style="text-align: center;  text-decoration:underline; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,0,0,0.3); font-size: 0.75rem; color: #666; letter-spacing: 0.1em;">
+                    PROTOCOL ID: 0401-2026 / <strong style=" font-weight: bold; ">※本プロジェクトはエイプリルフール企画です。</strong>
+                </div>
+
+        <nav style="text-align: center; padding: 40px 0 80px;">
+            <p style="font-size: 0.8rem; color: #f00; opacity: 0.7; margin-bottom: 20px; font-family: monospace;">
+                &gt;&gt; CAUTION: TODAY IS APRIL 1ST.
+            </p>
+            <a href="https://uni-guild.com/" onclick="localStorage.removeItem('force_ojisan');" class="back-link" style="color: #f00; text-decoration: none; border: 2px solid #f00; padding: 15px 40px; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s;">🏠 現実（トップ）へ戻る</a>
+        </nav>
+    </main>
+
+    <div id="footer-container"></div>
+</body>
+</html>

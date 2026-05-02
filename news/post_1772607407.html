@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テストニュース - 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/common.css?v=1772607407">
+    <link rel="stylesheet" href="../css/style.css?v=1772607407">
+    <link rel="stylesheet" href="../css/news.css?v=1772607407">
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <script src="../js/include.js?v=1772607407" defer></script>
+    <script src="../js/day-count.js?v=1772607407" defer></script>
+    <script src="../js/slider.js" defer></script>
+    <style>
+        /* =========================================
+           ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+            padding-bottom: 80px;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        /* カテゴリバッジ：共通オレンジを使用 */
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトル：レスポンシブ対応 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 本文内の画像装飾 */
+        .news-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* フッターナビゲーション */
+        .news-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px dashed #e0ddd9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-footer-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================
+           イベントスライダー（カルーセル）
+           ========================================= */
+        .event-slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            background: #1a1a1a;
+        }
+        .event-slider {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        .event-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .event-slide img {
+            width: 100%;
+            display: block;
+            margin: 0;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="sub-page news-detail">
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.03.04</span>
+                    <span class="news-category-badge">重要</span>
+                </div>
+                <h1 class="news-title">テストニュース</h1>
+                <div class="news-author-info">
+                    Posted by <strong>tash087</strong>
+                </div>
+            </header>
+
+            <section class="news-content">
+                テストニュース
+            </section>
+
+            <footer class="news-footer">
+                <div class="news-footer-nav">
+                    <a href="archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ戻る</a>
+                    <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                    <a href="../pages/about.html" style="font-size: 0.85rem; color: var(--light-text); text-decoration: underline;">サーバーについて詳しく知る</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

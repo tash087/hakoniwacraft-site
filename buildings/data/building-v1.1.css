@@ -1,0 +1,333 @@
+/* =========================================
+   Building Detail & Loading Screen v1.1
+   ========================================= */
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e67e22;
+    --light-text: #888;
+    --loading-bg: #ffffff;
+}
+
+/* --- Loading Screen Area --- */
+.loading-full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--loading-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loading-full-screen.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.loading-5 span {
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 3rem;
+    animation: animation-loading-5 1s infinite ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .loading-5 span { font-size: 2rem; }
+}
+
+.loading-5 span.loading-space {
+    width: 1rem;
+    animation: none;
+}
+
+/* Bounce Animation Delays */
+.loading-5 span:nth-of-type(1) { animation-delay: 0.0s; }
+.loading-5 span:nth-of-type(2) { animation-delay: 0.1s; }
+.loading-5 span:nth-of-type(3) { animation-delay: 0.2s; }
+.loading-5 span:nth-of-type(4) { animation-delay: 0.3s; }
+.loading-5 span:nth-of-type(5) { animation-delay: 0.4s; }
+.loading-5 span:nth-of-type(6) { animation-delay: 0.5s; }
+.loading-5 span:nth-of-type(7) { animation-delay: 0.6s; }
+.loading-5 span:nth-of-type(8) { animation-delay: 0.7s; }
+.loading-5 span:nth-of-type(10) { animation-delay: 0.8s; } /* Space skip */
+.loading-5 span:nth-of-type(11) { animation-delay: 0.9s; }
+.loading-5 span:nth-of-type(12) { animation-delay: 1.0s; }
+.loading-5 span:nth-of-type(13) { animation-delay: 1.1s; }
+.loading-5 span:nth-of-type(14) { animation-delay: 1.2s; }
+.loading-5 span:nth-of-type(15) { animation-delay: 1.3s; }
+
+@keyframes animation-loading-5 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.loading-sub-text {
+    text-align: center;
+    color: var(--light-text);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.loading-target-name {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* --- Detail Page Layout --- */
+.staff-detail-container {
+    max-width: 950px;
+    margin: 40px auto;
+}
+
+.staff-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.staff-main-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.staff-info-card {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+}
+
+@media (min-width: 851px) {
+    .staff-info-card {
+        position: sticky;
+        top: 20px;
+        z-index: 10;
+    }
+}
+
+.staff-visual { text-align: center; margin-bottom: 25px; }
+
+.staff-large-icon {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 4px solid #f8f8f8;
+    margin-bottom: 15px;
+}
+
+.staff-status {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.staff-data-list dt {
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: var(--light-text);
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+.staff-data-list dd {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-left: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+code {
+    background: #fdf2e9;
+    color: var(--accent-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.staff-content-body {
+    background: #fff;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.content-block h3 {
+    font-size: 1.3rem;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.message-quote-box {
+    margin-top: 40px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.quote-author {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+/* Nav Buttons */
+.button-area-flex {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.btn-nav {
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-outline-nav {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-nav:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+@media (max-width: 850px) {
+    .staff-main-layout { grid-template-columns: 1fr; }
+    .staff-info-card { position: relative !important; top: 0 !important; }
+}
+
+/* ローディング画面全体の背景 */
+.loading-full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+/* フェードアウト */
+.loading-full-screen.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+/* 上：HAKONIWA CRAFT */
+.loading-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.loading-5 span {
+    display: inline-block;
+    color: var(--primary-orange, #ff8c00);
+    font-weight: 700;
+    font-size: 3rem;
+    animation: animation-loading-5 1s infinite ease-in-out;
+}
+/* 文字スマホ用変更 */
+@media (max-width: 600px) {
+.loading-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.loading-5 span {
+    display: inline-block;
+    color: var(--primary-orange, #ff8c00);
+    font-weight: 700;
+    font-size: 2rem;
+    animation: animation-loading-5 1s infinite ease-in-out;
+}
+}
+/* スペースの幅調整 */
+.loading-5 span.loading-space {
+    width: 1rem;
+    animation: none; /* スペースは動かさない */
+}
+
+/* アニメーションの遅延（1文字ずつずらす） */
+.loading-5 span:nth-of-type(1) { animation-delay: 0.0s; }
+.loading-5 span:nth-of-type(2) { animation-delay: 0.1s; }
+.loading-5 span:nth-of-type(3) { animation-delay: 0.2s; }
+.loading-5 span:nth-of-type(4) { animation-delay: 0.3s; }
+.loading-5 span:nth-of-type(5) { animation-delay: 0.4s; }
+.loading-5 span:nth-of-type(6) { animation-delay: 0.5s; }
+.loading-5 span:nth-of-type(7) { animation-delay: 0.6s; }
+.loading-5 span:nth-of-type(8) { animation-delay: 0.7s; }
+/* スペース飛ばして CRAFT分 */
+.loading-5 span:nth-of-type(10) { animation-delay: 0.8s; }
+.loading-5 span:nth-of-type(11) { animation-delay: 0.9s; }
+.loading-5 span:nth-of-type(12) { animation-delay: 1.0s; }
+.loading-5 span:nth-of-type(13) { animation-delay: 1.1s; }
+.loading-5 span:nth-of-type(14) { animation-delay: 1.2s; }
+
+@keyframes animation-loading-5 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* 下：Connecting to... */
+.loading-sub-text {
+    font-size: 1rem;
+    color: #666;
+}
+.loading-staff-name {
+    color: var(--primary-orange, #ff8c00);
+    font-weight: 600;
+}

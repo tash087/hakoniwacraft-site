@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 箱庭クラフト！</title>
+<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
+<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+<!-- contact 専用 -->
+<link rel="stylesheet" href="https://uni-guild.com/css/contact-v1.0.css">
+    <style>
+        /* フッター付近のリンクボタン用 */
+        .footer-link-area {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .btn-text-link {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-color);
+            transition: 0.3s;
+        }
+        .btn-text-link:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* 2カラムレイアウトの調整 */
+        @media (min-width: 768px) {
+            .contact-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body class="status-page">
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        
+        <div class="status-header">
+            <span class="status-label">CONTACT US</span>
+            <h1 class="status-title">📧 お問い合わせ</h1>
+            <p class="status-subtitle">迅速な対応のため、Discordのご利用を推奨しています</p>
+        </div>
+
+        <div class="contact-grid">
+            
+            <div class="method-card method-discord">
+                <h3>💬 Discord</h3>
+                <p>荒らし報告・質問などは公式サーバーの専用チャンネルへ。運営スタッフが直接対応いたします。</p>
+                <a href="https://discord.gg/g3g4AwuBRE" target="_blank" class="btn-discord">Discordサーバーに参加</a>
+            </div>
+
+            <div class="method-card method-mail">
+                <h3>✉️ メール</h3>
+                <p>法人・団体の方、または緊急の連絡はこちらのアドレスまでご連絡ください。</p>
+                <div class="email-box">
+                    <div><strong>一般:</strong> support@mail.uni-guild.com</div>
+                    <div><strong>重要:</strong> contact@mail.uni-guild.com</div>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="guide-section">
+            <h2>💡 報告時のガイドライン</h2>
+            <ul class="guide-list">
+                <li><strong>荒らし被害:</strong> 発生日時、座標、被害内容、対象のプレイヤーIDを記載してください。</li>
+                <li><strong>不具合・バグ:</strong> 現象の詳細、再現手順、使用している環境を記載してください。</li>
+                <li><strong>その他:</strong> サーバーへの要望や公共施設の不備なども受け付けています。</li>
+            </ul>
+        </section>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <p class="contact-footer-note" style="margin-bottom: 10px;">お問い合わせフォームが正常に動作しない場合は、直接メールにてご連絡ください。</p>
+            <div class="footer-link-area">
+                <a href="/contact/" class="btn-text-link">🔗 お問い合わせフォームはこちら</a>
+            </div>
+        </div>
+        
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

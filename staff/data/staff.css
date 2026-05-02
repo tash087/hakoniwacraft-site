@@ -1,0 +1,255 @@
+/* =========================================
+   運営詳細ページ (Staff Detail)
+   ========================================= */
+.staff-detail-container {
+    max-width: 950px;
+    margin: 40px auto;
+}
+
+.staff-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.text-primary-color {
+    color: var(--primary-color);
+}
+
+.staff-role-lead {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    letter-spacing: 1px;
+}
+
+/* レイアウト：左にカード、右に本文 */
+.staff-main-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* 左側：プロフィールカード共通設定 */
+.staff-info-card {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+}
+
+/* 【重要】PCでのみ固定、スマホでは解除 */
+@media (min-width: 851px) {
+    .staff-info-card {
+        position: sticky;
+        top: 20px;
+        z-index: 10;
+    }
+}
+
+.staff-visual {
+    text-align: center;
+    margin-bottom: 25px;
+    /* 子要素を中央に寄せるための設定 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.staff-large-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 5px solid #fff3e0;
+    margin-bottom: 15px;
+}
+
+.staff-status {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 20px; /* 左右の余白を少し広げるとバランスが良いです */
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    
+    /* 中央配置を確実にするための設定 */
+    margin: 0 auto; 
+    width: fit-content;
+}
+
+/* 右側：メインコンテンツ */
+.staff-content-body {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.content-block h3 {
+    font-size: 1.3rem;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+    margin: 30px 0 15px;
+    color: var(--text-color);
+}
+
+.content-block h3:first-child {
+    margin-top: 0;
+}
+
+/* 引用メッセージボックス */
+.message-quote-box {
+    margin-top: 40px;
+    background: #fff9f5;
+    padding: 30px;
+    border-radius: 20px;
+    border-right: 5px solid var(--primary-color);
+    position: relative;
+}
+
+.quote-author {
+    margin: 0 0 10px 0;
+    color: #e67e22;
+    font-size: 1.1rem;
+}
+/* =========================================
+   レスポンシブ (詳細ページ)
+   ========================================= */
+@media (max-width: 850px) {
+    .staff-main-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .staff-info-card {
+        max-width: 500px;
+        margin: 0 auto 30px;
+        position: relative !important; /* 強制的に固定解除 */
+        top: 0 !important;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .staff-content-body {
+        padding: 30px 20px;
+    }
+}
+
+/* =========================================
+   詳細ページ用 ナビゲーションボタン
+   ========================================= */
+.button-area-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    min-width: 160px;
+}
+
+.btn-primary-nav {
+    background: var(--primary-color);
+    color: white !important;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary-nav:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.btn-outline-nav {
+    background: transparent;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .button-area-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-nav {
+        width: 100%;
+        min-width: auto;
+    }
+    .btn-outline-nav {
+        order: 3;
+    }
+}
+
+/* =========================================
+   プロフィールカードの視認性向上（装飾）
+   ========================================= */
+.staff-data-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.staff-data-list dt {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.staff-data-list dt::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.staff-data-list dd {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.5;
+    margin-left: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #eee;
+}
+
+.staff-data-list dd:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.staff-data-list dt:last-of-type + dd {
+    font-style: italic;
+    color: var(--accent-color);
+    font-weight: 700;
+}

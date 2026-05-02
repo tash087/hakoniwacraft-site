@@ -1,0 +1,72 @@
+<style>
+    .footer-41 {
+        background-color: #000 !important;
+        color: #fff !important;
+        border-top: 2px solid #f00 !important;
+        padding: 60px 20px 40px !important;
+        text-align: center !important;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .footer-group { 
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px;
+    }
+    .footer-group a { color: #ff4444 !important; font-size: 0.9rem; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    .footer-group a:hover { color: #fff !important; text-shadow: 0 0 10px #f00; }
+
+    /* サーバーカウンターの最適化 */
+    .server-counter-box {
+        display: flex; align-items: center; justify-content: center;
+        padding: 15px 25px; 
+        background: #111 !important; 
+        border: 1px solid #f00 !important;
+        color: #ff4444 !important;
+        margin: 20px auto;
+        box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.5);
+        width: fit-content;
+        max-width: 90%;
+    }
+
+    .counter-highlight {
+        color: #fff !important;
+        text-shadow: 0 0 15px #f00;
+        font-size: 1.6rem;
+        margin: 0 10px;
+        font-weight: 900;
+    }
+
+    .footer-copy {
+        font-size: 0.7rem;
+        color: #edf4fc;
+        margin-top: 30px;
+        letter-spacing: 2px;
+    }
+
+    /* スマホ専用 */
+    @media (max-width: 600px) {
+        .server-counter-box {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .counter-highlight { font-size: 1.3rem; }
+    }
+</style>
+
+<footer class="footer-41">
+    <div class="footer-links">
+        <div class="footer-group">
+            <a href="#">おじさん紹介</a>
+            <a href="#">50,000dpiの衝撃</a>
+            <a href="#">缶コーヒー備蓄庫</a>
+            <a href="https://uni-guild.com/special/terms/termsapril-ojisan.html">特別規約</a>
+        </div>
+    </div>
+
+    <div class="server-counter-box">
+        <span>DETECTED ENTITIES:</span>
+        <span class="counter-highlight" id="entity-counter">50,041,002</span>
+        <span>unit</span>
+    </div>
+
+    <div class="footer-copy">
+        &copy; 2026 HAKONIWA CRAFT | <span style="text-decoration: line-through; opacity: 0.5;">REALITY</span> VIRTUALITY PROJECT
+</footer>

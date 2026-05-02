@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>運営情報 - 箱庭クラフト</title>
+    
+    <link rel="stylesheet" href="../css/common.css?v=20260305">
+    <link rel="stylesheet" href="../css/style.css?v=20260305">
+    
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <script src="../js/include.js?v=20260305" defer></script>
+    <script src="../js/day-count.js" defer></script>
+
+    <style>
+        /* 運営情報ページ専用の装飾 */
+        .admin-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .admin-hero {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px dashed #f0ede9;
+        }
+
+        .admin-hero h1 {
+            font-size: 2.2rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .admin-section {
+            margin-bottom: 60px;
+        }
+
+        .admin-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        /* サーバー構成表 */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fafafa;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .spec-table th, .spec-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        .spec-table th {
+            width: 30%;
+            background: #f1f1f1;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .spec-update-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* モットー・リンク等は共通スタイルを維持 */
+        .motto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .motto-item { background: #fffaf5; padding: 25px; border-radius: 15px; border: 1px solid #fee6d3; }
+        .motto-item strong { display: block; font-size: 1.2rem; color: var(--accent-color); margin-bottom: 10px; }
+        .policy-links { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+        .btn-policy { padding: 12px 25px; border-radius: 8px; background: #fff; border: 1px solid #ddd; color: #666; font-weight: bold; text-decoration: none; transition: all 0.3s ease; }
+        .btn-policy:hover { border-color: var(--primary-color); color: var(--primary-color); background: #fffaf5; }
+
+        @media (max-width: 768px) {
+            .admin-container { padding: 30px 20px; }
+            .spec-table th { width: 40%; }
+        }
+    </style>
+</head>
+<body class="sub-page">
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <article class="admin-container">
+            
+            <header class="admin-hero">
+                <h1>📑 運営情報</h1>
+                <p>箱庭クラフトの運営体制、連絡先、費用に関する情報です。<br>最新のハードウェアにより快適なマルチプレイ環境を提供します。</p>
+            </header>
+
+            <section class="admin-section">
+                <h2>運営チーム体制とモットー</h2>
+                <p>サーバーは少数のコアメンバーによって運営されています。全てのメンバーは、プレイヤーの皆様が快適に楽しめる公平で安定した環境を提供することを最優先としています。</p>
+                
+                <div class="motto-grid">
+                    <div class="motto-item">
+                        <strong>⚖️ 公平性</strong>
+                        全てのプレイヤーに対し、ルール適用は公平に行います。
+                    </div>
+                    <div class="motto-item">
+                        <strong>🛡️ 安全性</strong>
+                        荒らしや迷惑行為に対し、迅速かつ徹底した対策を講じます。
+                    </div>
+                    <div class="motto-item">
+                        <strong>🏗️ 長期継続</strong>
+                        ワールドを長期的に維持し、大規模な建築を安心して進められる環境を約束します。
+                    </div>
+                </div>
+            </section>
+
+            <section class="admin-section">
+                <h2>連絡先とサポート窓口</h2>
+                <p>ご意見、通報、バグ報告は以下の窓口へお願いします。</p>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-top: 15px;">
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>通報・問い合わせ:</strong> Discordの専用チャンネル、または通報フォーム。</li>
+                        <li><strong>バグ報告:</strong> Discord内 <code>#bug-report</code> チャンネル。</li>
+                        <li><strong>緊急対応:</strong> 原則24時間以内に確認を行い、迅速に対応します。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="admin-section">
+                <h2>サーバー費用と構成</h2>
+                <p>より高い負荷に耐え、ラグの少ない環境を実現するため、最新のハードウェアを採用しています。</p>
+                
+                <table class="spec-table">
+                    <tr>
+                        <th>CPU <span class="spec-update-badge">UP!</span></th>
+                        <td><strong>Ryzen 7 9700X</strong> (8C/16T, Zen 5 Architecture)</td>
+                    </tr>
+                    <tr>
+                        <th>メモリ (RAM)</th>
+                        <td>16 GB</td>
+                    </tr>
+                    <tr>
+                        <th>ストレージ</th>
+                        <td>1TB (高速NVMe SSD / バックアップ含む)</td>
+                    </tr>
+                    <tr>
+                        <th>ドメイン</th>
+                        <td>Xserver Domain</td>
+                    </tr>
+                </table>
+                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">※現在は運営メンバーの自己資金で運用されています。寄付金は全額、これらハードウェアの維持・拡張費用に充てられます。</p>
+            </section>
+
+            <section class="admin-section">
+                <h2>法的情報・規約</h2>
+                <p>重要な規約・ポリシーについては以下をご確認ください。</p>
+                <div class="policy-links">
+                    <a href="terms.html" class="btn-policy">利用規約</a>
+                    <a href="donation_policy.html" class="btn-policy">寄付規約</a>
+                    <a href="tokushoho.html" class="btn-policy">特定商取引法に基づく表記</a>
+                </div>
+            </section>
+
+            <footer style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee;">
+                <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+            </footer>
+
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

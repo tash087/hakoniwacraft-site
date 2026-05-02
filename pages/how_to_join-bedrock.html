@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統合版（BE）での接続方法 - 箱庭クラフト</title>
+    <meta name="description" content="Minecraftサーバー「箱庭クラフト」に、スマホ・Switch・PS5などの統合版（Bedrock Edition）から参加する方法を詳しく解説します。">
+    
+    <link rel="stylesheet" href="../css/common.css?v=0320">
+    <link rel="stylesheet" href="../css/style.css?v=0320">
+    <link rel="stylesheet" href="../css/staff.css?v=0320">
+    <link rel="stylesheet" href="../css/about-update.css?v=0321-2">
+    
+    <link rel="icon" href="../images/server_icon.png" type="image/png">
+    
+    <script src="../js/include.js?v=bedrock-0326" defer></script>
+    <script src="../js/day-count.js" defer></script>
+
+    <style>
+        /* 接続ガイド専用の追加調整 */
+        .guide-card-section {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f0ede9;
+        }
+        .method-label {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .step-block {
+            display: flex;
+            gap: 20px;
+            background: #fffcf9;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+            align-items: center;
+        }
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 800;
+        }
+        .id-highlight-box {
+            background: white;
+            border: 2px dashed #e67e22;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .id-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            letter-spacing: 4px;
+        }
+        .be-notice-box {
+            background: #fff4eb;
+            border: 1px solid #fce5d2;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 50px;
+        }
+        .be-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .guide-card-section { padding: 30px 20px; }
+            .step-block { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .id-text { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h1 class="page-title">🎮 <span class="text-primary-color">統合版での接続方法</span></h1>
+            <p class="staff-role-lead">For Bedrock Edition (iOS / Android / Switch / PS / Xbox / Win10)</p>
+        </div>
+
+        <section class="guide-card-section">
+            <span class="method-label">METHOD 01：おすすめ</span>
+            <h2 style="font-size: 1.6rem; margin-bottom: 15px;">✨ フレンド追加で参加する</h2>
+            <p>SwitchやPS5などの「サーバー追加」が難しい機種でも、公式アカウントをフレンド登録するだけで、フレンド欄から直接参加できます。</p>
+
+            <div class="step-container">
+                <div class="step-block">
+                    <div class="step-number">1</div>
+                    <div><strong>公式アカウントを検索</strong><br>「フレンド」タブから「プレイヤーを検索」を選択します。</div>
+                </div>
+                <div class="step-block">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>ゲーマータグを入力して追加</strong><br>
+                        以下のアカウントを検索し、フレンドに追加してください。
+                        <div class="id-highlight-box">
+                            <span class="id-text">HKNWSRV</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-block">
+                    <div class="step-number">3</div>
+                    <div><strong>フレンド欄から参加</strong><br>1〜2分で自動承認されます。フレンド一覧に「参加可能なフレンド」としてサーバーが表示されたら完了です！</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-card-section">
+            <span class="method-label">METHOD 02</span>
+            <h2 style="font-size: 1.6rem; margin-bottom: 15px;">📝 サーバーアドレスを直接入力する</h2>
+            <p>スマホ、タブレット、Win10版などで、直接サーバー情報を登録して参加する方法です。</p>
+
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 20px; margin-top: 25px;">
+                <p style="margin-bottom: 10px;"><strong>サーバーアドレス：</strong> <span class="text-primary-color" style="font-weight: 800; font-size: 1.2rem;">play.uni-guild.com</span></p>
+                <p><strong>ポート番号：</strong> <span class="text-primary-color" style="font-weight: 800; font-size: 1.2rem;">19132</span></p>
+            </div>
+        </section>
+
+        <div class="be-notice-box">
+            <h3 style="color: var(--accent-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                ⚠️ 投票時の重要なお願い
+            </h3>
+            <p>統合版（BE）から参加されている方が、投票特典を受け取るには、プレイヤー名の入力方法にルールがあります。</p>
+            <div style="background: white; padding: 20px; border-radius: 12px; margin-top: 15px; border: 1px solid #fce5d2;">
+                <p>名前の先頭に <span class="be-tag">BE_</span> をつけて入力してください</p>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: #777;">
+                    例：名前が <strong>Tash_Craft</strong> の場合 → <strong style="color: var(--primary-color);">BE_Tash_Craft</strong> と入力
+                </p>
+            </div>
+            <p style="font-size: 0.8rem; color: #999; margin-top: 15px;">※「BE_」を忘れると、ゲーム内での投票特典が正しく付与されません。</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <p style="color: #888; margin-bottom: 30px;">接続できない等のトラブルがある場合は、公式Discordまでご連絡ください。</p>
+            <nav class="button-area-flex">
+                <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+            </nav>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

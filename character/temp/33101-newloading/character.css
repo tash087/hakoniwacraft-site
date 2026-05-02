@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+:root {
+    --primary-orange: #ff9800;
+    --light-orange: #fff3e0;
+    --bg-white: #ffffff;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Page Loader */
+#page-loader {
+    position: fixed; inset: 0; background: #fff; z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+    transition: opacity 0.6s ease;
+}
+#page-loader.fade-out { opacity: 0; visibility: hidden; }
+.loading-5 span {
+    display: inline-block; color: var(--primary-orange); font-weight: 800;
+    font-size: 1.8rem; animation: loading 1s infinite;
+}
+@keyframes loading { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* Intro Section */
+.char-intro-section { padding: 80px 20px 40px; text-align: center; }
+.title-badge {
+    display: inline-block; color: var(--primary-orange); background: var(--light-orange);
+    padding: 4px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px;
+}
+.hero-catchcopy { font-size: 2.4rem; font-weight: 900; margin-bottom: 20px; color: #333; }
+.highlight-orange { color: var(--primary-orange); }
+
+/* Slider Container */
+.char-gallery-wrapper { position: relative; padding: 40px 0; overflow: hidden; }
+.char-slider-container {
+    display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 20px calc(50% - 450px); scrollbar-width: none;
+}
+.char-slider-container::-webkit-scrollbar { display: none; }
+
+/* Character Card */
+.char-card {
+    flex: 0 0 900px; background: var(--bg-white); border-radius: 40px;
+    display: flex; box-shadow: var(--shadow-soft); scroll-snap-align: center;
+    overflow: hidden; border: 1px solid #f2f2f2;
+}
+
+/* イラストエリア（理想のデザインの背景色） */
+.char-visual-wrapper {
+    flex: 1; background: #fdf8f0; display: flex; 
+    justify-content: center; align-items: flex-end; padding: 40px;
+}
+.char-illust-img { max-height: 480px; width: auto; animation: floating 4s ease-in-out infinite; }
+@keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+/* プロフィールエリア */
+.char-profile-box { flex: 1.1; padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; }
+.char-header-group { margin-bottom: 5px; }
+.char-category { display: block; color: #aaa; font-size: 0.85rem; margin-bottom: 8px; }
+.char-name-ja { font-size: 2.4rem; font-weight: 800; color: #333; line-height: 1.2; margin-bottom: 12px; }
+.char-tags { display: flex; gap: 8px; margin-bottom: 15px; }
+.tag { font-size: 0.75rem; color: var(--primary-orange); background: var(--light-orange); padding: 4px 12px; border-radius: 6px; font-weight: bold; }
+.char-name-en { color: #ccc; font-size: 0.9rem; margin-bottom: 25px; letter-spacing: 0.05em; }
+.char-bio { line-height: 1.9; color: var(--text-sub); margin-bottom: 30px; font-size: 0.95rem; }
+.author-link { color: #888; text-decoration: underline; text-underline-offset: 4px; font-size: 0.85rem; }
+
+/* Guideline Card */
+.guideline-card {
+    max-width: 800px; margin: 0 auto; padding: 50px; background: #fff;
+    border-radius: 30px; box-shadow: var(--shadow-soft); border-left: 8px solid var(--primary-orange);
+}
+.gl-btn {
+    display: inline-block; margin: 25px 0; padding: 15px 40px; background: #333;
+    color: #fff; border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s;
+}
+.gl-btn:hover { background: var(--primary-orange); transform: translateY(-3px); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .char-card { flex-direction: column; flex: 0 0 85vw; border-radius: 30px; }
+    .char-visual-wrapper { min-height: 320px; padding: 30px; }
+    .char-profile-box { padding: 40px 25px; text-align: center; }
+    .char-name-ja { font-size: 1.8rem; }
+    .char-tags { justify-content: center; }
+    .char-bio { text-align: left; }
+    .hero-catchcopy { font-size: 1.8rem; }
+}
+
+.slider-controls { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+.ctrl-btn { width: 55px; height: 55px; border-radius: 50%; border: 1px solid #eee; background: #fff; cursor: pointer; box-shadow: var(--shadow-soft); font-size: 1.2rem; }

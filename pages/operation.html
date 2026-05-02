@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>運営情報 - 箱庭クラフト</title>
+
+    <link rel="stylesheet" href="https://uni-guild.com/css/common.css?time=202604020241">
+    <link rel="stylesheet" href="https://uni-guild.com/css/style.css?time=202604020241">
+    <link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?time=202604020241">
+    <link rel="stylesheet" href="https://uni-guild.com/css/news.css?time=202604020241">
+
+    <link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+
+    <script src="https://uni-guild.com/js/include.js?time=202604020241" defer></script>
+    <script src="https://uni-guild.com/js/day-count.js?time=202604020241" defer></script>
+    <script src="https://uni-guild.com/js/slider.js?time=202604020241" defer></script>
+
+    <style>
+        /* =========================================
+           UI 根本修正：配置・重なり・透過の解決
+           ========================================= */
+        
+        /* 1. ヘッダープレースホルダーの固定と透過防止 */
+        #header-placeholder {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px; /* PCヘッダーの高さに合わせる */
+            background-color: #ffffff !important;
+            z-index: 9999 !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 2. ページ全体の開始位置調整（ヘッダーに被らないようにする） */
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 80px !important; 
+        }
+
+        /* 3. メインコンテンツエリア */
+        .admin-page-main {
+            background-color: #fdfaf6;
+            min-height: 100vh;
+            padding: 60px 0 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .admin-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 4. ヒーローセクション */
+        .admin-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .admin-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .admin-hero p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 5. グリッドレイアウト（メイン + サイドバー） */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* カード共通デザイン */
+        .admin-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #e67e22;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* コンセプト（モットー）リスト */
+        .motto-list { display: grid; gap: 20px; }
+        .motto-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: #fdfaf6;
+            border-radius: 20px;
+        }
+        .motto-icon { font-size: 2.5rem; flex-shrink: 0; }
+        .motto-content h3 { color: #e67e22; margin-bottom: 5px; font-size: 1.2rem; }
+        .motto-content p { color: #666; margin: 0; line-height: 1.6; }
+
+        /* スペックボード（黒板風） */
+        .spec-board {
+            background: #2d3436;
+            color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label { color: #b2bec3; }
+        .spec-value { font-weight: bold; }
+        .spec-value em { color: #fab1a0; font-style: normal; }
+
+        /* サイドバー（スクロール追従） */
+        .admin-sidebar {
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+        }
+
+        .policy-nav { display: grid; gap: 15px; }
+        .btn-policy {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none !important;
+            color: #333;
+            transition: 0.3s;
+        }
+        .btn-policy:hover {
+            border-color: #e67e22;
+            color: #e67e22;
+            transform: translateX(5px);
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 992px) {
+            #header-placeholder { height: 70px; }
+            body { padding-top: 70px !important; }
+            .admin-grid { grid-template-columns: 1fr; }
+            .admin-sidebar { position: static; }
+            .admin-hero h1 { font-size: 2rem; }
+            .admin-card { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body class="sub-page">
+    <div id="header-placeholder"></div>
+
+    <main class="admin-page-main">
+        <div class="admin-wrapper">
+            
+            <header class="admin-hero">
+                <h1>運営情報・コンセプト</h1>
+                <p>プレイヤー一人一人が「箱庭」を作るように世界を構築し、共有・発展させていくことを目指すMinecraftサーバーです。</p>
+            </header>
+
+            <div class="admin-grid">
+                
+                <div class="admin-main-column">
+                    <section class="admin-card">
+                        <h2 class="section-title">🌱 サーバーコンセプト</h2>
+                        <div class="motto-list">
+                            <article class="motto-item">
+                                <div class="motto-icon">🏡</div>
+                                <div class="motto-content">
+                                    <h3>自由な創造と保護</h3>
+                                    <p>自分のエリアを「箱庭」として愛でる建築。領地保護により、理想の空間を誰にも邪魔されず形にできます。</p>
+                                </div>
+                            </article>
+                            <article class="motto-item">
+                                <div class="motto-icon">🤝</div>
+                                <div class="motto-content">
+                                    <h3>コミュニティの共有</h3>
+                                    <p>Discordと連携した密な環境。プレイヤーの提案が、世界の新しいルールや施設に繋がります。</p>
+                                </div>
+                            </article>
+                            <article class="motto-item">
+                                <div class="motto-icon">💎</div>
+                                <div class="motto-content">
+                                    <h3>持続可能な環境</h3>
+                                    <p>徹底した負荷対策と経済バランス。一過性ではなく、長く住み続けられる「第二の家」を目指します。</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section id="server-info" class="admin-card">
+                        <h2 class="section-title">⚙️ サーバー構成</h2>
+                        <div class="spec-board">
+                            <div class="spec-row"><span class="spec-label">CPU</span><span class="spec-value">Ryzen 7 9700X <em>(Zen 5)</em></span></div>
+                            <div class="spec-row"><span class="spec-label">Memory</span><span class="spec-value">16 GB DDR5</span></div>
+                            <div class="spec-row"><span class="spec-label">Storage</span><span class="spec-value">NVMe SSD 1TB</span></div>
+                            <div class="spec-row"><span class="spec-label">Domain Registrar</span><span class="spec-value">XServer Domain</span></div>
+                            <div class="spec-row"><span class="spec-label">Location</span><span class="spec-value">Japan</span></div>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="admin-sidebar">
+                    <div class="admin-card">
+                        <h2 class="section-title" style="font-size: 1.2rem;">Legal & Rules</h2>
+                        <p style="font-size: 0.9rem; color: #888; margin-bottom: 20px;">安全なプレイのために必ずご確認ください。</p>
+                        <nav class="policy-nav">
+                            <a href="terms.html" class="btn-policy">利用規約 <span>→</span></a>
+                            <a href="donation_policy.html" class="btn-policy">寄付規約 <span>→</span></a>
+                            <a href="tokushoho.html" class="btn-policy">特定商取引法表記 <span>→</span></a>
+                        </nav>
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.8rem; color: #bbb; line-height: 1.6;">
+                            Server Managed by tash087 &<br>箱庭クラフト運営チーム
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+
+            <footer style="text-align: center; margin-top: 30px;">
+                <a href="https://uni-guild.com/index.html" class="btn-nav" style="background: #e67e22; color: #fff; padding: 15px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block;">トップページへ戻る</a>
+            </footer>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

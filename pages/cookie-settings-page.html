@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
+<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
+<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
+<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie詳細設定 - 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* 専用ページのレイアウト設定 */
+        body {
+            background-color: #fdf2e9;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .settings-container {
+            max-width: 640px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #e67e22;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.6rem;
+        }
+
+        .intro-text {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 30px 0;
+        }
+
+        .setting-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #f0f0f0;
+        }
+
+        .setting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .setting-info {
+            flex: 1;
+        }
+
+        .setting-info h4 {
+            margin: 0 0 8px 0;
+            color: #444;
+            font-size: 1.1rem;
+        }
+
+        .setting-info p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* 注釈スタイルの追加 */
+        .setting-note {
+            margin-top: 12px;
+            padding: 12px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #ddd;
+            font-size: 0.8rem;
+            color: #777;
+            line-height: 1.5;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* スイッチ（トグルボタン）の装飾 */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 54px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        input:checked + .slider {
+            background-color: #e67e22;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        input:disabled + .slider {
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+
+        /* ボタンエリア */
+        .btn-group {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-save {
+            width: 100%;
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: #fff;
+            padding: 18px;
+            border-radius: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.2);
+            transition: all 0.2s;
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
+            opacity: 0.95;
+        }
+
+        .btn-cancel {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 0.9rem;
+            padding: 10px;
+        }
+
+        .btn-cancel:hover {
+            color: #666;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 480px) {
+            .settings-container {
+                padding: 25px;
+                margin: 20px 0;
+            }
+        }
+    </style>
+    <script src="../js/include.js?randomcode=pQ7@9g33" defer></script>
+    <script src="../js/day-count.js?randomcode=pQ7@9g33" defer></script>
+    <script src="../js/slider.js?randomcode=pQ7@9g33" defer></script>
+</head>
+<body>
+
+    <div class="settings-container">
+        <h2>🍪 Cookie詳細設定</h2>
+        <p class="intro-text">
+            箱庭クラフトでは、サービス向上のためCookieを使用しています。各項目の有効・無効を選択してください。
+        </p>
+        
+        <hr>
+        
+        <div class="setting-item">
+            <div class="setting-header">
+                <div class="setting-info">
+                    <h4>必須のCookie</h4>
+                    <p>サイトの表示やセッション管理など、基本機能に必要です。この設定をオフにすることはできません。</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked disabled>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="setting-item">
+            <div class="setting-header">
+                <div class="setting-info">
+                    <h4>パフォーマンスCookie</h4>
+                    <p>Google Analytics等(導入検討中)を使用し、訪問者数やトラフィックを分析してサイトを改善するために使用します。</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="chk-perf-page">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-note">
+                ※Webサイトのセキュリティ保護に関する通信ログは、この設定に関わらず収集される場合があります（例：Cloudflare Web Analyticsのような、脅威検出やサイト保護を目的としたサービス）。これらはサイトの安全な運営に不可欠なものとして扱われます。
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-save" onclick="saveAndGoBack()">設定を保存して元のページに戻る</button>
+            <button class="btn-cancel" onclick="handleCancel()">変更せずに戻る</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. ページ読み込み時に現在の設定を復元する
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedSettings = localStorage.getItem("cookie_settings");
+            if (savedSettings) {
+                const settings = JSON.parse(savedSettings);
+                document.getElementById('chk-perf-page').checked = settings.performance;
+            } else {
+                // 初期状態は推奨としてチェックを入れておく
+                document.getElementById('chk-perf-page').checked = true;
+            }
+        });
+
+        // 2. 保存して戻る処理
+        function saveAndGoBack() {
+            const isPerfEnabled = document.getElementById('chk-perf-page').checked;
+            
+            const settings = {
+                performance: isPerfEnabled,
+                updated: new Date().toISOString()
+            };
+
+            // ストレージに保存
+            localStorage.setItem("cookie_settings", JSON.stringify(settings));
+
+            // パフォーマンスCookieを許可した場合のみ「同意済み」フラグを立てる
+            // 拒否した場合はフラグを消すことで、ポリシー未同意状態（＝またバナーが出る）に戻す
+            if (isPerfEnabled) {
+                localStorage.setItem("cookie_accepted", "true");
+            } else {
+                localStorage.removeItem("cookie_accepted");
+            }
+
+            // 元いたページに戻る
+            goBackToOrigin();
+        }
+
+        // 3. キャンセル処理
+        function handleCancel() {
+            goBackToOrigin();
+        }
+
+        // 4. 遷移元に戻る共通ロジック
+        function goBackToOrigin() {
+            // 自分のサイト内から来た場合のみ referrer を使う（セキュリティ対策）
+            if (document.referrer && document.referrer.indexOf(window.location.hostname) !== -1) {
+                window.location.href = document.referrer;
+            } else {
+                // 直接アクセスされた場合などはトップへ
+                window.location.href = "../index.html"; 
+            }
+        }
+    </script>
+</body>
+</html>

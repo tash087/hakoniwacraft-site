@@ -1,0 +1,179 @@
+<style>
+    /* --- 基本スタイル：異常な発光 --- */
+    .header-41 {
+        background: #000 !important;
+        border-bottom: 2px solid #f00 !important;
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+        height: 65px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        /* 赤い環境光を周囲に漏らす */
+        box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    /* 背景を流れるスキャンライン演出 */
+    .header-41::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(rgba(255, 0, 0, 0) 50%, rgba(255, 0, 0, 0.05) 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+        animation: scanline 10s linear infinite;
+    }
+
+    .header-inner {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* ロゴエリア：激しく点滅 */
+    .logo-link {
+        text-decoration: none;
+        flex-shrink: 0;
+        transition: transform 0.2s;
+    }
+    .logo-link:hover {
+        transform: scale(1.1) rotate(-2deg);
+    }
+
+    /* --- ナビゲーション：サイバーパンク風 --- */
+    #main-nav {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    #main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+    }
+    #main-nav ul li a {
+        color: #fff !important;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 8px #f00;
+        transition: 0.3s;
+        position: relative;
+    }
+    #main-nav ul li a:hover {
+        color: #ff0 !important;
+        text-shadow: 0 0 15px #ff0;
+    }
+
+    /* ⚠異常検知：ドロップダウン装飾 */
+    .dropdown-content {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #000 !important;
+        border: 1px solid #f00 !important;
+        min-width: 220px;
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+    }
+    .dropdown-content a {
+        padding: 15px 20px;
+        display: block;
+        font-size: 0.75rem;
+        border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+        color: #ff4444 !important;
+    }
+    .dropdown-content a:hover {
+        background: #f00 !important;
+        color: #fff !important;
+    }
+
+    @media (min-width: 769px) {
+        .dropdown:hover .dropdown-content { display: block; animation: dropdownGlitch 0.2s ease; }
+    }
+
+    /* 特別規約ボタン：警告看板風に */
+    .terms-btn {
+        background: repeating-linear-gradient(
+            45deg,
+            #f00,
+            #f00 10px,
+            #c00 10px,
+            #c00 20px
+        ) !important;
+        border: 2px solid #fff !important;
+        box-shadow: 0 0 10px #f00;
+        animation: pulse 1.5s infinite;
+    }
+
+    /* --- スマホ最適化：横流しメニュー --- */
+    @media (max-width: 768px) {
+        .header-41 { height: auto; padding: 12px 0; }
+        .header-inner { flex-direction: column; gap: 12px; }
+        #main-nav { width: 100%; text-align: center; }
+        #main-nav ul { justify-content: center; gap: 15px; }
+    }
+
+    /* アニメーション定義 */
+    @keyframes scanline {
+        from { background-position: 0 0; }
+        to { background-position: 0 100%; }
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 10px #f00; }
+        50% { transform: scale(1.05); box-shadow: 0 0 25px #f00; }
+        100% { transform: scale(1); box-shadow: 0 0 10px #f00; }
+    }
+    @keyframes dropdownGlitch {
+        0% { transform: translateY(10px) skewX(10deg); opacity: 0; }
+        100% { transform: translateY(0) skewX(0); opacity: 1; }
+    }
+
+    #main-nav::-webkit-scrollbar { display: none; }
+</style>
+
+<header class="header-41">
+    <div class="header-inner">
+        <a href="https://uni-guild.com/index.html" class="logo-link">
+            <div style="position:relative; display:inline-block;">
+                <img src="https://uni-guild.com/images/server_icon.png" alt="ロゴ" style="height:32px; filter: grayscale(1) invert(1) brightness(2) drop-shadow(0 0 5px #f00);">
+                <span style="position:absolute; top:-8px; left:-12px; background:#f00; color:#fff; font-size:9px; padding:2px 5px; font-weight:900; border:1px solid #fff; transform:rotate(-10deg); box-shadow: 2px 2px 0 #000; white-space:nowrap; z-index: 10;">
+                    ULTRA 50,000dpi
+                </span>
+            </div>
+        </a>
+        
+        <nav id="main-nav">
+            <ul>
+                <li><a href="https://uni-guild.com/index.html">Reality / 現実へ</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger" style="color: #ff0 !important;">⚠ ERROR DETECTED</a>
+                    <div class="dropdown-content">
+                        <a href="#">網膜の再構築が必要です</a>
+                        <a href="#">おじさんとの同期率 400%</a>
+                        <a href="#">背後に微糖の気配</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://uni-guild.com/special/terms/termsapril-ojisan.html" class="terms-btn" style="padding: 8px 15px !important; border-radius: 0 !important;">特別規約：閲覧注意</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

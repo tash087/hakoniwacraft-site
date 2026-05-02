@@ -1,0 +1,148 @@
+{
+  "staff": {
+    "chihiro829": {
+      "id": "chihiro829",
+      "name": "chihiro829",
+      "title": "chihiro829 - 運営紹介 - 箱庭クラフト！",
+      "description": "Minecraftサーバー「箱庭クラフト！」の運営メンバー、chihiro829のプロフィールです。建築を通じてサーバーの発展と楽しい空間づくりに貢献します。",
+      "icon_emoji": "✨",
+      "role_lead": "Creative / Staff",
+      "status": "New Member",
+      "department": "クリエイティブ部門",
+      "main_role": "建築・景観デザイン・空間プロデュース",
+      "start_date_text": "2026年3月21日就任",
+      "start_date_raw": "2026-03-21",
+      "roots": "箱庭クラフト！",
+      "motto": "「創造で、みんなの笑顔を形にする」",
+      "sns-links": [
+        {
+          "icon": "images/sns/x_icon_black.png",
+          "url": "https://x.com/Nemunemu330"
+        },
+        {
+          "icon": "images/sns/karotter_icon.png",
+          "url": "https://karotter.com/profile/Chihiro_829"
+        }
+      ],
+      "content_blocks": [
+        {
+          "title": "🏗️ 建築への情熱と活動",
+          "text": "「箱庭クラフト！」のクリエイティブ部門として、主に建築や街並みの整備に力を入れています。このサーバーがより魅力的で、プレイヤーの皆さんが歩いているだけでワクワクするような世界に発展できるよう、全力で取り組んでいます。"
+        },
+        {
+          "title": "🌈 空間づくりへの想い",
+          "text": "私が目指しているのは、ただ建物を作るだけでなく、皆さんが集まり、交流し、心から楽しめる「最高の空間」を作ることです。細部までこだわった建築を通じて、サーバーのさらなる発展に貢献していきたいと考えています。"
+        }
+      ],
+      "message": "建築に力を入れて、このサーバーをより良く発展させれるよう全力で頑張ります！また、みんなに楽しんでもらえる空間づくりを目指して取り組んでいきます！よろしくお願いします！"
+    },
+    "kosasokami": {
+      "id": "kosasokami",
+      "name": "kosasokami",
+      "title": "kosasokami - 運営紹介 - 箱庭クラフト！",
+      "description": "Minecraftサーバー「箱庭クラフト！」のエンジニアリング・クリエイティブ・カスタマーサポート担当、kosasokamiのプロフィールです。",
+      "icon_emoji": "⚙️",
+      "role_lead": "Engineering / Creative / Customer Support",
+      "status": "Online Support",
+      "department": "エンジニアリング / クリエイティブ / カスタマーサポート部門",
+      "main_role": "サーバー維持管理、建築・コンテンツ制作、プレイヤー窓口対応",
+      "start_date_text": "2025年10月9日就任",
+      "start_date_raw": "2025-10-09",
+      "roots": "箱庭クラフト！",
+      "motto": "「交流と創造の架け橋に」",
+      "sns-links": [
+        {
+          "icon": "images/sns/commingsoon_icon.png",
+          "url": ""
+        }
+      ],
+      "content_blocks": [
+        {
+          "title": "🛠️ エンジニアリング & サポート",
+          "text": "エンジニアリング部門としてサーバーの維持・管理を行う傍ら、カスタマーサポート部門としてプレイヤーの皆さんと運営を繋ぐパイプ役を担っています。"
+        },
+        {
+          "title": "🎨 世界を彩るクリエイティブ",
+          "text": "クリエイティブ部門では、主に建築や装飾、ダンジョン等のコンテンツ制作を担当しています。"
+        }
+      ],
+      "message": "「箱庭クラフト！」がより良い場所であるために、システム面とサポート面の両方から日々尽力しています！"
+    },
+    "luke_astrea": {
+      "id": "luke_astrea",
+      "name": "Luke_Astrea",
+      "title": "Luke_Astrea - 運営紹介 - 箱庭クラフト！",
+      "description": "Minecraftサーバー「箱庭クラフト！」のプロダクトマネジメント・カスタマーサポート担当、Luke_Astreaのプロフィールです。",
+      "icon_emoji": "🌟",
+      "role_lead": "Product Management / Customer Support",
+      "status": "Online Support",
+      "department": "プロダクトマネジメント部門 / カスタマーサポート部門",
+      "main_role": "プロジェクトの進捗管理・部門間連携、プレイヤーとのパイプ役",
+      "start_date_text": "2026年1月23日就任",
+      "start_date_raw": "2026-01-23",
+      "roots": "旧ゆにくら！ / G鯖",
+      "motto": "「精一杯、箱庭クラフト！を盛り上げる」",
+      "sns-links": [
+        {
+          "icon": "images/sns/x_icon_black.png",
+          "url": "https://x.com/luke_astrea"
+        },
+        {
+          "icon": "images/sns/twitch_icon.png",
+          "url": "https://www.twitch.tv/luke_astrea"
+        }
+      ],
+      "content_blocks": [
+        {
+          "title": "🤝 運営加入の経緯",
+          "text": "「箱庭クラフト！」のプレリリース時から参加しており、現在はプロダクトマネジメント部門のメンバーとして活動しています。"
+        },
+        {
+          "title": "🚀 カスタマーサポートとしての想い",
+          "text": "カスタマーサポート部門としては、プレイヤーの皆さんと運営を繋ぐ「パイプ役」を大切にしています。"
+        }
+      ],
+      "message": "これからの「箱庭クラフト！」と、新たな運営陣の活躍をどうぞお祈り下さい！"
+    },
+    "tash087": {
+      "id": "tash087",
+      "name": "tash087",
+      "title": "tash087 - 運営紹介 - 箱庭クラフト",
+      "description": "Minecraftサーバー「箱庭クラフト」の設立者であり、全体責任者であるtash087のプロフィールです。",
+      "icon_emoji": "👑",
+      "role_lead": "Founder / System Lead / Infrastructure",
+      "status": "Founder",
+      "department": "ファウンダー / エンジニアリング部門",
+      "main_role": "サーバー全体の統括・インフラ設計・独自システムの開発",
+      "start_date_text": "2025年11月23日（設立）",
+      "start_date_raw": "2025-11-23",
+      "roots": "箱庭クラフト！創設",
+      "motto": "「技術で、自由な創造を支え抜く」",
+      "sns-links": [
+        {
+          "icon": "images/sns/x_icon_black.png",
+          "url": "https://x.com/tash087_game"
+        },
+        {
+          "icon": "images/sns/twitch_icon.png",
+          "url": "https://www.twitch.tv/tash087"
+        },
+        {
+          "icon": "images/sns/karotter_icon.png",
+          "url": "https://karotter.com/profile/tash087"
+        }
+      ],
+      "content_blocks": [
+        {
+          "title": "🛠️ 設立の想い",
+          "text": "「箱庭クラフト！」の原点は、大人たちが時間を忘れて没頭できる「居場所」を作ることでした。"
+        },
+        {
+          "title": "💻 技術的なこだわり",
+          "text": "プレイヤーの皆さんがストレスなく遊べるよう、バックエンドのインフラ設計には妥協しません。"
+        }
+      ],
+      "message": "皆さんの素晴らしい創造がこの世界を広げていく。そのプロセスを技術面から全力でサポートします。"
+    }
+  }
+}

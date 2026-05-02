@@ -1,0 +1,129 @@
+<div id="cookie-banner" class="cookie-consent-banner">
+<style>
+/* --- クッキー同意バナー：決定版スタイル --- */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 320px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid #fdf2e9;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-family: sans-serif;
+}
+
+.cookie-text {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.cookie-text strong {
+    color: #e67e22;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cookie-text a {
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px dashed #e67e22;
+}
+
+.cookie-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* メイン：同意ボタン */
+.btn-cookie-accept {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-cookie-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(230, 126, 34, 0.4);
+}
+
+/* サブ：詳細設定ボタン */
+.btn-cookie-settings {
+    background: #fff;
+    border: 1px solid #eee;
+    color: #666;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cookie-settings:hover {
+    background: #fdf2e9;
+    color: #e67e22;
+    border-color: #fdf2e9;
+}
+
+/* テキスト：閉じボタン */
+.btn-cookie-close-only {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 0.75rem;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 4px;
+    margin-top: 4px;
+    transition: color 0.2s;
+}
+
+.btn-cookie-close-only:hover {
+    color: #888;
+}
+
+/* スマホ対応 */
+@media (max-width: 480px) {
+    .cookie-consent-banner {
+        width: calc(100% - 50px);
+        left: 25px;
+        bottom: 25px;
+        padding: 20px;
+    }
+}
+</style>
+
+    <div class="cookie-text">
+        <strong>🍪 クッキーの使用について</strong>
+        箱庭クラフトでは、利便性向上のためにクッキーを使用しています。
+        詳細は <a href="https://uni-guild.com/terms-guidelines/privacy.html">プライバシーポリシー</a> をご確認ください。
+    </div>
+    <div class="cookie-buttons">
+        <button class="btn-cookie-accept" id="btn-cookie-accept">すべてのクッキーを同意する</button>
+        <button class="btn-cookie-settings" id="btn-goto-settings">Cookie詳細設定（専用サイト）</button>
+        <button class="btn-cookie-close-only" id="btn-cookie-close">同意せずに閉じる</button>
+    </div>
+</div>

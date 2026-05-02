@@ -1,0 +1,23 @@
+{
+  "buildings": {
+    "spawn-castle": {
+      "id": "spawn-castle",
+      "name": "始まりの城",
+      "icon_emoji": "🏰",
+      "category": "公共施設",
+      "status": "完成",
+      "location": "X:0, Y:64, Z:0",
+      "hlid": "spawn01",
+      "builder": "tash087",
+      "start_date": "2025年11月23日",
+      "style": "ゴシック建築",
+      "content_blocks": [
+        {
+          "title": "🏗️ 建築の経緯",
+          "text": "サーバー創設と同時に着工された、箱庭クラフトのシンボルです。"
+        }
+      ],
+      "message": "すべてのプレイヤーを温かく迎え入れる、サーバーの顔として設計しました。"
+    }
+  }
+}

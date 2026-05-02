@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【重要】「HAKONIWA Studio」始動と今後の規約改定スケジュールについて - 箱庭クラフト</title>
+    <meta name="description" content="箱庭クラフト住民の皆様、こんにちは。運営チームです。
+
+この度、「箱庭クラフト」の運営・開発チームを母体としたクリエイティブギルド「HAKONIWA Studio（箱庭スタジオ）」が正式に始動した...">
+    
+    <link rel="stylesheet" href="../css/common.css?v=1776611800">
+    <link rel="stylesheet" href="../css/style.css?v=1776611800">
+    <link rel="stylesheet" href="../css/news.css?v=1776611800">    
+    <script src="../js/include.js?v=1776611800" defer></script>
+    <script src="../js/day-count.js?v=1776611800" defer></script>
+    <script src="../js/slider.js?v=1776611800" defer></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <style>
+        /* =========================================
+            ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+            padding-bottom: 80px;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトルのレスポンシブ対応 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 箇条書きとテーブルの調整 */
+        .news-content ul { padding-left: 1.5rem; margin: 1.5rem 0; }
+        .news-content li { margin-bottom: 0.8rem; }
+        .cmd-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem; }
+        .cmd-table th, .cmd-table td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; }
+        .cmd-table th { background-color: #fafafa; color: #333; font-weight: bold; }
+        .cmd-table code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #d35400; }
+
+        /* フッターナビゲーション */
+        .news-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px dashed #e0ddd9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-footer-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* 本文内の画像装飾 */
+        .news-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* スライダースタイル */
+        .event-slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #1a1a1a;
+        }
+        .event-slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .event-slide { min-width: 100%; display: flex; justify-content: center; }
+        .event-slide img { width: 100%; height: auto; object-fit: contain; }
+    </style>
+</head>
+<body class="sub-page news-detail">
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.04.20</span>
+                    <span class="news-category-badge">お知らせ</span>
+                </div>
+                <h1 class="news-title">【重要】「HAKONIWA Studio」始動と今後の規約改定スケジュールについて</h1>
+                <div class="news-author-info">Posted by <strong>tash087</strong></div>
+            </header>
+
+            <section class="news-content">
+                <p>箱庭クラフト住民の皆様、こんにちは。運営チームです。</p>
+
+<p>この度、「箱庭クラフト」の運営・開発チームを母体としたクリエイティブギルド<strong>「HAKONIWA Studio（箱庭スタジオ）」</strong>が正式に始動したことをお知らせいたします。</p>
+
+<div style="background: #1a202c; color: #f7fafc; padding: 30px; border-radius: 15px; margin: 30px 0; border: 1px solid #4a5568;">
+    <h2 style="color: #63b3ed; margin-top: 0; font-size: 1.4rem; text-align: center;">💎 HAKONIWA Studio</h2>
+    <p style="font-size: 0.9rem; text-align: center; color: #a0aec0; margin-bottom: 20px;">- Crafting Beyond the Sandbox -</p>
+    
+    <p style="font-size: 0.95rem; line-height: 1.8;">
+        システム、建築、運営、インフラ。それぞれの分野のスペシャリストが集結し、砂場（Sandbox）の枠を超えた新しい価値を創造する技術者集団。それが「HAKONIWA Studio」です。
+    </p>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://hakoniwa-studio.com/" target="_blank" style="display: inline-block; background: #3182ce; color: #fff; padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">プレサイトをチェック</a>
+    </div>
+</div>
+
+<h3>🚀 展開予定のプロジェクト</h3>
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; background: #f8fafc; border-radius: 8px; overflow: hidden;">
+    <tr style="border-bottom: 1px solid #e2e8f0;">
+        <td style="padding: 15px; font-weight: bold; width: 100px; color: #2b6cb0;">Craft</td>
+        <td style="padding: 15px;"><strong>箱庭クラフト</strong><br><span style="font-size: 0.85rem;">至高のマイクラ体験を提供する、当プロジェクトの原点。</span></td>
+    </tr>
+    <tr style="border-bottom: 1px solid #e2e8f0;">
+        <td style="padding: 15px; font-weight: bold; color: #2b6cb0;">Link</td>
+        <td style="padding: 15px;"><strong>短縮URLサービス</strong> [準備中]<br><span style="font-size: 0.85rem;">インターネット上の導線を最適化する、独自の高機能短縮ツール。</span></td>
+    </tr>
+    <tr>
+        <td style="padding: 15px; font-weight: bold; color: #2b6cb0;">Shop</td>
+        <td style="padding: 15px;"><strong>公式ショップ</strong> [準備中]<br><span style="font-size: 0.85rem;">公式キャラクター「はこにわちゃん」を中心としたコンテンツ展開。</span></td>
+    </tr>
+</table>
+
+<h3>📢 住民の皆様へのお知らせと規約改定について</h3>
+<div style="background: #fff; border-left: 5px solid #3182ce; padding: 15px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 25px;">
+    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">
+        <strong>運営体制と規約の改訂について：</strong><br>
+        スタジオ発足後も「箱庭クラフト」の運営方針に大きな変更はありません。しかしながら、運営母体の変更に伴い、利用規約等の改訂を以下のスケジュールで実施いたします。
+    </p>
+</div>
+
+<div style="background: #f1f5f9; border-radius: 8px; padding: 20px; margin-bottom: 25px;">
+    <h4 style="margin-top: 0; color: #1e293b; font-size: 1rem;">📅 規約改定スケジュール</h4>
+    <ul style="margin-bottom: 0; line-height: 1.8; font-size: 0.95rem;">
+        <li><strong>規約の改訂完了：</strong> 2026年4月27日（月）まで</li>
+        <li><strong>新規約の施行：</strong> 2026年5月中旬予定</li>
+    </ul>
+    <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">※改訂内容の詳細は、後日改めて公式サイトにて告知いたします。</p>
+</div>
+
+<p style="font-size: 0.95rem;">
+    ※公式サイトは現在開発中の段階（Under Construction）を含んでおり、一部アニメーション等はテスト実装のものです。表示上の不具合があれば、お手数ですが <strong>#サポート窓口</strong> までご報告ください。
+</p>
+
+<h3>📝 鯖主（Studio代表）より</h3>
+<p>
+    私たちは「箱庭クラフト」という場所で、多くの試行錯誤を繰り返してきました。そこで得た知見を世界へ繋げるため、このスタジオを設立しました。<br><br>
+    まだ始動したばかりの小さな組織ですが、4人の専門性が交差する場所から、誰も見たことがない景色を作っていきます。これからの「箱庭」の進化にご期待ください。
+</p>
+
+<div style="margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; text-align: right;">
+    <p style="font-size: 0.9rem; color: #718096; margin: 0;">Representing HAKONIWA Studio</p>
+    <p style="font-size: 1.1rem; font-weight: bold; color: #2d3748; margin: 5px 0 0;">箱庭クラフト 鯖主 tash087</p>
+</div>            </section>
+
+            <footer class="news-footer">
+                <div class="news-footer-nav">
+                    <a href="archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ戻る</a>
+                    <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="../pages/about.html" style="font-size: 0.85rem; color: var(--light-text); text-decoration: underline;">サーバーについて詳しく知る</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
+    

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【重要】迷惑行為に伴うプレイヤー処罰の報告と「処罰規定」の新規作成・公開について - 箱庭クラフト</title>
+    
+    <link rel="stylesheet" href="../css/common.css?v=1773929437">
+    <link rel="stylesheet" href="../css/style.css?v=1773929437">
+    <link rel="stylesheet" href="../css/news.css?v=1773929437">
+    
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    
+    <script src="../js/include.js?v=1773929437" defer></script>
+    <script src="../js/day-count.js?v=1773929437" defer></script>
+    <script src="../js/slider.js" defer></script>
+
+    <style>
+        /* =========================================
+            ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+            padding-bottom: 80px;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトルのレスポンシブ対応 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 箇条書きとテーブルの調整 */
+        .news-content ul { padding-left: 1.5rem; margin: 1.5rem 0; }
+        .news-content li { margin-bottom: 0.8rem; }
+        .cmd-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem; }
+        .cmd-table th, .cmd-table td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; }
+        .cmd-table th { background-color: #fafafa; color: #333; font-weight: bold; }
+        .cmd-table code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #d35400; }
+
+        /* フッターナビゲーション */
+        .news-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px dashed #e0ddd9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-footer-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* 本文内の画像装飾 */
+        .news-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* スライダースタイル */
+        .event-slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #1a1a1a;
+        }
+        .event-slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .event-slide { min-width: 100%; display: flex; justify-content: center; }
+        .event-slide img { width: 100%; height: auto; object-fit: contain; }
+    </style>
+</head>
+<body class="sub-page news-detail">
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.03.19</span>
+                    <span class="news-category-badge">お知らせ</span>
+                </div>
+                <h1 class="news-title">【重要】迷惑行為に伴うプレイヤー処罰の報告と「処罰規定」の新規作成・公開について</h1>
+                <div class="news-author-info">Posted by <strong>tash087</strong></div>
+            </header>
+
+            <section class="news-content">
+                <p>箱庭クラフト住民の皆様、こんにちは。鯖主の tash087 です。</p>
+
+<p>サーバー内の公平性を保つため、本日、利用規約に抵触する行為を確認したプレイヤー1名に対して処罰を実施いたしました。あわせて、今後の判断基準を明確にするための「処罰規定」を新規公開いたしましたのでご報告いたします。</p>
+
+<div style="background: #fff5f5; border: 2px solid #d63031; padding: 25px; border-radius: 12px; margin: 30px 0;">
+    <h3 style="margin-top: 0; color: #d63031; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">🚫 処罰内容の報告</h3>
+    <ul style="margin-bottom: 0;">
+        <li><strong>対象プレイヤー：</strong> 0End_</li>
+        <li><strong>UUID：</strong> <code>33ccc1f2-f380-40be-90a0-3c5e063b3727</code></li>
+        <li><strong>違反内容：</strong> 不正クライアントの使用（Fly / 飛行チート）</li>
+        <li><strong>処罰内容：</strong> 1週間のBAN（アクセス禁止）処置</li>
+    </ul>
+</div>
+
+<h3>⚖️ 今回の判断基準とガイドライン</h3>
+<p>通常、チート行為は即時「永久BAN」の対象ですが、今回は以下の理由により1週間の有期限BANに留めております。</p>
+
+<div style="background: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; border-radius: 8px; margin: 25px 0;">
+    <ul>
+        <li><strong>改善の余地の確認：</strong> 鯖主による現場での忠告に対し、即座に違反行為を停止する姿勢が見られました。</li>
+        <li><strong>意思疎通の成立：</strong> 海外プレイヤーではありますが、対話による意思疎通が可能であり、自身の行為について正しく理解したと判断いたしました。</li>
+    </ul>
+    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+        ※再犯が確認された場合は、新規公開のガイドラインに則り、即刻「永久BAN」へ移行いたします。
+    </p>
+</div>
+
+<h3>📄 規約・処罰規定の整備について</h3>
+<p>皆様がより安心してプレイできるよう、ルールを改めて整理・公開いたしました。必ず一度目を通していただけますようお願い申し上げます。</p>
+<ul>
+    <li>🔗 <a href="https://uni-guild.com/pages/terms-list.html" target="_blank" style="color: #03a9f4; text-decoration: underline; font-weight: bold;">規約一覧</a></li>
+    <li>🔗 <a href="https://uni-guild.com/pages/ban-policy.html" target="_blank" style="color: #d63031; text-decoration: underline; font-weight: bold;">処罰規定およびBANガイドライン [NEW]</a></li>
+</ul>
+
+<div style="background: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; border-radius: 8px; margin-top: 40px;">
+    <h4 style="margin-top: 0; color: #333;">💬 鯖主より</h4>
+    <p style="font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 0;">
+        処罰は決して楽しい作業ではありませんが、皆様が公平に、そして安心して過ごせる「箱庭」を守るためには不可欠なものです。今回ガイドラインを明文化したことで、より透明性の高い運営を目指してまいります。<br><br>
+        これからも、クリーンで楽しいサーバー運営を続けてまいります。今後ともよろしくお願いいたします。
+    </p>
+    <p style="text-align: right; font-weight: bold; margin-top: 10px; color: #333;">鯖主 tash087</p>
+</div>
+
+<hr style="border: none; border-top: 2px dashed #e0ddd9; margin: 40px 0;">
+<p>不正のない、健全な箱庭ライフを共に送りましょう！</p>            </section>
+
+            <footer class="news-footer">
+                <div class="news-footer-nav">
+                    <a href="archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ戻る</a>
+                    <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="../pages/about.html" style="font-size: 0.85rem; color: var(--light-text); text-decoration: underline;">サーバーについて詳しく知る</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
+    

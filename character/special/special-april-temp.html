@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【緊急】公式キャラクター実体化に関するお知らせ | 箱庭クラフト</title>
+
+<link rel="stylesheet" href="https://uni-guild.com/css/common.css?rc=april41">
+<link rel="stylesheet" href="https://uni-guild.com/css/style.css?rc=april41">
+
+<script src="include-41-special-v0.js" defer></script>
+
+<style>
+    /* --- 基本レイアウト --- */
+    body { background-color: #000 !important; color: #eee; margin: 0; font-family: sans-serif; overflow-x: hidden; }
+    body.is-loading { overflow: hidden; }
+
+    /* --- ロード画面 --- */
+    #page-loader {
+        position: fixed; inset: 0; background: #000; z-index: 99999;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        transition: opacity 0.6s ease;
+    }
+
+    /* --- ヘッダー --- */
+    .header-41 {
+        background: #000 !important; border-bottom: 1px solid #f00 !important;
+        position: sticky; top: 0; z-index: 10000; height: 60px;
+    }
+    .header-inner {
+        max-width: 1200px; margin: 0 auto; display: flex;
+        align-items: center; justify-content: space-between; padding: 0 20px; height: 100%;
+    }
+
+    /* --- ナビゲーション（スマホ用） --- */
+    @media (max-width: 768px) {
+        #main-nav {
+            position: fixed; top: 60px; right: -100%; /* 初期は隠す */
+            width: 80%; height: calc(100vh - 60px);
+            background: rgba(0, 0, 0, 0.95); border-left: 2px solid #f00;
+            transition: 0.4s ease; padding: 40px 20px; z-index: 9999;
+        }
+        #main-nav.is-active { right: 0; } /* JSでこれが付くと表示される */
+    }
+
+    /* --- ハンバーガーボタン --- */
+    .menu-toggle {
+        display: block; background: none; border: none; cursor: pointer;
+        width: 44px; height: 44px; position: relative; z-index: 10002;
+    }
+    .menu-toggle .bar {
+        display: block; width: 25px; height: 2px; background: #f00;
+        margin: 6px auto; transition: 0.3s;
+    }
+    /* バツ印への変化 */
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* オーバーレイ */
+    .nav-overlay {
+        display: none; position: fixed; inset: 0;
+        background: rgba(0,0,0,0.7); z-index: 9998;
+    }
+    .nav-overlay.is-active { display: block; }
+
+    /* --- コンテンツスタイル --- */
+    .char-main-content { padding-bottom: 100px; }
+    .char-card { max-width: 600px; margin: 40px auto; background: #fff; color: #000; border-radius: 8px; overflow: hidden; }
+    .footer-41 { border-top: 2px solid #f00; padding: 40px 20px; text-align: center; }
+    .server-counter-box { border: 1px solid #f00; padding: 10px; margin: 10px auto; width: fit-content; min-width: 250px; }
+</style>
+</head>
+
+<body class="is-loading">
+
+<div id="page-loader">
+    <div style="color: #f00; font-family: monospace; font-weight: bold; font-size: 1.2rem; text-shadow: 0 0 10px #f00;">
+        ERROR: 50,000dpi INITIALIZING...
+    </div>
+    <div id="load-percent" style="color: #666; font-family: monospace; margin-top: 10px;">0%</div>
+</div>
+
+<header class="header-41">
+    <div class="header-inner">
+        <a href="index.html">
+            <div style="position: relative;">
+                <img src="https://uni-guild.com/images/server_icon.png" style="height:35px; filter: invert(1) sepia(1) saturate(10) hue-rotate(-50deg);">
+                <span style="position:absolute; top:-5px; left:-5px; background:red; color:white; font-size:9px; padding:2px;">50,000dpi</span>
+            </div>
+        </a>
+        
+        <button id="menu-toggle" class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="main-nav">
+            <ul style="list-style:none; padding:0;">
+                <li style="margin-bottom:20px;"><a href="index.html" style="color:#fff; text-decoration:none;">🏠 現実へ戻る</a></li>
+                <li style="margin-bottom:20px;"><a href="#" style="color:#ff0; text-decoration:none;">⚠ 異常検知</a></li>
+                <li><a href="#" style="color:#fff; background:#f00; padding:10px; border-radius:4px; text-decoration:none;">特別利用規約</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="nav-overlay" class="nav-overlay"></div>
+
+<main class="char-main-content">
+    <section style="text-align: center; padding: 60px 20px;">
+        <h1 style="font-size: 2rem;">高画質化の果てに、<br><span style="color: #f40;">実体化した何か。</span></h1>
+    </section>
+
+    <article class="char-card">
+        <img src="https://uni-guild.com/images/character/ojisan_50000dpi.jpg" style="width: 100%;">
+        <div style="padding: 20px;">
+            <h2 style="margin:0;">はこにわちゃん(実写)</h2>
+            <p>※開発担当のこだわりにより50,000dpiで実装されました。</p>
+        </div>
+    </article>
+</main>
+
+<footer class="footer-41">
+    <div id="disp-hakoniwa" class="server-counter-box">実体化進捗：<span style="color:#f00;">1,273,870</span> accelerated</div>
+    <p><small>©箱庭クラフト 2026</small></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# 1. /ID でアクセスが来たら内部的に building.php?id=ID へ
+RewriteRule ^id/([^/]+)/?$ building.php?id=$1 [L,QSA]
+
+# 2. ファイルやディレクトリが存在しない場合の処理
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^building$ building.php [L,QSA]

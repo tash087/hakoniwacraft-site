@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft 1.21.4 tellraw URL Editor</title>
+    <style>
+        :root { --bg: #1a1b26; --card: #24283b; --accent: #7aa2f7; --text: #cfc9c2; --green: #9ece6a; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 950px; margin: auto; background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #414868; }
+        .segment { background: #1f2335; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 5px solid var(--accent); position: relative; }
+        .row { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-end; flex-wrap: wrap; }
+        input, select { padding: 8px; border-radius: 4px; border: 1px solid #414868; background: #cfc9c2; color: #1a1b26; }
+        .text-input { flex: 2; min-width: 250px; font-weight: bold; }
+        .event-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; }
+        .output-area { width: 100%; height: 160px; background: #16161e; color: var(--green); font-family: 'Consolas', monospace; padding: 15px; box-sizing: border-box; border-radius: 8px; border: 2px solid var(--accent); margin-top: 20px; word-break: break-all; }
+        button { border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .btn-add { background: var(--green); color: #1a1b26; }
+        .btn-gen { background: var(--accent); color: #1a1b26; font-size: 1.1em; flex: 1; }
+        .btn-del { background: #f7768e; color: white; }
+        .event-type-label { font-size: 0.75em; color: var(--accent); font-weight: bold; margin-bottom: 4px; display: block; }
+        h2 { text-align: center; color: var(--accent); margin-top: 0; }
+        label { font-size: 0.8em; color: #7982a9; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>tellraw Editor (URL & Action Support)</h2>
+    
+    <div id="segments-container"></div>
+
+    <div style="display: flex; gap: 12px; margin-top: 10px;">
+        <button class="btn-add" onclick="addSegment()">+ 新しいパーツを追加</button>
+        <button class="btn-gen" onclick="generate()">コマンドを生成</button>
+    </div>
+
+    <textarea id="result" class="output-area" readonly placeholder="ここにコマンドが生成されます..."></textarea>
+</div>
+
+<script>
+let segmentCount = 0;
+const colors = ["white", "yellow", "red", "aqua", "green", "blue", "light_purple", "gold", "gray", "dark_gray", "dark_blue", "dark_green", "dark_aqua", "dark_red", "dark_purple", "black"];
+
+function addSegment() {
+    segmentCount++;
+    const div = document.createElement('div');
+    div.className = 'segment';
+    div.id = `seg_${segmentCount}`;
+    div.innerHTML = `
+        <div class="row">
+            <div style="flex:2">
+                <label>テキスト内容</label>
+                <input type="text" class="text-input" placeholder="表示するメッセージ">
+            </div>
+            <div>
+                <label>色</label>
+                <select class="color-select">
+                    ${colors.map(c => `<option value="${c}">${c}</option>`).join('')}
+                </select>
+            </div>
+            <div style="display:flex; gap:12px; padding-bottom:10px;">
+                <label><input type="checkbox" class="bold-check"> <b>B</b></label>
+                <label><input type="checkbox" class="italic-check"> <i>I</i></label>
+            </div>
+            <button class="btn-del" onclick="removeSegment(${segmentCount})">削除</button>
+        </div>
+        
+        <div class="event-grid">
+            <div>
+                <span class="event-type-label">クリックイベント</span>
+                <div style="display:flex; gap:5px;">
+                    <select class="click-action" style="width:100px">
+                        <option value="none">なし</option>
+                        <option value="open_url">URLを開く</option>
+                        <option value="run_command">コマンド実行</option>
+                        <option value="suggest_command">チャット入力</option>
+                    </select>
+                    <input type="text" class="click-value" style="flex:1" placeholder="https://... または /コマンド">
+                </div>
+            </div>
+            <div>
+                <span class="event-type-label">ホバー（説明文）</span>
+                <input type="text" class="hover-text" style="width:100%" placeholder="マウスを重ねた時のテキスト">
+            </div>
+        </div>
+    `;
+    document.getElementById('segments-container').appendChild(div);
+}
+
+function removeSegment(id) {
+    document.getElementById(`seg_${id}`).remove();
+}
+
+function generate() {
+    const segments = document.querySelectorAll('.segment');
+    let jsonArray = [""];
+
+    segments.forEach(seg => {
+        let text = seg.querySelector('.text-input').value;
+        if(!text && segments.length > 1) return; // 空のセグメントは無視
+
+        let obj = {
+            text: text,
+            color: seg.querySelector('.color-select').value,
+            bold: seg.querySelector('.bold-check').checked,
+            italic: seg.querySelector('.italic-check').checked
+        };
+
+        // クリックアクションの処理
+        const action = seg.querySelector('.click-action').value;
+        const val = seg.querySelector('.click-value').value;
+        if (action !== "none" && val) {
+            obj.clickEvent = { action: action, value: val };
+        }
+
+        // ホバーアクションの処理
+        const hover = seg.querySelector('.hover-text').value;
+        if (hover) {
+            obj.hoverEvent = { action: "show_text", contents: { text: hover } };
+        }
+
+        jsonArray.push(obj);
+    });
+
+    const command = `/tellraw @a ${JSON.stringify(jsonArray)}`;
+    document.getElementById('result').value = command;
+}
+
+function removeSegment(id) {
+    if(document.querySelectorAll('.segment').length > 1) {
+        document.getElementById(`seg_${id}`).remove();
+    }
+}
+
+addSegment();
+</script>
+
+</body>
+</html>

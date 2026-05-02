@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【機能追加！】公式リンク共有コマンドの実装 ＆ 使い方ガイド - 箱庭クラフト</title>
+<link rel="stylesheet" href="https://uni-guild.com/css/common.css?random=vhq09w83e">
+<link rel="stylesheet" href="https://uni-guild.com/css/style.css?random=vhq09w83e">
+<link rel="stylesheet" href="https://uni-guild.com/css/staff.css?random=vhq09=vhq09w83e">
+<link rel="stylesheet" href="https://uni-guild.com/css/about-update.css?random=vhq09w83e">
+<link rel="stylesheet" href="https://uni-guild.com/css/news.css?random=vhq09w83e">
+
+<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
+
+<script src="https://uni-guild.com/js/include.js?random=vhq09w83e" defer></script>
+<script src="https://uni-guild.com/js/day-count.js?random=vhq09w83e" defer></script>
+<script src="https://uni-guild.com/js/slider.js?random=vhq09w83e" defer></script>
+<script src="https://uni-guild.com/js/logger.js?random=vhq09w83e" async></script>
+    <style>
+        /* =========================================
+           ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* ページに馴染むよう軽い影を追加 */
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color); /* 共通変数のオレンジを使用 */
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトル崩れの修正 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 本文内の箇条書きを整える */
+        .news-content ul {
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .news-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* 本文内のリンク色を調整 */
+        .news-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .news-footer {
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px dashed #e0ddd9; /* 共通デザインに合わせる */
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.02.12</span>
+                    <span class="news-category-badge">アップデート</span>
+                </div>
+                
+                <h1 class="news-title">【アップデート/機能追加】公式リンク共有コマンドの実装 ＆ 使い方ガイド</h1>
+                
+                <div class="news-author-info">
+                    Posted by tash087                </div>
+            </header>
+
+            <section class="news-content">
+                <p>いつも「箱庭クラフト」をご利用いただきありがとうございます。運営のtash087です。</p>
+
+<p>新規プレイヤーへの案内や、フレンドとの情報共有をスムーズにするため、本日より<strong>「公式リンク共有機能」</strong>を実装いたしました。</p>
+
+<div style="background: #f0f7ff; border: 1px solid #d1e3f8; padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <h4 style="margin-top: 0; color: #2980b9;">🔗 公式リンク共有機能とは</h4>
+    <p>サーバーの公式DiscordやWebサイトなどのURLを、指定したプレイヤーのチャット欄に直接送信できる機能です。</p>
+    
+    <p style="margin-bottom: 5px;"><strong>【対象権限】</strong></p>
+    <p style="background: #fff; display: inline-block; padding: 2px 10px; border-radius: 4px; border: 1px solid #eee; font-weight: bold; color: #e67e22;">住民（residents）以上</p>
+</div>
+
+<h3>🛠 使い方・コマンド一覧</h3>
+<p>以下のコマンドを入力することで、相手にリンクを送信できます。</p>
+
+<div style="background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: monospace; line-height: 1.6;">
+    <span style="color: #ae81ff;">/link-list</span> &lt;サイト名&gt; &lt;プレイヤー名&gt;
+</div>
+
+<h4 style="margin-top: 20px;">サイト名の種類</h4>
+<ul>
+    <li><strong>Discord</strong> （公式Discordの招待リンク）</li>
+    <li><strong>YouTube</strong> （公式チャンネルのURL）</li>
+    <li><strong>Web</strong> （公式サイトのトップページ）</li>
+</ul>
+
+<p><strong>例：</strong> <code>/link-list Discord tash087</code><br>
+<small style="color: #666;">（tash087さんにDiscordの招待リンクを送信します）</small></p>
+
+<div style="background: #fffbe6; border-left: 5px solid #ffe58f; padding: 10px 15px; margin: 20px 0;">
+    <strong>💡 ポイント：</strong><br>
+    送信されたプレイヤー側の画面には<strong>「[ここをクリックして表示する]」</strong>というテキストが表示されます。これをクリックすると、ブラウザで対象のページが開きます。
+</div>
+
+<p>初心者さんの案内や、コミュニティへの勧誘にぜひご活用ください！</p> </section>
+
+            <footer class="news-footer">
+                <a href="../index.html" class="btn-nav btn-outline-nav">トップへ戻る</a>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

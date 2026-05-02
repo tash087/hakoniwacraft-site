@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【重要】LWC（チェスト等保護）仕様変更およびドア自動ロックの有効化について - 箱庭クラフト</title>
+    
+    <link rel="stylesheet" href="../css/common.css?v=1772939188">
+    <link rel="stylesheet" href="../css/style.css?v=1772939188">
+    <link rel="stylesheet" href="../css/news.css?v=1772939188">
+    
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    
+    <script src="../js/include.js?v=1772939188" defer></script>
+    <script src="../js/day-count.js?v=1772939188" defer></script>
+    <script src="../js/slider.js" defer></script>
+
+    <style>
+        /* =========================================
+            ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+            padding-bottom: 80px;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトルのレスポンシブ対応 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 箇条書きとテーブルの調整 */
+        .news-content ul { padding-left: 1.5rem; margin: 1.5rem 0; }
+        .news-content li { margin-bottom: 0.8rem; }
+        .cmd-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem; }
+        .cmd-table th, .cmd-table td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; }
+        .cmd-table th { background-color: #fafafa; color: #333; font-weight: bold; }
+        .cmd-table code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #d35400; }
+
+        /* フッターナビゲーション */
+        .news-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px dashed #e0ddd9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-footer-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* 本文内の画像装飾 */
+        .news-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* スライダースタイル */
+        .event-slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #1a1a1a;
+        }
+        .event-slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .event-slide { min-width: 100%; display: flex; justify-content: center; }
+        .event-slide img { width: 100%; height: auto; object-fit: contain; }
+    </style>
+</head>
+<body class="sub-page news-detail">
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.03.08</span>
+                    <span class="news-category-badge">お知らせ</span>
+                </div>
+                <h1 class="news-title">【重要】LWC（チェスト等保護）仕様変更およびドア自動ロックの有効化について</h1>
+                <div class="news-author-info">Posted by <strong>tash087</strong></div>
+            </header>
+
+            <section class="news-content">
+                <p>箱庭クラフト住民の皆様、いつも当サーバーでの生活を楽しんでいただき、ありがとうございます。鯖主tash087 です。</p>
+
+<p>本日は、アイテム保護プラグイン「LWC」の設定修正、および今後のドア類の取り扱いについて、<strong>適用スケジュールを前倒しした緊急の重要なお知らせ</strong>をいたします。</p>
+
+<div style="background: #fff5f5; border: 2px solid #d63031; padding: 25px; border-radius: 12px; margin: 30px 0;">
+    <h3 style="margin-top: 0; color: #d63031; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">📢 スケジュール変更のお知らせ</h3>
+    <p>当初、3月10日のメンテナンスより適用を予定しておりましたが、防犯上の重要性を鑑み、以下の通り<strong>本日の再起動より早期適用</strong>いたします。</p>
+    <ul style="margin-bottom: 0; font-weight: bold;">
+        <li>適用日時：2026年3月8日（本日） 20:00頃のサーバー再起動より</li>
+    </ul>
+</div>
+
+<h3>■ 修正内容と現在の状況</h3>
+<p>サーバー始動当初より、ドアおよびトラップドア類を設置した際、自動的にロック（保護）がかからない設定になっていたことが判明いたしました。本日の再起動後より、新規に設置するドア・トラップドアはすべて<strong>「設置と同時に自動で保護がかかる」</strong>ようになります。</p>
+
+<div style="background: #e1f5fe; border: 2px solid #03a9f4; padding: 25px; border-radius: 12px; margin: 30px 0;">
+    <h3 style="margin-top: 0; color: #01579b; font-size: 1.2rem;">🔒 自動ロック対象アイテム</h3>
+    <ul style="margin-bottom: 0;">
+        <li><strong>対象：</strong> 各種ドア、トラップドア、フェンスゲート等</li>
+        <li><strong>費用：</strong> 無料（※従来通り）</li>
+    </ul>
+</div>
+
+<h3>⚠️ 住民の皆様へのお願い</h3>
+<p><strong>これまでに設置済みのドア</strong>については、自動的に保護が追加されることはありません。防犯のため、以下のご確認をお願いいたします。</p>
+
+<div style="background: #fff8e1; border-left: 5px solid #ffc107; padding: 15px 20px; border-radius: 4px; margin: 25px 0;">
+    <p><strong>1. 既存ドアの保護方法</strong><br>
+    過去に設置したドアに鍵をかけたい場合は、一度設置し直すか、コマンド <code>/cprivate</code> を入力した後にドアを叩いて手動でロックを行ってください。</p>
+    
+    <p style="margin-top: 15px;"><strong>2. 共有施設での注意</strong><br>
+    誰でも通れるようにしたい場所にドアを設置した場合は、設置後に <code>/cremove</code>（保護解除）または <code>/cpublic</code>（公共設定）への変更をお願いいたします。</p>
+</div>
+
+<div style="background: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; border-radius: 8px; margin-top: 40px;">
+    <h4 style="margin-top: 0; color: #333;">💬 運営の想い</h4>
+    <p style="font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 0;">
+        意図せず「鍵のかからないドア」が存在していた期間があり、住民の皆様にはご不安をおかけいたしました。皆様の財産を保護するため、急ぎ本日中の適用を決定いたしました。<br><br>
+        これからも、安心して過ごせる「箱庭」を守り抜けるよう努めてまいります。ご理解とご協力をお願い申し上げます。
+    </p>
+    <p style="text-align: right; font-weight: bold; margin-top: 10px; color: #333;">鯖主 tash087</p>
+</div>
+
+<hr style="border: none; border-top: 2px dashed #e0ddd9; margin: 40px 0;">
+<p>20:00の再起動の際、一時的に接続が切れますのでご注意ください。</p>            </section>
+
+            <footer class="news-footer">
+                <div class="news-footer-nav">
+                    <a href="archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ戻る</a>
+                    <a href="../index.html" class="btn-nav btn-primary-nav">トップページへ戻る</a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="../pages/about.html" style="font-size: 0.85rem; color: var(--light-text); text-decoration: underline;">サーバーについて詳しく知る</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
