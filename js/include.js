@@ -11,7 +11,7 @@ function closeBannerAnimation(el) {
     setTimeout(() => { el.remove(); }, 400);
 }
 
-// --- 2. メニュー・ログイン関連関数 ---
+
 // --- 2. メニュー・ログイン関連関数 ---
 function initMobileMenu() {
     const menuToggle = document.getElementById('menu-toggle');
@@ -150,3 +150,14 @@ window.logoutProcess = function() {
     localStorage.removeItem('userName');
     location.reload();
 };
+
+// --- 5. 追加のDOMContentLoaded (OGP用) ---[テスト実装]---
+document.addEventListener("DOMContentLoaded", function() {
+    // ヘッダー
+    fetch('/common/og.html')
+        .then(res => res.text())
+        .then(data => {
+            const hp = document.getElementById('og-placeholder');
+            if (hp) { hp.innerHTML = data; initMobileMenu(); loadLoginMenu(); }
+        }).catch(err => console.error("Header error:", err));
+});

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クエリ保存テスト | 箱庭クラフト</title>
+    <link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
+    <script src="/js/query/query-google-api.js"></script>
+    <style>
+        body { max-width: 900px; margin: 50px auto; padding: 20px; }
+        .form-container { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #eee; border-radius: 8px; font-size: 16px; }
+        button { background: #e67e22; color: white; padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #d35400; }
+        .success { color: green; padding: 10px; background: #e8f5e9; border-radius: 8px; }
+        .error { color: red; padding: 10px; background: #ffebee; border-radius: 8px; }
+        .query-item { background: #f5f5f5; margin: 10px 0; padding: 15px; border-radius: 8px; border-left: 4px solid #e67e22; }
+        .query-date { font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main class="container">
+    <h1>📝 クエリ保存テスト（Google Sheets連携）</h1>
+    
+    <div class="form-container">
+        <div>
+            <label>ID（任意）:</label>
+            <input type="text" id="idInput" placeholder="例: user123">
+            
+            <label>保存するテキスト:</label>
+            <textarea id="queryInput" rows="3" placeholder="ここに保存したい内容を入力"></textarea>
+            
+            <button onclick="saveQuery()">💾 スプレッドシートに保存</button>
+        </div>
+    </div>
+
+    <div id="message"></div>
+
+    <div style="margin-top: 40px;">
+        <h2>📋 保存履歴</h2>
+        <div id="queryList"></div>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+</body>
+</html>
