@@ -41,6 +41,13 @@
     margin-bottom: 5px;
 }
 
+.version {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
 #server-ip {
     font-size: 1.8rem;
     font-weight: bold;
