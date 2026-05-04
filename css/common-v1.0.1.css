@@ -236,3 +236,48 @@ footer p { font-size: 0.8rem; color: var(--light-text); }
     /* スマホ時にホバーで出すのは難しいため、常時出すかJSで開閉させるのが一般的です */
     .dropdown:hover .dropdown-content { display: block; }
 }
+
+/*  =========================================
+    共通テーブルスタイル (Plan Table)
+    ========================================= */
+        .plan-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .plan-table th,
+        .plan-table td {
+            padding: 18px;
+            border: 1px solid #f0ede9;
+            text-align: center;
+        }
+
+        .plan-table th {
+            background: #fdf2e9;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .legal-footer {
+            margin-top: 80px;
+            padding: 40px 20px;
+            border-top: 2px dashed #e0ddd9;
+            text-align: center;
+        }
+
+        .legal-footer a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .legal-footer a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }

@@ -1,0 +1,754 @@
+/* =========================================
+   ダークモードスタイル - 完全版
+   既存のcommon-v1.0.css, style-v1.0.css, 
+   concept-v1.0.css, contact-v1.0.css, news-v1.0.cssに対応
+   ========================================= */
+
+/* =========================================
+   ダークモード変数（上書き）
+   ========================================= */
+.dark-mode {
+    --primary-color: #f39c12 !important;
+    --accent-color: #e67e22 !important;
+    --bg-color: #12121c !important;
+    --text-color: #ffffff !important;
+    --light-text: #d4d4d8 !important;
+    --white: #1e1e2e !important;
+    --bg-gray: #0a0a14 !important;
+    --border-light: #2d2d44 !important;
+    --header-height: 80px;
+}
+
+/* =========================================
+   ベース背景・文字色
+   ========================================= */
+.dark-mode body {
+    background-color: #12121c !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .container,
+.dark-mode .main-content,
+.dark-mode .section {
+    background-color: transparent !important;
+}
+
+/* =========================================
+   ヘッダー関連
+   ========================================= */
+.dark-mode header,
+.dark-mode #header-placeholder header {
+    background-color: #0a0a14 !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode .header-inner {
+    background-color: transparent !important;
+}
+
+.dark-mode #main-nav a {
+    color: #f0f0f0 !important;
+}
+
+.dark-mode #main-nav a:hover {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .dropdown-content {
+    background-color: #1a1a2e !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .dropdown-content a {
+    color: #f0f0f0 !important;
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #2a2a3e !important;
+    color: var(--primary-color) !important;
+}
+
+/* スマホメニュー */
+.dark-mode #main-nav {
+    background-color: #0a0a14 !important;
+}
+
+.dark-mode .menu-toggle .bar {
+    background-color: var(--primary-color) !important;
+}
+
+/* =========================================
+   フッター関連
+   ========================================= */
+.dark-mode footer,
+.dark-mode #footer-placeholder footer {
+    background-color: #06060e !important;
+    border-top-color: #2d2d44 !important;
+}
+
+.dark-mode .footer-group a {
+    color: #c9c9d0 !important;
+}
+
+.dark-mode .footer-group a:hover {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode footer p {
+    color: #8a8a9a !important;
+}
+
+.dark-mode .legal-footer {
+    border-top-color: #2d2d44 !important;
+}
+
+.dark-mode .legal-footer a {
+    color: #a0a0b0 !important;
+}
+
+.dark-mode .legal-footer a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* =========================================
+   カード・ボックス系
+   ========================================= */
+.dark-mode .card,
+.dark-mode .staff-card,
+.dark-mode .method-card,
+.dark-mode .guideline-card,
+.dark-mode .policy-card,
+.dark-mode .member-profile-card,
+.dark-mode .staff-info-card,
+.dark-mode .staff-content-body,
+.dark-mode .form-container,
+.dark-mode .news-card-item,
+.dark-mode .news-detail-container,
+.dark-mode .concept-card,
+.dark-mode .logo-origin-card,
+.dark-mode .login-card,
+.dark-mode .notice-simple-box,
+.dark-mode .thanks-message-box,
+.dark-mode .guide-section,
+.dark-mode .plan-table {
+    background-color: #16213e !important;
+    border-color: #2d2d44 !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .policy-card {
+    background-color: #16213e !important;
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .policy-card:hover {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 20px 40px rgba(243, 156, 18, 0.2) !important;
+}
+
+.dark-mode .policy-card h3,
+.dark-mode .policy-card p {
+    color: #ffffff !important;
+}
+
+/* カード内の補足文字 */
+.dark-mode .card p,
+.dark-mode .staff-card p,
+.dark-mode .method-card p,
+.dark-mode .member-profile-card .description {
+    color: #d4d4d8 !important;
+}
+
+/* =========================================
+   テーブルスタイル
+   ========================================= */
+.dark-mode .plan-table {
+    background-color: #16213e !important;
+}
+
+.dark-mode .plan-table th,
+.dark-mode .plan-table td {
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .plan-table th {
+    background-color: #0a0a14 !important;
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .plan-table td {
+    color: #e0e0e8 !important;
+}
+
+/* =========================================
+   スタッフ詳細ページ
+   ========================================= */
+.dark-mode .staff-data-list dd {
+    color: #e8e8ec !important;
+    border-bottom-color: #2d2d44 !important;
+}
+
+.dark-mode .staff-data-list dt {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .staff-large-icon {
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .staff-status {
+    background-color: var(--primary-color) !important;
+    color: #12121c !important;
+    font-weight: bold !important;
+}
+
+.dark-mode .staff-role-lead {
+    color: #d4d4d8 !important;
+}
+
+/* =========================================
+   メッセージボックス
+   ========================================= */
+.dark-mode .message-quote-box {
+    background-color: #0a2a4a !important;
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .message-quote-box::after {
+    color: rgba(243, 156, 18, 0.15) !important;
+}
+
+.dark-mode .quote-author {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .quote-body p {
+    color: #f0f0f0 !important;
+}
+
+/* =========================================
+   モットー・ヒーローエリア
+   ========================================= */
+.dark-mode .motto-hero-box {
+    background: radial-gradient(circle at top right, #16213e, #0a0a14) !important;
+}
+
+.dark-mode .main-motto {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .motto-subtext {
+    color: #d4d4d8 !important;
+}
+
+.dark-mode .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../images/main_bg.png') no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.dark-mode .hero h1 {
+    color: #ffffff !important;
+}
+
+.dark-mode .hero p {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .badge {
+    background-color: var(--primary-color) !important;
+    color: #12121c !important;
+}
+
+.dark-mode .ip-container {
+    background: rgba(0, 0, 0, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.dark-mode #server-ip {
+    color: #ffffff !important;
+}
+
+.dark-mode .ip-label {
+    color: #d4d4d8 !important;
+}
+
+.dark-mode .version {
+    color: #b0b0c0 !important;
+}
+
+/* =========================================
+   ボタン関連
+   ========================================= */
+.dark-mode .btn-nav {
+    background-color: transparent !important;
+}
+
+.dark-mode .btn-primary-nav {
+    background-color: var(--primary-color) !important;
+    color: #12121c !important;
+    font-weight: bold !important;
+}
+
+.dark-mode .btn-primary-nav:hover {
+    background-color: var(--accent-color) !important;
+}
+
+.dark-mode .btn-outline-nav {
+    background-color: transparent !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .btn-outline-nav:hover {
+    background-color: var(--primary-color) !important;
+    color: #12121c !important;
+}
+
+.dark-mode .btn-discord {
+    background-color: #5865F2 !important;
+    color: #ffffff !important;
+}
+
+/* =========================================
+   フォーム入力
+   ========================================= */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background-color: #0a0a14 !important;
+    border-color: #3a3a4a !important;
+    color: #ffffff !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #88889a !important;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+    border-color: var(--primary-color) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.25) !important;
+}
+
+.dark-mode .form-group label {
+    color: #d4d4d8 !important;
+}
+
+/* =========================================
+   リンク
+   ========================================= */
+.dark-mode a:not(.btn-nav):not(.btn-discord):not(.sns-icon-link) {
+    color: #f0a024 !important;
+}
+
+.dark-mode a:hover:not(.btn-nav) {
+    color: #f5b84a !important;
+    text-decoration: underline !important;
+}
+
+/* =========================================
+   SNSリンク
+   ========================================= */
+.dark-mode .sns-icon-link {
+    background-color: #0a0a14 !important;
+    border-color: #3a3a4a !important;
+}
+
+.dark-mode .sns-icon-link:hover {
+    border-color: var(--primary-color) !important;
+    background-color: var(--primary-color) !important;
+}
+
+/* =========================================
+   ニュースページ
+   ========================================= */
+.dark-mode .news-category-badge {
+    background: rgba(243, 156, 18, 0.25) !important;
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .news-card-item {
+    background-color: #16213e !important;
+}
+
+.dark-mode .news-card-item:hover {
+    background-color: #1e2a4a !important;
+    border-color: var(--primary-color) !important;
+}
+
+.dark-mode .news-card-title {
+    color: #ffffff !important;
+}
+
+.dark-mode .news-card-item:hover .news-card-title {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .news-date {
+    color: #b0b0c0 !important;
+}
+
+.dark-mode .filter-btn {
+    background-color: #16213e !important;
+    border-color: #2d2d44 !important;
+    color: #d4d4d8 !important;
+}
+
+.dark-mode .filter-btn:hover,
+.dark-mode .filter-btn.active {
+    background-color: var(--primary-color) !important;
+    color: #12121c !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* ニュース詳細本文 */
+.dark-mode .news-detail-container {
+    background-color: #16213e !important;
+}
+
+.dark-mode .news-header {
+    border-bottom-color: #2d2d44 !important;
+}
+
+.dark-mode .news-title {
+    color: #ffffff !important;
+}
+
+.dark-mode .news-meta .news-date {
+    color: #b0b0c0 !important;
+}
+
+.dark-mode .news-content {
+    color: #e0e0e8 !important;
+}
+
+.dark-mode .news-content h2,
+.dark-mode .news-content h3 {
+    color: #ffffff !important;
+}
+
+.dark-mode .news-content .box,
+.dark-mode .news-content .box-green,
+.dark-mode .news-content .box-blue,
+.dark-mode .table-of-contents {
+    background-color: #0a0a14 !important;
+}
+
+.dark-mode .news-content p,
+.dark-mode .news-content li,
+.dark-mode .news-content .box p {
+    color: #e0e0e8 !important;
+}
+
+.dark-mode .news-content .box-green {
+    border-left-color: #22c55e !important;
+}
+
+.dark-mode .news-content .box-blue {
+    border-left-color: #3b82f6 !important;
+}
+
+.dark-mode .news-content .owner-message {
+    background: linear-gradient(135deg, #0a2a4a 0%, #16213e 100%) !important;
+    border-color: rgba(243, 156, 18, 0.4) !important;
+}
+
+.dark-mode .news-content .owner-message p {
+    color: #f0f0f0 !important;
+}
+
+.dark-mode .news-content .owner-message .name {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .cmd-table th,
+.dark-mode .news-content th {
+    background-color: #0a0a14 !important;
+    border-bottom-color: #2d2d44 !important;
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .cmd-table td,
+.dark-mode .news-content td {
+    border-bottom-color: #2d2d44 !important;
+    color: #e0e0e8 !important;
+}
+
+.dark-mode .cmd-table code,
+.dark-mode .news-content code {
+    background-color: #0a0a14 !important;
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .table-of-contents p {
+    color: #ffffff !important;
+}
+
+.dark-mode .table-of-contents a {
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .news-footer {
+    border-top-color: #2d2d44 !important;
+}
+
+/* =========================================
+   コンセプトページ
+   ========================================= */
+.dark-mode .concept-page .container {
+    background-color: transparent !important;
+}
+
+.dark-mode .status-header {
+    background-color: transparent !important;
+}
+
+.dark-mode .status-title {
+    color: #ffffff !important;
+}
+
+.dark-mode .creator-card {
+    background: linear-gradient(135deg, #16213e 0%, #0a0a14 100%) !important;
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .creator-avatar {
+    background-color: #0a0a14 !important;
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .creator-name {
+    color: #ffffff !important;
+}
+
+.dark-mode .creator-message {
+    color: #d4d4d8 !important;
+}
+
+.dark-mode .creator-role {
+    color: var(--primary-color) !important;
+}
+
+/* =========================================
+   お問い合わせページ
+   ========================================= */
+.dark-mode .status-page .container {
+    background-color: transparent !important;
+}
+
+.dark-mode .email-box {
+    background-color: #0a0a14 !important;
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .email-box div {
+    color: #e0e0e8 !important;
+}
+
+.dark-mode .method-card {
+    border-top-color: #2d2d44 !important;
+}
+
+.dark-mode .method-discord {
+    border-top-color: #5865F2 !important;
+}
+
+.dark-mode .method-mail {
+    border-top-color: var(--primary-color) !important;
+}
+
+.dark-mode .guide-section p,
+.dark-mode .guide-section li {
+    color: #e0e0e8 !important;
+}
+
+.dark-mode .guide-section h2 {
+    color: #ffffff !important;
+}
+
+/* =========================================
+   ログインページ
+   ========================================= */
+.dark-mode .login-card {
+    background-color: #16213e !important;
+}
+
+.dark-mode .login-footer-links {
+    border-top-color: #2d2d44 !important;
+}
+
+.dark-mode .login-footer-links a {
+    color: var(--primary-color) !important;
+}
+
+/* =========================================
+   テーブル・リスト（ランク制限）
+   ========================================= */
+.dark-mode .limit-table {
+    background-color: #16213e !important;
+}
+
+.dark-mode .limit-table th {
+    background-color: #0a0a14 !important;
+    border-color: #2d2d44 !important;
+    color: var(--primary-color) !important;
+}
+
+.dark-mode .limit-table td {
+    border-color: #2d2d44 !important;
+    color: #e0e0e8 !important;
+}
+
+.dark-mode .limit-table tr:nth-child(even) {
+    background-color: #0a0a14 !important;
+}
+
+.dark-mode .limit-table tr:nth-child(odd) {
+    background-color: #16213e !important;
+}
+
+/* =========================================
+   セクションタイトル
+   ========================================= */
+.dark-mode .section-title {
+    color: #ffffff !important;
+}
+
+.dark-mode .section-title span {
+    color: var(--primary-color) !important;
+}
+
+/* =========================================
+   スクロールバー
+   ========================================= */
+.dark-mode ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+    background: #0a0a14 !important;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: #f39c12 !important;
+    border-radius: 6px !important;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #e67e22 !important;
+}
+
+/* =========================================
+   その他ユーティリティ
+   ========================================= */
+.dark-mode .border-light,
+.dark-mode .border-light-dashed {
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .bg-white {
+    background-color: #16213e !important;
+}
+
+.dark-mode .text-light,
+.dark-mode .text-muted,
+.dark-mode .small-note {
+    color: #b0b0c0 !important;
+}
+
+.dark-mode hr,
+.dark-mode .divider {
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .button-area-flex {
+    border-top-color: #2d2d44 !important;
+}
+
+.dark-mode .text-strong-black {
+    color: #ffffff !important;
+    background: linear-gradient(transparent 70%, rgba(243, 156, 18, 0.2) 70%) !important;
+}
+
+.dark-mode .notice-simple-box {
+    background-color: #16213e !important;
+    border-color: #2d2d44 !important;
+}
+
+.dark-mode .wallpaper-overlay {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)) !important;
+}
+
+/* =========================================
+   ダークモード切り替えボタン
+   ========================================= */
+.dark-mode-toggle-btn {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid #f39c12;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+    background-color: rgba(243, 156, 18, 0.15);
+}
+
+.dark-mode-toggle-btn:hover {
+    transform: scale(1.1);
+    background-color: #f39c12;
+    box-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
+}
+
+.dark-mode-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* ヘッダー内での配置 */
+header .dark-mode-toggle-btn,
+.header-inner .dark-mode-toggle-btn {
+    margin-left: auto;
+    order: 10;
+}
+
+/* ダークモード時のボタン文字色 */
+.dark-mode .dark-mode-toggle-btn {
+    border-color: #f39c12;
+    background-color: rgba(243, 156, 18, 0.15);
+}
+
+.dark-mode .dark-mode-toggle-btn:hover {
+    background-color: #f39c12;
+    color: #12121c;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .dark-mode-toggle-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        margin-left: 10px;
+    }
+    
+    #main-nav.open .dark-mode-toggle-btn {
+        margin: 10px auto;
+        display: block;
+    }
+    
+    /* スマホ時のテーブル調整 */
+    .dark-mode .plan-table th,
+    .dark-mode .plan-table td {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}

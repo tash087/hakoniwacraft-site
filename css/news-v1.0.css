@@ -463,71 +463,8 @@
 /* =========================================
    ダークモード対応
    ========================================= */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --white: #1f1f2e;
-        --text-color: #e4e4e7;
-        --light-text: #a1a1aa;
-        --bg-gray: #2a2a35;
-        --border-light: #3f3f46;
-    }
 
-    .news-detail-container {
-        background: #1f1f2e;
-    }
-
-    .news-card-item {
-        background: #1f1f2e;
-    }
-
-    .news-card-item:hover {
-        background: #2a2a35;
-    }
-
-    .news-content .box {
-        background: #2a2a35;
-    }
-
-    .news-content .box-green,
-    .info-box-green {
-        background: #1a2a1f;
-    }
-
-    .news-content .box-blue {
-        background: #1a2a3f;
-    }
-
-    .news-content .owner-message {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        border-color: #2d2d44;
-    }
-
-    .cmd-table th,
-    .news-content th {
-        background: #2a2a35;
-        border-bottom-color: #3f3f46;
-    }
-
-    .cmd-table td,
-    .news-content td {
-        border-bottom-color: #2d2d35;
-    }
-
-    .table-of-contents {
-        background: #2a2a35;
-    }
-
-    .filter-btn {
-        background: #1f1f2e;
-        border-color: #3f3f46;
-        color: #a1a1aa;
-    }
-
-    .filter-btn:hover {
-        border-color: var(--primary-color);
-        color: var(--primary-color);
-    }
-}
+/* ダークモードのスタイル廃止 */
 
 /* =========================================
    レスポンシブ

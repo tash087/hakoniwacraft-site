@@ -33,36 +33,6 @@ function initMobileMenu() {
     }
 }
 
-function loadLoginMenu() {
-    const navUl = document.querySelector('#main-nav ul');
-    if (!navUl) return;
-
-    fetch('/common/login-infomation.html')
-        .then(res => res.text())
-        .then(htmlData => {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = htmlData;
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            const userRole = localStorage.getItem('userRole');
-            const userName = localStorage.getItem('userName') || 'メンバー';
-
-            let targetId = 'auth-guest';
-            if (isLoggedIn === 'true') {
-                if (userRole === 'admin') targetId = 'auth-admin';
-                else if (userRole === 'donator') targetId = 'auth-donator';
-            }
-
-            const selectedMenu = tempDiv.querySelector(`#${targetId}`);
-            if (selectedMenu) {
-                const nameSpan = selectedMenu.querySelector('.user-display-name');
-                if (nameSpan) nameSpan.textContent = userName + "さん";
-                navUl.querySelectorAll('.dynamic-auth').forEach(n => n.remove());
-                const fragment = document.createRange().createContextualFragment(selectedMenu.innerHTML);
-                Array.from(fragment.children).forEach(child => child.classList.add('dynamic-auth'));
-                navUl.appendChild(fragment);
-            }
-        }).catch(err => console.error("Login info error:", err));
-}
 
 // --- 3. クッキー関連関数 ---
 function loadExternalPerformanceScripts() {
