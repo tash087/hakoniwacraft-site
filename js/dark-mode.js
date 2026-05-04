@@ -1,6 +1,6 @@
 // =========================================
 // ダークモード切り替え機能
-// ヘッダー内の指定コンテナに対応
+// #dark-mode-container専用対応
 // =========================================
 
 const DarkMode = {
@@ -25,26 +25,25 @@ const DarkMode = {
         this.apply();
         
         // ヘッダーの動的読み込みを待つ（include.js対策）
-        this.waitForHeaderAndCreateButton();
+        this.waitForContainerAndCreateButton();
     },
     
-    // ヘッダー読み込み待機してボタン作成
-    waitForHeaderAndCreateButton: function() {
+    // コンテナ読み込み待機してボタン作成
+    waitForContainerAndCreateButton: function() {
         // 既に#dark-mode-containerがある場合は即座に作成
         if (document.getElementById('dark-mode-container')) {
             this.createToggleButton();
             return;
         }
         
-        // ヘッダー読み込みを監視
+        // コンテナ読み込みを監視（最大10秒）
         let attempts = 0;
-        const maxAttempts = 50; // 5秒
+        const maxAttempts = 100; // 10秒
         const checkInterval = setInterval(() => {
             attempts++;
             
-            // 対象のコンテナまたはヘッダーが見つかった場合
-            if (document.getElementById('dark-mode-container') || 
-                document.querySelector('header, #header-placeholder')) {
+            const container = document.getElementById('dark-mode-container');
+            if (container) {
                 clearInterval(checkInterval);
                 this.createToggleButton();
             }
@@ -52,7 +51,7 @@ const DarkMode = {
             // タイムアウト（最終手段）
             if (attempts >= maxAttempts) {
                 clearInterval(checkInterval);
-                this.createToggleButton();
+                console.warn('DarkMode: #dark-mode-container not found after 10 seconds');
             }
         }, 100);
     },
@@ -83,7 +82,7 @@ const DarkMode = {
         }));
     },
     
-    // ボタン作成
+    // ボタン作成（#dark-mode-containerのみ対象）
     createToggleButton: function() {
         // 既存のボタンがあれば削除
         const existingBtn = document.getElementById('dark-mode-toggle');
@@ -98,30 +97,14 @@ const DarkMode = {
         button.title = this.isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え';
         button.addEventListener('click', () => this.toggle());
         
-        // 配置先を優先順位で決定
-        // 1. #dark-mode-container があればそこに配置
-        const customContainer = document.getElementById('dark-mode-container');
-        if (customContainer) {
-            customContainer.appendChild(button);
-            return;
+        // #dark-mode-container に配置（必須）
+        const container = document.getElementById('dark-mode-container');
+        if (container) {
+            container.appendChild(button);
+        } else {
+            // コンテナがない場合はエラー出力（ボタンは作成しない）
+            console.error('DarkMode: #dark-mode-container not found. Button not created.');
         }
-        
-        // 2. .header-inner を探す
-        const headerInner = document.querySelector('.header-inner');
-        if (headerInner) {
-            headerInner.appendChild(button);
-            return;
-        }
-        
-        // 3. header または #header-placeholder を探す
-        const header = document.querySelector('header, #header-placeholder');
-        if (header) {
-            header.appendChild(button);
-            return;
-        }
-        
-        // 4. 最後の手段: body の先頭に配置
-        document.body.insertBefore(button, document.body.firstChild);
     },
     
     // ボタンの表示更新
