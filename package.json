@@ -1,0 +1,21 @@
+{
+  "name": "hakoniwacraft-site",
+  "version": "1.0.0",
+  "description": "箱庭クラフト　公式サイト",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tash087/hakoniwacraft-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tash087/hakoniwacraft-site/issues"
+  },
+  "homepage": "https://github.com/tash087/hakoniwacraft-site#readme"
+}

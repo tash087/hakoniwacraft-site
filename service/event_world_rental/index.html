@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イベントワールド貸し出し | 箱庭クラフト</title>
+    <style>
+        .plan-table { width: 100%; border-collapse: collapse; margin-top: 25px; background: #fff; border-radius: 15px; overflow: hidden; }
+        .plan-table th, .plan-table td { padding: 18px; border: 1px solid #f0ede9; text-align: center; }
+        .plan-table th { background: #fdf2e9; color: var(--primary-color); font-weight: 800; }
+        .legal-footer { margin-top: 80px; padding: 40px 20px; border-top: 2px dashed #e0ddd9; text-align: center; }
+        .legal-footer a { color: var(--light-text); text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: color 0.3s; }
+        .legal-footer a:hover { color: var(--primary-color); text-decoration: underline; }
+    </style>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-google-api.js"></script>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">2026.06 正式リリース予定</span>
+                <h1>あなたのアイデアを、カタチに。<br>イベントワールド貸し出し近日開始</h1>
+                <p>「箱庭クラフト」専用のクリエイティブ環境を提供します</p>
+                <div class="ip-container">
+                    <span class="ip-label">SERVICE STATUS</span>
+                    <span class="version">Minecraft 1.21.4 [推奨] 対応</span>
+                    <br>
+                    <code id="server-ip">EVENT WORLD RENTAL</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container">
+            <header class="section-title">
+                <h2>Features<span>サービスの特徴</span></h2>
+            </header>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🏗️</div>
+                    <h3>自由自在な環境</h3>
+                    <p>管理者権限を付与。クリエイティブモードで自由に建築や会場設営が可能です。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>リソースの最適化</h3>
+                    <p>独立したワールドを提供するため、本サーバーの負荷を気にせず開催できます。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>安心のサポート</h3>
+                    <p>Discordを通じて運営が直接連携。初めての主催でもスムーズに準備が進められます。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" style="background-color: #fafafa; border-radius: 60px 60px 0 0;">
+            <header class="section-title">
+                <h2>Pricing<span>ご利用プラン</span></h2>
+            </header>
+            
+            <div class="motto-hero-box">
+                <h3 class="main-motto">定期購読プラン（月額制）</h3>
+                <p class="motto-subtext">腰を据えて定期的に開催したい方向け</p>
+                <table class="plan-table">
+                    <thead>
+                        <tr>
+                            <th>プラン名</th>
+                            <th>月額料金</th>
+                            <th>月間開催数</th>
+                            <th>最大貸出日数</th>
+                            <th>非公開イベント</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="text-strong-black">イベント基本</span></td><td>¥1,000</td><td>2回</td><td>6日</td><td>❌ 不可</td></tr>
+                        <tr><td><span class="text-strong-black">イベントプレミアム</span></td><td>¥2,500</td><td>10回</td><td>12日</td><td>✅ 可能</td></tr>
+                        <tr><td><span class="text-strong-black">イベント無制限</span></td><td>¥5,000</td><td>無制限</td><td>36日</td><td>✅ 可能</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="policy-grid">
+                <div class="policy-card">
+                    <span class="policy-icon">1️⃣</span>
+                    <h3>単発 1回券</h3>
+                    <p>¥500<br>最大3日間 / 公開イベントのみ<br>有効期限なし</p>
+                </div>
+                <div class="policy-card" style="border-color: var(--primary-color);">
+                    <span class="policy-icon">3️⃣</span>
+                    <h3>単発 3回券</h3>
+                    <p>¥1,200<br>1回あたり ¥400<br>最大3日間 / 公開イベントのみ</p>
+                </div>
+                <div class="policy-card">
+                    <span class="policy-icon">5️⃣</span>
+                    <h3>単発 5回券</h3>
+                    <p>¥1,500<br>1回あたり ¥300<br><strong>非公開イベント可</strong> / 最大3日間</p>
+                </div>
+            </div>
+
+            <div class="notice-simple-box" style="margin-top: 50px;">
+                <p>🚀 2026年6月上旬 正式リリース予定（5月中旬よりベータテスト開始）</p>
+            </div>
+        </section>
+
+        <footer class="legal-footer">
+            <a href="tokushoho.html">特定商取引法に基づく表記</a>
+            <a href="terms.html">利用規約</a>
+            <a href="privacy.html">プライバシーポリシー</a>
+            <p style="margin-top: 20px; color: #ccc; font-size: 0.8rem;">© 2026 箱庭クラフト イベントワールド貸し出しサービス /Hakoniwa Craft Event World Rental Service All Rights Reserved.<br>Powered by 箱庭クラフトサーバー / Hakoniwa Craft Server</p>
+            <p style="margin-top: 20px; color: #ccc; font-size: 0.8rem;">© 2026 HAKONIWA Studio All Rights Reserved.</p>
+            <p style="margin-top: 10px; color: #ccc; font-size: 0.8rem;">
+                MinecraftはMojang ABの登録商標です。© 2026 Mojang AB.TM Microsoft Corporation.<br>
+                当サービスはMojang ABとは一切関係ありません。   
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

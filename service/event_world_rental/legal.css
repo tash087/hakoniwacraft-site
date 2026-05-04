@@ -1,0 +1,1247 @@
+/* =========================================
+   1. 変数定義・基本設定 (Colors & Root)
+   ========================================= */
+:root {
+    /* デフォルト（ライトモード）: 温かみのあるベージュ系 */
+    --bg-gradient: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
+    --card-bg: rgba(255, 255, 245, 0.9);
+    --card-border: rgba(101, 123, 131, 0.15);
+    --text-main: #3c3c3c;
+    --text-sub: #657b83;
+    --input-bg: #ffffff;
+    --input-border: rgba(101, 123, 131, 0.2);
+    --input-focus-bg: #ffffff;
+    --accent-primary: #ff8a65;
+    --accent-secondary: #ff6b6b;
+    --price-color: #b58900;
+    --shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+    --modal-bg: #fdf6e3;
+    --btn-secondary-bg: rgba(101, 123, 131, 0.08);
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+}
+
+/* ダークモード設定 */
+body.night-mode {
+    --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+    --text-main: #ffffff;
+    --text-sub: rgba(255, 255, 255, 0.7);
+    --input-bg: rgba(0, 0, 0, 0.3);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --input-focus-bg: rgba(0, 0, 0, 0.5);
+    --price-color: #ffd93d;
+    --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --modal-bg: #1a1a2e;
+    --btn-secondary-bg: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-gradient);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: var(--text-main);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   2. ヒーローセクション (Hero Section)
+   ========================================= */
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero p {
+    color: var(--text-sub);
+    margin-bottom: 32px;
+    font-size: 18px;
+}
+
+/* =========================================
+   3. ページタイトル（汎用）
+   ========================================= */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    width: 100%;
+}
+
+body.night-mode h1 {
+    background: linear-gradient(135deg, #38bdf8, #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-sub);
+    margin-bottom: 3rem;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* =========================================
+   4. 特徴・機能 (Features)
+   ========================================= */
+.features {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.feature {
+    flex: 1;
+    min-width: 200px;
+    background: var(--btn-secondary-bg);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.feature h3 {
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.feature p {
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+/* =========================================
+   5. ボタン・CTA (Buttons)
+   ========================================= */
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 32px 0;
+}
+
+.btn-primary, .primary-btn, .submit-btn, .login-btn {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    padding: 14px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 138, 101, 0.3);
+    text-align: center;
+}
+
+.btn-secondary, .secondary-btn {
+    background: var(--btn-secondary-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    padding: 14px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-primary:hover, .primary-btn:hover, .submit-btn:hover, .login-btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover, .secondary-btn:hover {
+    background: rgba(101, 123, 131, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.logout-btn, .logout-link {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.logout-btn:hover, .logout-link:hover {
+    background: rgba(255, 107, 107, 0.2);
+}
+
+/* =========================================
+   6. プラン（汎用）
+   ========================================= */
+.plans {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.plan-card {
+    flex: 1;
+    min-width: 200px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow);
+}
+
+.plan-card h3 {
+    color: var(--price-color);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.plan-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-main);
+    margin: 16px 0;
+}
+
+.plan-price small {
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+.plan-feature-list {
+    list-style: none;
+    margin: 16px 0;
+}
+
+.plan-feature-list li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+.plan-btn {
+    display: inline-block;
+    background: var(--accent-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 16px;
+    font-size: 14px;
+    transition: opacity 0.2s;
+}
+
+.plan-btn:hover {
+    opacity: 0.8;
+}
+
+/* =========================================
+   7. 料金プランページ専用スタイル
+   ========================================= */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.pricing-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+    border-radius: 24px;
+    padding: 1.8rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+body.night-mode .pricing-card {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 138, 101, 0.3);
+}
+
+body.night-mode .pricing-card:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-card.popular {
+    border: 2px solid #ff8a65;
+    box-shadow: 0 8px 25px rgba(255, 138, 101, 0.2);
+}
+
+body.night-mode .pricing-card.popular {
+    border-color: #38bdf8;
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #ff8a65, #ff6b6b);
+    color: white;
+    padding: 4px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+body.night-mode .popular-badge {
+    background: linear-gradient(135deg, #38bdf8, #3b82f6);
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+}
+
+body.night-mode .plan-name {
+    color: #f1f5f9;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #ff8a65;
+}
+
+body.night-mode .price {
+    color: #38bdf8;
+}
+
+.price small {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: rgba(93, 64, 55, 0.6);
+}
+
+body.night-mode .price small {
+    color: rgba(203, 213, 224, 0.6);
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.features li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4a5568;
+    font-size: 0.85rem;
+}
+
+body.night-mode .features li {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    color: #cbd5e0;
+}
+
+.features li:before {
+    content: "✓";
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.feature-highlight {
+    background: rgba(255, 138, 101, 0.1);
+    border-radius: 8px;
+    padding: 8px 12px !important;
+    margin: 8px 0;
+    font-weight: bold;
+    border-left: 3px solid #ff8a65;
+}
+
+body.night-mode .feature-highlight {
+    background: rgba(56, 189, 248, 0.1);
+    border-left-color: #38bdf8;
+}
+
+.feature-highlight:before {
+    content: "⭐" !important;
+    color: #ffd93d;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: bold;
+    margin-top: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+body.night-mode .btn {
+    background: linear-gradient(135deg, #38bdf8, #3b82f6);
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+body.night-mode .btn:hover:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-main);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.night-mode .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #cbd5e0;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   8. ダッシュボード・利用状況
+   ========================================= */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 24px 0;
+}
+
+.dashboard-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 138, 101, 0.3);
+}
+
+.dashboard-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 138, 101, 0.3);
+    display: inline-block;
+    color: var(--text-main);
+}
+
+body.night-mode .dashboard-card h3 {
+    border-bottom-color: rgba(56, 189, 248, 0.3);
+}
+
+.dashboard-card p {
+    margin: 8px 0;
+    color: var(--text-main);
+}
+
+/* アカウント情報 */
+.account-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.account-info-item {
+    flex: 1;
+    min-width: 150px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+
+body.night-mode .account-info-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.account-info-item label {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-bottom: 4px;
+    display: block;
+    color: var(--text-sub);
+}
+
+.account-info-item .value {
+    font-size: 1rem;
+    font-weight: 500;
+    word-break: break-all;
+    color: var(--text-main);
+}
+
+/* プランバッジ */
+.plan-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.plan-badge.plan-free { background: linear-gradient(135deg, #9ca3af, #6b7280); }
+.plan-badge.plan-event_basic { background: linear-gradient(135deg, #a78bfa, #8b5cf6); }
+.plan-badge.plan-event_premium { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.plan-badge.plan-event_unlimited { background: linear-gradient(135deg, #f87171, #ef4444); }
+
+/* 利用状況 */
+.usage-info {
+    background: var(--btn-secondary-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.usage-title {
+    font-size: 14px;
+    color: var(--text-sub);
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.stats, .usage-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    transition: all 0.2s;
+}
+
+body.night-mode .stat {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stat:hover {
+    transform: scale(1.02);
+    background: rgba(255, 138, 101, 0.15);
+}
+
+body.night-mode .stat:hover {
+    background: rgba(56, 189, 248, 0.15);
+}
+
+.stat-number, .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ffd93d, var(--accent-primary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+body.night-mode .stat-number {
+    background: linear-gradient(135deg, #ffd93d, #38bdf8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-top: 4px;
+    color: var(--text-sub);
+}
+
+/* 予約履歴 */
+.reservation-item {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--accent-primary);
+    transition: all 0.2s;
+    border-bottom: 1px solid var(--card-border);
+}
+
+body.night-mode .reservation-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: #38bdf8;
+}
+
+.reservation-item:last-child {
+    border-bottom: none;
+}
+
+.reservation-item:hover {
+    transform: translateX(4px);
+    background: rgba(255, 138, 101, 0.1);
+}
+
+body.night-mode .reservation-item:hover {
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.reservation-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.status-pending {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-paid {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-active {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-expired {
+    background: rgba(107, 114, 128, 0.2);
+    color: #9ca3af;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+/* キャンセルボタン */
+.cancel-btn {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+}
+
+/* 空のメッセージ */
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    opacity: 0.5;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+/* =========================================
+   9. フォーム要素・UI部品
+   ========================================= */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: var(--input-focus-bg);
+    box-shadow: 0 0 0 3px rgba(255, 138, 101, 0.1);
+}
+
+.form-step { display: none; }
+.form-step.active { display: block; }
+
+.char-count, .hint, .info-text {
+    font-size: 12px;
+    color: var(--text-sub);
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.char-count { text-align: right; }
+
+.required, .field-required::after {
+    content: " *";
+    color: #ff6b6b;
+    margin-left: 4px;
+}
+
+.field-optional::after {
+    content: " (任意)";
+    color: var(--text-sub);
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.password-field { position: relative; }
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--price-color);
+    font-size: 12px;
+}
+
+/* プランセレクター */
+.plan-selector {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.plan-option {
+    flex: 1;
+    min-width: 150px;
+    background: var(--input-bg);
+    border: 2px solid var(--input-border);
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.plan-option.selected {
+    border-color: var(--accent-primary);
+    background: rgba(255, 138, 101, 0.2);
+}
+
+.plan-option:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+/* 現在のプラン表示 */
+.current-plan {
+    display: inline-block;
+    background: var(--price-color);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.upgrade-link {
+    font-size: 13px;
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+/* =========================================
+   10. 法的表示・カード
+   ========================================= */
+.legal-card, .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 32px;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow);
+    transition: background 0.4s, border 0.4s;
+}
+
+.legal-card h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    border-left: 4px solid var(--accent-primary);
+    padding-left: 16px;
+    background: none;
+    -webkit-text-fill-color: var(--text-main);
+}
+
+.legal-card h2 {
+    font-size: 18px;
+    margin: 24px 0 12px 0;
+    color: var(--price-color);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 6px;
+}
+
+.legal-card h3 {
+    font-size: 16px;
+    margin: 16px 0 8px 0;
+    color: var(--accent-primary);
+}
+
+.legal-card p, .legal-card li {
+    line-height: 1.6;
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+.legal-card ul, .legal-card ol {
+    margin: 8px 0 16px 24px;
+}
+
+.legal-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+.legal-card th, .legal-card td {
+    border: 1px solid var(--card-border);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.legal-card th {
+    background: var(--btn-secondary-bg);
+    font-weight: bold;
+}
+
+.notice, .plan-required {
+    background: rgba(255, 217, 61, 0.1);
+    border: 1px solid #ffd93d;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 24px 0;
+    text-align: center;
+}
+
+.notice p, .plan-required p {
+    color: var(--price-color);
+    font-size: 14px;
+    margin: 0;
+}
+
+.plan-required {
+    background: rgba(255, 138, 101, 0.1);
+    border: 1px solid var(--accent-primary);
+}
+
+.plan-required a {
+    color: var(--accent-primary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.info-box {
+    background: var(--btn-secondary-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+}
+
+/* =========================================
+   11. ナビゲーション・フッター
+   ========================================= */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--card-border);
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    padding: 4px 0;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+body.night-mode .nav-links a:hover {
+    color: #38bdf8;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width 0.2s;
+}
+
+body.night-mode .nav-links a::after {
+    background: #38bdf8;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    font-weight: bold;
+}
+
+.user-status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.user-email {
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 0.75rem;
+    color: var(--text-sub);
+    opacity: 0.7;
+}
+
+body.night-mode .footer {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.footer a {
+    color: var(--text-sub);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer a:hover {
+    color: var(--accent-primary);
+}
+
+body.night-mode .footer a:hover {
+    color: #38bdf8;
+}
+
+/* =========================================
+   12. トースト通知・メッセージ
+   ========================================= */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    z-index: 1000;
+    animation: slideUp 0.3s ease-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toast-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.toast-error {
+    background: var(--error-color);
+    color: white;
+}
+
+.toast-info {
+    background: var(--info-color);
+    color: white;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.error {
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: none;
+}
+
+.success {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10b981;
+    color: #10b981;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: none;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-sub);
+}
+
+/* =========================================
+   13. アイコン・装飾
+   ========================================= */
+.success-icon, .cancel-icon {
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.success-message, .cancel-message {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.login-prompt {
+    text-align: center;
+    padding: 40px;
+}
+
+/* =========================================
+   14. レスポンシブ
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .pricing-grid {
+        gap: 1.5rem;
+    }
+    
+    .pricing-card {
+        padding: 1.5rem;
+    }
+    
+    .price {
+        font-size: 2rem;
+    }
+    
+    .plan-name {
+        font-size: 1.3rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero h1 { font-size: 24px; }
+    .hero p { font-size: 14px; }
+    
+    .features, .plans, .dashboard-grid, .pricing-grid {
+        flex-direction: column;
+    }
+    
+    .user-status {
+        justify-content: center;
+    }
+    
+    .legal-card, .card {
+        padding: 20px;
+    }
+    
+    .legal-card h1 { font-size: 20px; }
+    .legal-card h2 { font-size: 16px; }
+    .legal-card th, .legal-card td { padding: 6px 8px; font-size: 13px; }
+    
+    .dashboard-card {
+        padding: 16px;
+    }
+    
+    .stats {
+        gap: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .account-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .reservation-item {
+        padding: 12px;
+    }
+    
+    .reservation-item > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .nav-links {
+        gap: 12px;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .popular-badge {
+        font-size: 0.65rem;
+        padding: 3px 10px;
+    }
+}
