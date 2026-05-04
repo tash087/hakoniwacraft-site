@@ -5,43 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>イベントワールド貸し出し | 箱庭クラフト</title>
+    <meta name="description" content="箱庭クラフトのイベントワールド貸し出しサービス。あなたのアイデアをカタチにする専用ワールドで、自由なイベント開催をサポートします。">
+    <meta name="keywords" content="箱庭クラフト,イベントワールド,貸し出し,Minecraft,マイクラ,イベント">
+
+    <!-- OGP -->
+    <meta property="og:title" content="イベントワールド貸し出し | 箱庭クラフト">
+    <meta property="og:description" content="あなたのアイデアをカタチに。専用ワールドで自由なイベント開催をサポートします。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hakoniwa-craft.com/service/event_world_rental/">
+    <meta property="og:image" content="https://hakoniwa-craft.com/images/ogp_event.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="イベントワールド貸し出し | 箱庭クラフト">
+    <meta name="twitter:description" content="あなたのアイデアをカタチに。専用ワールドで自由なイベント開催をサポートします。">
+
     <!-- 共通CSS -->
-    <link rel="stylesheet" href="/css/common-v1.0.1css">
+    <link rel="stylesheet" href="/css/common-v1.0.css">
     <link rel="stylesheet" href="/css/concept-v1.0.css">
     <link rel="stylesheet" href="/css/contact-v1.0.css">
     <link rel="stylesheet" href="/css/style-v1.0.css">
     <link rel="stylesheet" href="/css/news-v1.0.css">
+    <!-- event-discord-v1.0.cssはイベントワールド貸し出し専用のスタイル -->
+    <link rel="stylesheet" href="/css/event-discord-v1.0.css">
     <!-- 共通Image -->
     <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+
     <!-- 共通JS -->
     <script src="/js/include-v1.1.js" defer></script>
     <script src="/js/day-count-v1.1.js" defer></script>
     <script src="/js/slider-v1.0.js" defer></script>
-    <!-- queryパラ取得 限定[js] -->
-    <script src="/js/query/query-google-api.js"></script>
-    <!-- ダークモードJS -->
+
+    <!-- ダークモード -->
     <script src="/js/dark-mode.js" defer></script>
-    <!-- ダークモードCSS（既存CSSより後に読み込み） -->
     <link rel="stylesheet" href="/css/dark-mode.css">
+    
 </head>
 
 <body>
     <div id="header-placeholder"></div>
+
     <main>
+        <!-- ヒーローセクション -->
         <section class="hero">
             <div class="hero-content">
-                <span class="badge">2026.06 正式リリース予定</span>
-                <h1>あなたのアイデアを、カタチに。<br>イベントワールド貸し出し近日開始</h1>
-                <p>「箱庭クラフト」専用のクリエイティブ環境を提供します</p>
+                <span class="badge">🎪 NEW SERVICE 2026.06</span>
+                <h1>あなたのアイデアを、カタチに。<br>イベントワールド貸し出し</h1>
+                <p>「自分の企画でみんなを驚かせたい」「箱庭クラフト」はそんなあなたの夢を応援します。<br>ワールド単位で自由なイベント開催をサポート！</p>
                 <div class="ip-container">
-                    <span class="ip-label">SERVICE STATUS</span>
-                    <span class="version">Minecraft 1.21.4 [推奨] 対応</span>
+                    <span class="ip-label">✨Service Status[対応バージョン]</span>
+                    <span class="version">1.21.4 [推奨] ～ 26.1.2 [最新]</span><!-- ここはサーバーのIPアドレスを表示する部分 -->
                     <br>
-                    <code id="server-ip">EVENT WORLD RENTAL</code>
+                    <code id="server-ip">EVENT WORLD RENTAL SERVICE<br>イベントワールド貸し出しサービス</code>
                 </div>
             </div>
         </section>
 
+        <!-- サービス特徴 -->
         <section class="section container">
             <header class="section-title">
                 <h2>Features<span>サービスの特徴</span></h2>
@@ -54,19 +75,65 @@
                 </div>
                 <div class="card">
                     <div class="card-icon">⚡</div>
-                    <h3>リソースの最適化</h3>
-                    <p>独立したワールドを提供するため、本サーバーの負荷を気にせず開催できます。</p>
+                    <h3>独立した専用ワールド</h3>
+                    <p>本サーバーから完全に独立したワールドを提供。負荷を気にせず大規模イベントを開催できます。</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🤝</div>
-                    <h3>安心のサポート</h3>
-                    <p>Discordを通じて運営が直接連携。初めての主催でもスムーズに準備が進められます。</p>
+                    <h3>安心のサポート体制</h3>
+                    <p>Discordを通じて運営スタッフが直接連携。初めての主催でもスムーズに準備を進められます。</p>
                 </div>
             </div>
         </section>
 
-        <section class="section container" style="background-color: #fafafa; border-radius: 60px 60px 0 0;">
+        <!-- ロードマップ -->
+        <section class="section container"
+            style="background-color: #fafafa; border-radius: 60px 60px 0 0; padding-bottom: 60px;">
             <header class="section-title">
+                <h2>Roadmap<span>サービス開始ロードマップ</span></h2>
+            </header>
+
+            <div class="roadmap-grid">
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">🔒</div>
+                    <div class="roadmap-phase">フェーズ1</div>
+                    <div class="roadmap-date">5月上旬</div>
+                    <div class="roadmap-title">クローズドベータ</div>
+                    <div class="roadmap-desc">運営スタッフによる内部テスト<br>システムの最終調整を行います</div>
+                    <div class="roadmap-status">🔜 準備中</div>
+                </div>
+
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">🌟</div>
+                    <div class="roadmap-phase">フェーズ2</div>
+                    <div class="roadmap-date">5月下旬</div>
+                    <div class="roadmap-title">オープンベータ</div>
+                    <div class="roadmap-desc">先行体験を実施<br>限定ユーザーにサービスを開放</div>
+                    <div class="roadmap-status">📋 参加者募集中</div>
+                </div>
+
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">🚀</div>
+                    <div class="roadmap-phase">フェーズ3</div>
+                    <div class="roadmap-date">6月上旬</div>
+                    <div class="roadmap-title">正式リリース</div>
+                    <div class="roadmap-desc">全機能を解禁<br>誰でも利用可能に</div>
+                    <div class="roadmap-status">✨ COMING SOON</div>
+                </div>
+            </div>
+
+            <!-- Discord告知ボックス -->
+            <div class="discord-notice">
+                <span style="font-size: 2rem;">💬</span>
+                <h3 style="margin: 10px 0;">最新情報はDiscordで</h3>
+                <p>ベータテストの参加募集やサービスのアップデート情報は<br>公式Discordサーバーにて随時お知らせします！</p>
+                <a href="https://discord.gg/g3g4AwuBRE" class="btn-discord-badge" target="_blank">
+                    📢 公式Discordに参加する
+                </a>
+            </div>
+
+            <!-- 料金プラン -->
+            <header class="section-title" style="margin-top: 60px;">
                 <h2>Pricing<span>ご利用プラン</span></h2>
             </header>
 
@@ -127,24 +194,35 @@
                 </div>
             </div>
 
-            <div class="notice-simple-box" style="margin-top: 50px;">
+            <!-- 注意事項 -->
+            <div class="warning-box">
+                <div class="warning-title">
+                    <span>⚠️</span> 注意事項
+                </div>
+                <p>上記ロードマップやサービス内容は現時点での予定であり、変更となる場合があります。あらかじめご了承ください。</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">※ベータテストの参加条件や募集方法については、Discordサーバーにて後日アナウンス予定です。</p>
+            </div>
+
+            <div class="notice-simple-box" style="margin-top: 30px;">
                 <p>🚀 2026年6月上旬 正式リリース予定（5月中旬よりベータテスト開始）</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">💡 ご質問・お問い合わせは公式Discordまで</p>
             </div>
         </section>
 
+        <!-- フッター -->
         <footer class="legal-footer">
-            <a href="tokushoho.html">特定商取引法に基づく表記</a>
-            <a href="terms.html">利用規約</a>
-            <a href="privacy.html">プライバシーポリシー</a>
-            <p style="margin-top: 20px; color: #ccc; font-size: 0.8rem;">© 2026 箱庭クラフト イベントワールド貸し出しサービス /Hakoniwa Craft
-                Event World Rental Service All Rights Reserved.<br>Powered by 箱庭クラフトサーバー / Hakoniwa Craft Server</p>
-            <p style="margin-top: 20px; color: #ccc; font-size: 0.8rem;">© 2026 HAKONIWA Studio All Rights Reserved.</p>
-            <p style="margin-top: 10px; color: #ccc; font-size: 0.8rem;">
-                MinecraftはMojang ABの登録商標です。© 2026 Mojang AB.TM Microsoft Corporation.<br>
+            <a href="/pages/tokushoho.html">特定商取引法に基づく表記</a>
+            <a href="/terms-guidelines/terms.html">利用規約</a>
+            <a href="/terms-guidelines/privacy.html">プライバシーポリシー</a>
+            <p style="margin-top: 20px; font-size: 0.8rem;">© 2026 箱庭クラフト イベントワールド貸し出しサービス / Hakoniwa Craft Event World
+                Rental Service All Rights Reserved.<br>Powered by 箱庭クラフトサーバー / Hakoniwa Craft Server</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                MinecraftはMojang ABの登録商標です。© 2026 Mojang AB. TM Microsoft Corporation.<br>
                 当サービスはMojang ABとは一切関係ありません。
             </p>
         </footer>
     </main>
+
 </body>
 
 </html>

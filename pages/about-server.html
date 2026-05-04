@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サーバー概要 | 箱庭クラフト</title>
+    <meta name="description" content="Minecraftサーバー「箱庭クラフト」のサーバー概要、特徴、ワールド構成、サーバー仕様について詳しく解説します。">
+    <meta name="keywords" content="箱庭クラフト,サーバー概要,ワールド,Minecraft,マイクラ,1.21.4">
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.1css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/contact-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <link rel="stylesheet" href="/css/event-discord-v1.0.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-google-api.js"></script>
+    <!-- ダークモードJS -->
+    <script src="/js/dark-mode.js" defer></script>
+    <!-- ダークモードCSS -->
+    <link rel="stylesheet" href="/css/dark-mode.css">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <h1 class="page-title">🎮 <span class="text-primary-color">箱庭クラフトについて</span></h1>
+        <p class="staff-role-lead" style="text-align: center; margin-bottom: 40px;">Server Overview / 箱庭クラフトの全体像</p>
+
+        <!-- サーバー基本情報 -->
+        <section class="section-block">
+            <div class="motto-hero-box">
+                <span class="badge">SERVER INFO</span>
+                <h2 class="main-motto" style="font-size: 2rem;">play.uni-guild.com</h2>
+                <p class="motto-subtext">Minecraft Java Edition 1.21.4 [推奨] ～ 26.1.2 [最新]<br>Bedrock Edition 統合版対応</p>
+                <div class="ip-container">
+                    <span class="ip-label">SERVER IP</span>
+                    <code id="server-ip" style="font-size: 1.5rem;">play.uni-guild.com</code>
+                    <span class="version" style="display: block; margin-top: 8px;">ポート: 19132 (BE)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- サーバーの特徴 -->
+        <section class="section-block policy-section">
+            <h2 class="section-title">✨ サーバーの特徴<span>Features</span></h2>
+            <div class="policy-grid">
+                <div class="policy-card">
+                    <div class="policy-icon-wrapper">
+                        <span class="policy-icon">🏡</span>
+                    </div>
+                    <h3>永続型生活ワールド</h3>
+                    <p>ワールドリセットは行いません。長期的な建築やコミュニティの発展を大切にします。</p>
+                </div>
+                <div class="policy-card">
+                    <div class="policy-icon-wrapper">
+                        <span class="policy-icon">🛡️</span>
+                    </div>
+                    <h3>高度な土地保護</h3>
+                    <p>WorldGuardによる領域保護システム。荒らしを気にせず安全に建築できます。</p>
+                </div>
+                <div class="policy-card">
+                    <div class="policy-icon-wrapper">
+                        <span class="policy-icon">💬</span>
+                    </div>
+                    <h3>Discord連携</h3>
+                    <p>ゲーム内チャットとDiscordが連携。コミュニケーションがよりスムーズに。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ワールド構成 -->
+        <section class="section-block">
+            <h2 class="section-title">🌍 ワールド構成<span>Worlds</span></h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🏡</div>
+                    <h3>生活ワールド</h3>
+                    <p><strong>リセット:</strong> なし（永続）</p>
+                    <p><strong>保護:</strong> ✅ 可能</p>
+                    <p>メインとなる建築・居住ワールド。領地保護申請で安全に活動できます。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⛏️</div>
+                    <h3>資源ワールド</h3>
+                    <p><strong>リセット:</strong> 定期的</p>
+                    <p><strong>保護:</strong> ❌ 不可</p>
+                    <p>資材採取専用ワールド。定期的にリセットされ、新鮮な資源が入手可能。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>クリエイティブワールド</h3>
+                    <p><strong>リセット:</strong> なし</p>
+                    <p><strong>保護:</strong> ❌ 不可</p>
+                    <p>建築の試作・練習用。クリエイティブモードで自由に創造できます。</p>
+                </div>
+            </div>
+        </section>
+        <!-- セクション5: サーバー構成 -->
+        <section class="section-block">
+            <h2 class="section-title">⚙️ サーバー構成<span>Specifications</span></h2>
+            <div class="spec-card">
+                <h3>ハードウェア</h3>
+                <div class="spec-board">
+                    <div class="spec-row"><span class="spec-label">CPU</span><span class="spec-value">Ryzen 7 9700X
+                            <em>(Zen 5)</em></span></div>
+                    <div class="spec-row"><span class="spec-label">メモリ</span><span class="spec-value">16 GB DDR5</span>
+                    </div>
+                    <div class="spec-row"><span class="spec-label">ストレージ</span><span class="spec-value">NVMe SSD
+                            1TB</span></div>
+                    <div class="spec-row"><span class="spec-label">ドメイン</span><span class="spec-value">XServer
+                            Domain</span></div>
+                    <div class="spec-row"><span class="spec-label">所在地</span><span class="spec-value">日本</span></div>
+                </div>
+            </div>
+            <div class="spec-card">
+                <h3>サーバーソフトウェア</h3>
+                <div class="spec-board">
+                    <div class="spec-row"><span class="spec-label">サーバーソフト</span><span class="spec-value">Paper
+                            1.21.4</span></div>
+                    <div class="spec-row"><span class="spec-label">対応バージョン</span><span class="spec-value">Java Edition
+                            1.21.4 / Bedrock Edition</span></div>
+                    <div class="spec-row"><span class="spec-label">サーバーIP</span><span
+                            class="spec-value">play.uni-guild.com</span></div>
+                    <div class="spec-row"><span class="spec-label">BEポート</span><span class="spec-value">19132</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 導入プラグイン概要 -->
+        <section class="section-block">
+            <h2 class="section-title">🧩 主な導入プラグイン<span>Plugins</span></h2>
+            <div class="notice-simple-box" style="text-align: left;">
+                <ul class="plugin-list">
+                    <li>• LuckPerms (権限管理)</li>
+                    <li>• WorldGuard / WorldEdit</li>
+                    <li>• EssentialsX (基本機能)</li>
+                    <li>• DiscordSRV (連携)</li>
+                    <li>• CoreProtect (ログ保護)</li>
+                    <li>• ChestShop (ショップ)</li>
+                    <li>• Jobs Reborn (職業)</li>
+                    <li>• mcMMO (スキル)</li>
+                    <li>• BlueMap (地図)</li>
+                    <li>• その他多数のプラグイン</li>
+                </ul>
+                <p style="margin-top: 15px; text-align: center;"><a href="pages/plugin-list.html"
+                        class="btn-text-link">▶ 全プラグイン一覧を見る</a></p>
+            </div>
+        </section>
+
+        <!-- 投票サイト -->
+        <section class="section-block">
+            <h2 class="section-title">🗳️ サーバーを応援する<span>Vote</span></h2>
+            <div class="vote-button-list" style="max-width: 500px; margin: 0 auto;">
+                <a href="https://minecraft.jp/servers/play.uni-guild.com" target="_blank" class="vote-link-card jms">
+                    <strong class="site-name">Japan Minecraft Servers</strong>
+                    <span class="click-msg">クリックして投票する</span>
+                </a>
+                <a href="https://mineportal.jp/servers/cmhqafl2m0000scq6xl0e2q7q" target="_blank"
+                    class="vote-link-card portal">
+                    <strong class="site-name">Mineportal</strong>
+                    <span class="click-msg">クリックして投票する</span>
+                </a>
+            </div>
+            <a href="/pages/vote-info.html" class="text-center-sub" style="display: block; margin-top: 20px; text-align: center; color: var(--light-text);">▶ 投票方法や特典について詳しくはこちら</a>
+            <p class="text-center-sub" style="text-align: center; margin-top: 20px; color: var(--light-text);">
+                ※投票すると豪華特典を獲得できます！</p>
+        </section>
+
+        <!-- 関連リンク -->
+        <div class="button-area-flex">
+            <a href="../index.html" class="btn-nav btn-outline-nav">トップページへ戻る</a>
+            <a href="about-operation.html" class="btn-nav btn-primary-nav">運営紹介を見る</a>
+            <a href="world_rules.html" class="btn-nav btn-outline-nav">ワールドルール</a>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>
