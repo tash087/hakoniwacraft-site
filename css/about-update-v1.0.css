@@ -4,14 +4,16 @@
 
 .aspect-16-9 {
     width: 100%;
-    height: auto; /* 高さを自動にする */
+    height: auto;
+    /* 高さを自動にする */
     border-radius: 30px;
     overflow: hidden;
 }
 
 .team-wallpaper-img {
     width: 100%;
-    height: auto; /* 高さを自動にする */
+    height: auto;
+    /* 高さを自動にする */
     display: block;
 }
 
@@ -28,7 +30,7 @@
     border-radius: 30px;
     padding: 50px 40px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .thanks-message-box p {
@@ -61,7 +63,7 @@
     transform: translateY(-3px);
     border-color: #ffe0b2;
     background: #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
 }
 
 .thanks-icon {
@@ -69,7 +71,7 @@
     height: 50px;
     border-radius: 12px;
     /* 落ち着いた印象を出すために少しだけ彩度を落とす */
-    filter: grayscale(0.1); 
+    filter: grayscale(0.1);
 }
 
 .thanks-meta {
@@ -97,7 +99,7 @@
     justify-content: center;
     align-items: center;
     border: 2px dashed #e0ddd9 !important;
-    background: rgba(0,0,0,0.01) !important;
+    background: rgba(0, 0, 0, 0.01) !important;
     box-shadow: none !important;
     text-align: center;
 }

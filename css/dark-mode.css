@@ -739,12 +739,12 @@ header .dark-mode-toggle-btn,
         font-size: 1.2rem;
         margin-left: 10px;
     }
-    
+
     #main-nav.open .dark-mode-toggle-btn {
         margin: 10px auto;
         display: block;
     }
-    
+
     /* スマホ時のテーブル調整 */
     .dark-mode .plan-table th,
     .dark-mode .plan-table td {

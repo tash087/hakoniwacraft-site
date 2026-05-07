@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箱庭クラフト | サーバーマップ (BlueMap)</title>
+    <meta name="description" content="箱庭クラフトの公式サーバーマップ（BlueMap）。サーバーの世界をブラウザで探索できます。">
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.1css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <!-- 共通JS (ヘッダー読み込み用) -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <!-- ダークモードJS -->
+    <script src="/js/dark-mode.js" defer></script>
+    <!-- ダークモードCSS -->
+    <link rel="stylesheet" href="/css/dark-mode.css">
+
+    <style>
+        /* マップページ専用スタイル */
+        :root {
+            --header-height: 80px;
+            /* フッター高は動的に設定するため初期値0 */
+            --footer-height: 0px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* ヘッダーをマップ上部に重ねる */
+        #header-placeholder {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode #header-placeholder {
+            background: rgba(18, 18, 28, 0.95);
+        }
+
+        /* フッターをマップ下部に重ねる（直接HTMLを埋め込む） */
+        #footer-placeholder {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            /* 高さは内容に合わせて可変 */
+            height: auto;
+            transition: all 0.2s ease;
+        }
+
+        .dark-mode #footer-placeholder {
+            background: rgba(18, 18, 28, 0.95);
+        }
+
+        /* メインコンテナ - 全画面マップ */
+        .map-container {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            /* 高さはJSで動的に計算 */
+            height: calc(100vh - var(--header-height) - var(--footer-height));
+            z-index: 1;
+        }
+
+        /* BlueMap iframe */
+        .bluemap-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #1a1a2e;
+        }
+
+        /* ローディングオーバーレイ */
+        .loading-overlay {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            bottom: var(--footer-height);
+            background-color: rgba(26, 26, 46, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(243, 156, 18, 0.2);
+            border-top: 4px solid var(--primary-color, #e67e22);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            color: #e4e4e7;
+            font-size: 1rem;
+        }
+
+        .dark-mode .loading-text {
+            color: #e0e0e8;
+        }
+
+        /* エラーオーバーレイ */
+        .error-overlay {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            bottom: var(--footer-height);
+            background-color: rgba(26, 26, 46, 0.98);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .error-overlay.hidden {
+            display: none;
+        }
+
+        .error-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            max-width: 400px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode .error-card {
+            background-color: #16213e;
+        }
+
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .error-card h3 {
+            color: #e74c3c;
+            margin-bottom: 12px;
+        }
+
+        .error-card p {
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .dark-mode .error-card p {
+            color: #e0e0e8;
+        }
+
+        .retry-btn {
+            background-color: var(--primary-color, #e67e22);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .retry-btn:hover {
+            background-color: var(--accent-color, #d35400);
+            transform: translateY(-2px);
+        }
+
+        /* ========== 直接埋め込むフッターのスタイル ========== */
+        #footer-placeholder footer {
+            background-color: #fcfaf7 !important;
+            padding: 60px 20px 40px !important;
+            text-align: center !important;
+            border-top: 1px solid #f0eee9 !important;
+            font-family: sans-serif !important;
+        }
+
+        .dark-mode #footer-placeholder footer {
+            background-color: #1e1e2a !important;
+            border-top-color: #2d2d3a !important;
+        }
+
+        .server-history-container {
+            margin: 20px 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .server-counter-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            background: #fff;
+            border-radius: 50px;
+            border: 1px solid #f0eee9;
+            font-weight: bold;
+            color: #555;
+            min-width: 280px;
+            height: 45px;
+            box-sizing: border-box;
+        }
+
+        .dark-mode .server-counter-box {
+            background: #2a2a38;
+            border-color: #3d3d4a;
+            color: #ccc;
+        }
+
+        .reborn-days {
+            border: 1.5px solid #e67e22 !important;
+        }
+
+        .counter-highlight {
+            color: #e67e22;
+            font-size: 1.2rem;
+            margin: 0 4px;
+        }
+
+        .footer-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px 15px;
+            margin-bottom: 25px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-group a {
+            color: #666 !important;
+            font-size: 0.9rem;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .dark-mode .footer-group a {
+            color: #aaa !important;
+        }
+
+        .footer-group a:hover {
+            color: #e67e22 !important;
+        }
+
+        .footer-separator {
+            color: #ddd;
+            user-select: none;
+        }
+
+        .dark-mode .footer-separator {
+            color: #555;
+        }
+
+        footer p small {
+            display: block;
+            font-size: 0.75rem;
+            color: #d2b48c;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .dark-mode footer p small {
+            color: #b89a6e;
+        }
+
+        @media (max-width: 600px) {
+            .footer-separator {
+                display: none;
+            }
+
+            .footer-group {
+                gap: 12px 20px;
+            }
+
+            .server-counter-box {
+                min-width: 100%;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-card {
+                padding: 24px;
+                margin: 16px;
+            }
+
+            .error-icon {
+                font-size: 2.5rem;
+            }
+
+            .error-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .error-card p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="map-container">
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">マップを読み込み中...</p>
+        </div>
+
+        <div id="errorOverlay" class="error-overlay hidden">
+            <div class="error-card">
+                <div class="error-icon">🗺️</div>
+                <h3>マップを読み込めません</h3>
+                <p id="errorMessage">BlueMapサーバーに接続できませんでした。<br>サーバーの状態をご確認ください。</p>
+                <button class="retry-btn" onclick="retryLoad()">🔄 再読み込み</button>
+            </div>
+        </div>
+
+        <iframe id="bluemapFrame" class="bluemap-iframe" src="http://play.hknw.link:8100"
+            title="箱庭クラフト BlueMap サーバーマップ" allow="fullscreen"></iframe>
+    </div>
+
+    <!-- フッター: include.jsを使わず直接HTMLを記述（確実に表示） -->
+    <div id="footer-placeholder">
+        <footer>
+            <div class="footer-links">
+                <div class="footer-group">
+                    <a href="/pages/about-operation.html">運営情報</a> <span class="footer-separator">|</span>
+                    <a href="/pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
+                    <a href="https://docs.hakoniwa-craft.com/docs/privacy-policy/" target="_blank"
+                        rel="noopener noreferrer">プライバシーポリシー</a> <span class="footer-separator">|</span>
+                    <a href="https://docs.hakoniwa-craft.com/docs/ai-policy/" target="_blank"
+                        rel="noopener noreferrer">生成AIの利用に関する規定</a> <span class="footer-separator">|</span>
+                    <a href="/contact/">お問い合わせ</a> <span class="footer-separator">|</span>
+                    <a href="https://docs.hakoniwa-craft.com/docs/terms-list/" target="_blank"
+                        rel="noopener noreferrer" style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a>
+                    <span class="footer-separator">|</span>
+                    <a href="https://docs.hakoniwa-craft.com/docs/tokushoho/" target="_blank"
+                        rel="noopener noreferrer">特定商取引法表記</a> <span class="footer-separator">|</span>
+                    <a class="ot-sdk-show-settings" style="cursor: pointer;">Cookie詳細設定</a>
+                </div>
+            </div>
+
+            <div class="server-history-container">
+                <div id="disp-hakoniwa" class="server-counter-box reborn-days"></div>
+                <div id="disp-total" class="server-counter-box" style="opacity: 0.8; font-size: 0.75rem;"></div>
+            </div>
+
+            <p><small>©箱庭クラフト 2025-2026 All rights reserved.<br></small></p>
+            <p><small>© 2026 HAKONIWA Studio All Rights Reserved.<br>Designed and Developed by HAKONIWA Studio.<br></small></p>
+            <p><small>
+                MinecraftはMojang ABの登録商標です。© 2026 Mojang AB. TM Microsoft Corporation.<br>
+                当サービスはMojang ABとは一切関係ありません。
+            </small></p>
+        </footer>
+    </div>
+
+    <script>
+        // フッターの高さを動的に取得してマップの表示高さを調整する関数
+        function updateFooterHeight() {
+            const footer = document.getElementById('footer-placeholder');
+            const root = document.documentElement;
+            if (footer) {
+                const footerHeight = footer.offsetHeight;
+                root.style.setProperty('--footer-height', footerHeight + 'px');
+                console.log(`フッター高さを更新: ${footerHeight}px`);
+            }
+        }
+
+        // ページ読み込み時とリサイズ時にフッター高を再計算
+        window.addEventListener('load', function() {
+            // 少し遅らせて確実にフッターのレンダリングが完了してから高さを取得
+            setTimeout(updateFooterHeight, 100);
+        });
+
+        window.addEventListener('resize', function() {
+            updateFooterHeight();
+        });
+
+        // もしday-count.jsで動的に高さが変わることがあれば（カウンター更新など）、MutationObserverで監視
+        const footerObserver = new MutationObserver(function() {
+            updateFooterHeight();
+        });
+        const footerElement = document.getElementById('footer-placeholder');
+        if (footerElement) {
+            footerObserver.observe(footerElement, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['style', 'class']
+            });
+        }
+
+        // --- BlueMap 読み込み関連のスクリプト（元のまま）---
+        const iframe = document.getElementById('bluemapFrame');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const errorOverlay = document.getElementById('errorOverlay');
+        const errorMessage = document.getElementById('errorMessage');
+
+        let loadTimeout;
+        let isLoaded = false;
+        const BLUEMAP_URL = 'http://play.hknw.link:8100';
+
+        function startLoading() {
+            loadingOverlay.classList.remove('hidden');
+            errorOverlay.classList.add('hidden');
+            loadTimeout = setTimeout(() => {
+                if (!loadingOverlay.classList.contains('hidden') && !isLoaded) {
+                    showError('マップの読み込みに時間がかかっています。ネットワーク接続を確認してください。');
+                }
+            }, 20000);
+        }
+
+        function finishLoading() {
+            if (isLoaded) return;
+            isLoaded = true;
+            loadingOverlay.classList.add('hidden');
+            if (loadTimeout) clearTimeout(loadTimeout);
+            console.log('BlueMapが読み込まれました');
+        }
+
+        function showError(msg) {
+            loadingOverlay.classList.add('hidden');
+            errorMessage.textContent = msg || 'BlueMapサーバーに接続できませんでした。\nサーバーが稼働しているか、URL設定をご確認ください。';
+            errorOverlay.classList.remove('hidden');
+            if (loadTimeout) clearTimeout(loadTimeout);
+        }
+
+        iframe.onload = function () {
+            finishLoading();
+        };
+
+        iframe.onerror = function () {
+            showError('マップの読み込みに失敗しました。BlueMapサーバーが応答していない可能性があります。');
+        };
+
+        window.retryLoad = function() {
+            isLoaded = false;
+            startLoading();
+            iframe.src = BLUEMAP_URL;
+        };
+
+        startLoading();
+
+        setTimeout(() => {
+            if (!loadingOverlay.classList.contains('hidden') && !isLoaded) {
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+                    if (iframeDoc && iframeDoc.readyState === 'complete') {
+                        finishLoading();
+                    }
+                } catch (e) {
+                    console.log('BlueMap: CORS制限によりアクセス不可、読み込み継続中');
+                    setTimeout(() => {
+                        if (!loadingOverlay.classList.contains('hidden') && !isLoaded) {
+                            finishLoading();
+                        }
+                    }, 5000);
+                }
+            }
+        }, 10000);
+
+        console.log('箱庭クラフト BlueMap表示ページ (フッター直接埋め込み版)');
+        console.log('BlueMap URL: ' + BLUEMAP_URL);
+    </script>
+</body>
+
+</html>

@@ -359,3 +359,112 @@
          font-size: 0.9rem;
      }
  }
+
+
+ /* =========================================
+   ワールドルールページ専用スタイル
+   ========================================= */
+
+ /* ステータスバッジ */
+ .status-badge {
+     display: inline-block;
+     padding: 6px 14px;
+     border-radius: 20px;
+     font-size: 0.85rem;
+     font-weight: bold;
+     margin-bottom: 20px;
+ }
+
+ .status-ok {
+     background: rgba(46, 204, 113, 0.15);
+     color: #27ae60;
+     border: 1px solid rgba(46, 204, 113, 0.3);
+ }
+
+ .status-ng {
+     background: rgba(231, 76, 60, 0.15);
+     color: #e74c3c;
+     border: 1px solid rgba(231, 76, 60, 0.3);
+ }
+
+ .dark-mode .status-ok {
+     background: rgba(46, 204, 113, 0.25);
+     color: #2ecc71;
+ }
+
+ .dark-mode .status-ng {
+     background: rgba(231, 76, 60, 0.25);
+     color: #e74c3c;
+ }
+
+ /* ワールド情報リスト */
+ .world-info-list {
+     display: grid;
+     grid-template-columns: 100px 1fr;
+     gap: 12px;
+     margin: 20px 0;
+     padding: 15px;
+     background: rgba(253, 242, 233, 0.3);
+     border-radius: 12px;
+ }
+
+ .world-info-list dt {
+     font-weight: 800;
+     color: var(--primary-color);
+     font-size: 0.85rem;
+ }
+
+ .world-info-list dd {
+     margin: 0;
+     color: var(--text-color);
+ }
+
+ .dark-mode .world-info-list {
+     background: rgba(30, 42, 74, 0.3);
+ }
+
+ /* ルールリスト */
+ .rule-list {
+     margin-top: 15px;
+     padding-top: 15px;
+     border-top: 1px dashed #e0ddd9;
+ }
+
+ .rule-list h4 {
+     color: var(--primary-color);
+     margin-bottom: 12px;
+     font-size: 0.95rem;
+ }
+
+ .rule-list ul {
+     margin: 0;
+     padding-left: 20px;
+ }
+
+ .rule-list li {
+     margin-bottom: 8px;
+     font-size: 0.9rem;
+     line-height: 1.6;
+ }
+
+ .dark-mode .rule-list {
+     border-top-color: #2d2d44;
+ }
+
+ /* 絵文字ラベル */
+ .emoji-label {
+     font-size: 1.3rem;
+     margin-right: 8px;
+ }
+
+ /* レスポンシブ */
+ @media (max-width: 768px) {
+     .world-info-list {
+         grid-template-columns: 85px 1fr;
+         gap: 8px;
+     }
+
+     .rule-list li {
+         font-size: 0.85rem;
+     }
+ }

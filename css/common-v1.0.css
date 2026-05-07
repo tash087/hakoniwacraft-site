@@ -2,16 +2,23 @@
    共通設定 & 変数 (Site Foundation)
    ========================================= */
 :root {
-    --primary-color: #e67e22;    /* 温かみのあるオレンジ */
-    --accent-color: #d35400;     /* 濃いオレンジ（ホバー用） */
-    --bg-color: #fdfaf6;         /* 柔らかな背景色 */
-    --text-color: #4a4a4a;       /* メイン文字色 */
-    --light-text: #888888;       /* 補助文字色 */
+    --primary-color: #e67e22;
+    /* 温かみのあるオレンジ */
+    --accent-color: #d35400;
+    /* 濃いオレンジ（ホバー用） */
+    --bg-color: #fdfaf6;
+    /* 柔らかな背景色 */
+    --text-color: #4a4a4a;
+    /* メイン文字色 */
+    --light-text: #888888;
+    /* 補助文字色 */
     --white: #ffffff;
     --header-height: 80px;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -35,11 +42,12 @@ body {
    ========================================= */
 header {
     background: var(--white);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
     height: var(--header-height);
     position: sticky;
     top: 0;
-    z-index: 9999; /* ヘッダーを最前面に保持 */
+    z-index: 9999;
+    /* ヘッダーを最前面に保持 */
 }
 
 .header-inner {
@@ -75,22 +83,29 @@ header {
     transition: color 0.3s;
 }
 
-#main-nav a:hover { color: var(--primary-color); }
+#main-nav a:hover {
+    color: var(--primary-color);
+}
 
 /* ドロップダウンの修正 */
-.dropdown { position: relative; }
+.dropdown {
+    position: relative;
+}
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* 親メニューの直下に配置 */
+    top: 100%;
+    /* 親メニューの直下に配置 */
     left: 0;
-    background-color: #ffffff; /* 明示的に白を指定 */
+    background-color: #ffffff;
+    /* 明示的に白を指定 */
     min-width: 220px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     padding: 10px 0;
-    z-index: 10000; /* ヘッダー内の他の要素より前面へ */
+    z-index: 10000;
+    /* ヘッダー内の他の要素より前面へ */
 }
 
 .dropdown-content a {
@@ -107,7 +122,9 @@ header {
     color: var(--primary-color) !important;
 }
 
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 /* --- スマホ用トグルボタン --- */
 .menu-toggle {
@@ -136,9 +153,18 @@ header {
 }
 
 /* クリック時（activeクラスがついた時）の変形 */
-.menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.menu-toggle.active .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
-.menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
 /* =========================================
    共通ボタン・エリア
@@ -170,6 +196,7 @@ header {
     background-color: var(--primary-color) !important;
     color: #fff !important;
 }
+
 .btn-primary-nav:hover {
     background-color: var(--accent-color) !important;
     transform: translateY(-3px);
@@ -180,6 +207,7 @@ header {
     color: var(--text-color) !important;
     border: 2px solid #e0ddd9 !important;
 }
+
 .btn-outline-nav:hover {
     border-color: var(--primary-color) !important;
     color: var(--primary-color) !important;
@@ -195,89 +223,117 @@ footer {
     text-align: center;
     border-top: 1px solid #e0ddd9;
     position: relative;
-    z-index: 10; /* コンテンツの下に配置されるよう調整 */
+    z-index: 10;
+    /* コンテンツの下に配置されるよう調整 */
 }
 
-.footer-group { margin-bottom: 25px; font-size: 0.85rem; }
-.footer-group a { text-decoration: none; color: var(--text-color); margin: 0 10px; }
-.footer-group a:hover { color: var(--primary-color); }
-footer p { font-size: 0.8rem; color: var(--light-text); }
+.footer-group {
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+}
+
+.footer-group a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 0 10px;
+}
+
+.footer-group a:hover {
+    color: var(--primary-color);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--light-text);
+}
 
 /* =========================================
    共通レスポンシブ (Common Responsive)
    ========================================= */
 @media (max-width: 768px) {
-    .menu-toggle { display: flex; }
+    .menu-toggle {
+        display: flex;
+    }
+
     #main-nav {
-        display: none; 
+        display: none;
         position: absolute;
         top: var(--header-height);
         left: 0;
         width: 100%;
         background: var(--white);
         padding: 20px 0;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
         z-index: 9998;
     }
-    #main-nav.open { display: block; }
+
+    #main-nav.open {
+        display: block;
+    }
+
     #main-nav ul {
         flex-direction: column;
         align-items: center;
         gap: 15px;
     }
+
     .dropdown-content {
         position: static;
         box-shadow: none;
         text-align: center;
         background: #fafafa;
         width: 100%;
-        display: none; /* スマホ時はクリック等での制御が必要な場合はここを調整 */
+        display: none;
+        /* スマホ時はクリック等での制御が必要な場合はここを調整 */
     }
+
     /* スマホ時にホバーで出すのは難しいため、常時出すかJSで開閉させるのが一般的です */
-    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 }
 
 /*  =========================================
     共通テーブルスタイル (Plan Table)
     ========================================= */
-        .plan-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-        }
+.plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
 
-        .plan-table th,
-        .plan-table td {
-            padding: 18px;
-            border: 1px solid #f0ede9;
-            text-align: center;
-        }
+.plan-table th,
+.plan-table td {
+    padding: 18px;
+    border: 1px solid #f0ede9;
+    text-align: center;
+}
 
-        .plan-table th {
-            background: #fdf2e9;
-            color: var(--primary-color);
-            font-weight: 800;
-        }
+.plan-table th {
+    background: #fdf2e9;
+    color: var(--primary-color);
+    font-weight: 800;
+}
 
-        .legal-footer {
-            margin-top: 80px;
-            padding: 40px 20px;
-            border-top: 2px dashed #e0ddd9;
-            text-align: center;
-        }
+.legal-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    border-top: 2px dashed #e0ddd9;
+    text-align: center;
+}
 
-        .legal-footer a {
-            color: var(--light-text);
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
+.legal-footer a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
 
-        .legal-footer a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
+.legal-footer a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}

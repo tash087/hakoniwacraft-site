@@ -1,11 +1,12 @@
 <header>
     <link rel="stylesheet" href="/css/common-v1.0.1.css">
     <div class="header-inner">
-        <a href="/index.html" class="header-link"> 
+        <a href="/index.html" class="header-link">
             <img src="/images/server_icon.png" alt="箱庭クラフト ロゴ" class="server-icon">
         </a>
-        
-        <button id="menu-toggle" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開閉する">
+
+        <button id="menu-toggle" class="menu-toggle" aria-controls="main-nav" aria-expanded="false"
+            aria-label="メニューを開閉する">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -14,37 +15,48 @@
         <nav id="main-nav">
             <ul>
                 <li><a href="/index.html">ホーム</a></li>
-                
+
                 <li class="dropdown">
                     <a href="#about-server">サーバーについて</a>
                     <div class="dropdown-content">
-                        <!-- サーバーについてのドロップダウンメニュー -->
-                        <a href="/pages/about-server.html">箱庭クラフトについて</a>
-                        <a href="/service/event_world_rental/">イベントワールド貸し出し<br>サービス概要(6月開始予定)</a>
-                        <a href="/pages/how_to_join-bedrock.html">統合版接続ガイド！</a>
-                        <a href="/character/">公式マスコットキャラクター</a>
-                        <a href="/pages/facility_list.php">有料公共施設案内</a>
-                        <a href="/pages/operation.html#server-info">サーバー構成</a>
+                        <a href="/pages/about-server.html">📖 箱庭クラフトについて</a>
+                        <a href="/service/event_world_rental/">🎪 イベントワールド貸し出し</a>
+                        <a href="/pages/how_to_join-bedrock.html">📱 統合版接続ガイド</a>
+                        <a href="/pages/operation.html#server-info">⚙️ サーバー構成</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#worlds">ワールド・マップ</a>
+                    <div class="dropdown-content">
+                        <a href="/pages/world_rules.html">🌍 ワールドルール</a>
+                        <a href="/map/">🗺️ サーバーマップ (BlueMap)</a>
+                        <a href="/character/">🎨 公式マスコットキャラクター</a>
+                        <a href="/pages/facility_list.php">🏛️ 有料公共施設案内</a>
                     </div>
                 </li>
 
                 <li class="dropdown">
                     <a href="#contact-about_us">運営・お問い合わせ</a>
                     <div class="dropdown-content">
-                        <a href="/pages/about-operation.html">運営情報・紹介</a>
-                        <a href="/contact/">お問い合わせ</a>
+                        <a href="/pages/about-operation.html">👥 運営情報・紹介</a>
+                        <a href="/contact/">📧 お問い合わせ</a>
                     </div>
                 </li>
 
-                <li>
-                    <a href="/terms-guidelines/terms-list.html" style="font-weight: 800; color: var(--primary-color) !important;">
-                        規約・ガイドライン一覧
-                    </a>
+                <li class="dropdown">
+                    <a href="#rules">規約・ドキュメント</a>
+                    <div class="dropdown-content">
+                        <a href="https://docs.hakoniwa-craft.com/" target="_blank" rel="noopener noreferrer">📜
+                            規約・ガイドライン一覧</a>
+                        <a href="/pages/vote-info.html">🗳️ 投票する</a>
+                        <a href="/pages/donation-info.html">💝 運営支援</a>
+                    </div>
                 </li>
 
-                </ul>
+            </ul>
         </nav>
-        <!-- ★ ダークモード切り替えボタンを配置する場所 -->
+        <!-- ダークモード切り替えボタンを配置する場所 -->
         <div id="dark-mode-container"></div>
     </div>
 </header>

@@ -6,6 +6,7 @@
         border-top: 1px solid #f0eee9 !important;
         font-family: sans-serif !important;
     }
+
     .server-history-container {
         margin: 20px 0 30px;
         display: flex;
@@ -13,6 +14,7 @@
         align-items: center;
         gap: 12px;
     }
+
     .server-counter-box {
         display: flex;
         align-items: center;
@@ -25,61 +27,73 @@
         color: #555;
         min-width: 280px;
         height: 45px;
-        box-sizing: border-box; /* パディングによる幅の増大を防止 */
-    }
-    .reborn-days { 
-        border: 1.5px solid #e67e22 !important; 
-    }
-    .counter-highlight { 
-        color: #e67e22; 
-        font-size: 1.2rem; 
-        margin: 0 4px; 
+        box-sizing: border-box;
+        /* パディングによる幅の増大を防止 */
     }
 
-    .footer-group { 
-        display: flex; 
-        flex-wrap: wrap; 
-        justify-content: center; 
+    .reborn-days {
+        border: 1.5px solid #e67e22 !important;
+    }
+
+    .counter-highlight {
+        color: #e67e22;
+        font-size: 1.2rem;
+        margin: 0 4px;
+    }
+
+    .footer-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
-        gap: 8px 15px; 
+        gap: 8px 15px;
         margin-bottom: 25px;
         max-width: 1000px;
         margin-left: auto;
         margin-right: auto;
     }
-    .footer-group a { 
-        color: #666 !important; 
-        font-size: 0.9rem; 
+
+    .footer-group a {
+        color: #666 !important;
+        font-size: 0.9rem;
         text-decoration: none;
-        white-space: nowrap; /* 単語の途中での改行を防止 */
+        white-space: nowrap;
+        /* 単語の途中での改行を防止 */
         transition: color 0.2s;
     }
+
     .footer-group a:hover {
         color: #e67e22 !important;
     }
-    .footer-separator { 
-        color: #ddd; 
+
+    .footer-separator {
+        color: #ddd;
         user-select: none;
     }
-    
-    footer p small { 
-        display: block; 
-        font-size: 0.75rem; 
-        color: #d2b48c; /* 旧:#999 */
-        line-height: 1.8; 
+
+    footer p small {
+        display: block;
+        font-size: 0.75rem;
+        color: #d2b48c;
+        /* 旧:#999 */
+        line-height: 1.8;
         margin-bottom: 8px;
     }
 
     /* スマホ表示での最適化 */
     @media (max-width: 600px) {
         .footer-separator {
-            display: none; /* スマホでは区切り線を消して間隔(gap)だけで調整 */
+            display: none;
+            /* スマホでは区切り線を消して間隔(gap)だけで調整 */
         }
+
         .footer-group {
             gap: 12px 20px;
         }
+
         .server-counter-box {
-            min-width: 100%; /* 横幅いっぱいに広げる */
+            min-width: 100%;
+            /* 横幅いっぱいに広げる */
             font-size: 0.85rem;
         }
     }
@@ -87,16 +101,21 @@
 
 <footer>
     <div class="footer-links">
-    <div class="footer-group">
-    <a href="/pages/operation.html">運営情報</a> <span class="footer-separator">|</span>
-    <a href="/pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
-    <a href="https://docs.hakoniwa-craft.com/docs/privacy-policy/" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a> <span class="footer-separator">|</span>
-    <a href="https://docs.hakoniwa-craft.com/docs/ai-policy/" target="_blank" rel="noopener noreferrer">生成AIの利用に関する規定</a> <span class="footer-separator">|</span>
-    <a href="/contact/">お問い合わせ</a> <span class="footer-separator">|</span>
-    <a href="https://docs.hakoniwa-craft.com/docs/terms-list/" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a> <span class="footer-separator">|</span>
-    <a href="https://docs.hakoniwa-craft.com/docs/tokushoho/" target="_blank" rel="noopener noreferrer">特定商取引法表記</a> <span class="footer-separator">|</span>
-    <a class="ot-sdk-show-settings" style="cursor:  pointer;">Cookie詳細設定</a>
-</div>
+        <div class="footer-group">
+            <a href="/pages/about-operation.html">運営情報</a> <span class="footer-separator">|</span>
+            <a href="/pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
+            <a href="https://docs.hakoniwa-craft.com/docs/privacy-policy/" target="_blank"
+                rel="noopener noreferrer">プライバシーポリシー</a> <span class="footer-separator">|</span>
+            <a href="https://docs.hakoniwa-craft.com/docs/ai-policy/" target="_blank"
+                rel="noopener noreferrer">生成AIの利用に関する規定</a> <span class="footer-separator">|</span>
+            <a href="/contact/">お問い合わせ</a> <span class="footer-separator">|</span>
+            <a href="https://docs.hakoniwa-craft.com/docs/terms-list/" target="_blank" rel="noopener noreferrer"
+                style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a> <span
+                class="footer-separator">|</span>
+            <a href="https://docs.hakoniwa-craft.com/docs/tokushoho/" target="_blank"
+                rel="noopener noreferrer">特定商取引法表記</a> <span class="footer-separator">|</span>
+            <a class="ot-sdk-show-settings" style="cursor:  pointer;">Cookie詳細設定</a>
+        </div>
     </div>
 
     <div class="server-history-container">
@@ -106,6 +125,8 @@
 
     <p><small>©箱庭クラフト 2025-2026 All rights reserved.<br> </small></p>
     <p><small>© 2026 HAKONIWA Studio All Rights Reserved.<br>Designed and Developed by HAKONIWA Studio.<br></small></p>
-    <p><small>Minecraft は Mojang AB の登録商標です。<br>本サーバーは Mojang社から承認されておらず、関係ありません。</small></p>
-    <p style="margin-top: 15px;"> </p>
+    <p><small>
+        MinecraftはMojang ABの登録商標です。© 2026 Mojang AB. TM Microsoft Corporation.<br>
+        当サービスはMojang ABとは一切関係ありません。
+    </small></p>
 </footer>

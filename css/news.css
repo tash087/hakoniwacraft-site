@@ -102,7 +102,7 @@
     color: inherit;
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 1px solid transparent;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .news-card-item:hover {
@@ -162,7 +162,7 @@
     background: var(--white);
     padding: 48px 48px;
     border-radius: 28px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
     position: relative;
     z-index: 1;
 }
@@ -375,7 +375,7 @@
     height: auto;
     border-radius: 20px;
     margin: 32px 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* 目次スタイル */

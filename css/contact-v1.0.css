@@ -3,21 +3,23 @@
    ========================================= */
 
 /* 1. 既存の干渉するスタイルを強制リセット */
-.status-header, 
-.status-label, 
-.status-title, 
+.status-header,
+.status-label,
+.status-title,
 .status-subtitle {
     position: static !important;
     transform: none !important;
     inset: auto !important;
     width: auto !important;
-    background: none !important; /* タイトル背後の白い箱を消す */
+    background: none !important;
+    /* タイトル背後の白い箱を消す */
     box-shadow: none !important;
 }
 
 /* 2. メインコンテナ：ヘッダーの下に正しく配置 */
 .status-page .container {
-    padding-top: 100px !important; /* ヘッダー(80px)との距離を固定 */
+    padding-top: 100px !important;
+    /* ヘッダー(80px)との距離を固定 */
     max-width: 1000px;
     margin: 0 auto;
     display: block !important;
@@ -64,12 +66,17 @@
     background: var(--white);
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border-top: 8px solid #eee;
 }
 
-.method-discord { border-top-color: #5865F2; }
-.method-mail { border-top-color: var(--primary-color); }
+.method-discord {
+    border-top-color: #5865F2;
+}
+
+.method-mail {
+    border-top-color: var(--primary-color);
+}
 
 .btn-discord {
     display: block;
