@@ -381,81 +381,10 @@
             </div>
         </div>
 
-        <iframe id="bluemapFrame" class="bluemap-iframe" src="//map.hknw.link"
+        <iframe id="bluemapFrame" class="bluemap-iframe" src="https://map.hknw.link"
             title="箱庭クラフト BlueMap サーバーマップ" allow="fullscreen"></iframe>
     </div>
-
-    <!-- フッター: include.jsを使わず直接HTMLを記述（確実に表示） -->
-    <div id="footer-placeholder">
-        <footer>
-            <div class="footer-links">
-                <div class="footer-group">
-                    <a href="/pages/about-operation.html">運営情報</a> <span class="footer-separator">|</span>
-                    <a href="/pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
-                    <a href="https://docs.hakoniwa-craft.com/docs/privacy-policy/" target="_blank"
-                        rel="noopener noreferrer">プライバシーポリシー</a> <span class="footer-separator">|</span>
-                    <a href="https://docs.hakoniwa-craft.com/docs/ai-policy/" target="_blank"
-                        rel="noopener noreferrer">生成AIの利用に関する規定</a> <span class="footer-separator">|</span>
-                    <a href="/contact/">お問い合わせ</a> <span class="footer-separator">|</span>
-                    <a href="https://docs.hakoniwa-craft.com/docs/terms-list/" target="_blank"
-                        rel="noopener noreferrer" style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a>
-                    <span class="footer-separator">|</span>
-                    <a href="https://docs.hakoniwa-craft.com/docs/tokushoho/" target="_blank"
-                        rel="noopener noreferrer">特定商取引法表記</a> <span class="footer-separator">|</span>
-                    <a class="ot-sdk-show-settings" style="cursor: pointer;">Cookie詳細設定</a>
-                </div>
-            </div>
-
-            <div class="server-history-container">
-                <div id="disp-hakoniwa" class="server-counter-box reborn-days"></div>
-                <div id="disp-total" class="server-counter-box" style="opacity: 0.8; font-size: 0.75rem;"></div>
-            </div>
-
-            <p><small>©箱庭クラフト 2025-2026 All rights reserved.<br></small></p>
-            <p><small>© 2026 HAKONIWA Studio All Rights Reserved.<br>Designed and Developed by HAKONIWA Studio.<br></small></p>
-            <p><small>
-                MinecraftはMojang ABの登録商標です。© 2026 Mojang AB. TM Microsoft Corporation.<br>
-                当サービスはMojang ABとは一切関係ありません。
-            </small></p>
-        </footer>
-    </div>
-
     <script>
-        // フッターの高さを動的に取得してマップの表示高さを調整する関数
-        function updateFooterHeight() {
-            const footer = document.getElementById('footer-placeholder');
-            const root = document.documentElement;
-            if (footer) {
-                const footerHeight = footer.offsetHeight;
-                root.style.setProperty('--footer-height', footerHeight + 'px');
-                console.log(`フッター高さを更新: ${footerHeight}px`);
-            }
-        }
-
-        // ページ読み込み時とリサイズ時にフッター高を再計算
-        window.addEventListener('load', function() {
-            // 少し遅らせて確実にフッターのレンダリングが完了してから高さを取得
-            setTimeout(updateFooterHeight, 100);
-        });
-
-        window.addEventListener('resize', function() {
-            updateFooterHeight();
-        });
-
-        // もしday-count.jsで動的に高さが変わることがあれば（カウンター更新など）、MutationObserverで監視
-        const footerObserver = new MutationObserver(function() {
-            updateFooterHeight();
-        });
-        const footerElement = document.getElementById('footer-placeholder');
-        if (footerElement) {
-            footerObserver.observe(footerElement, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                attributeFilter: ['style', 'class']
-            });
-        }
-
         // --- BlueMap 読み込み関連のスクリプト（元のまま）---
         const iframe = document.getElementById('bluemapFrame');
         const loadingOverlay = document.getElementById('loadingOverlay');
@@ -464,7 +393,7 @@
 
         let loadTimeout;
         let isLoaded = false;
-        const BLUEMAP_URL = '//map.hknw.link';
+        const BLUEMAP_URL = 'https://map.hknw.link';
 
         function startLoading() {
             loadingOverlay.classList.remove('hidden');

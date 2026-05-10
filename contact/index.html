@@ -4,26 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ | 箱庭クラフト</title>
-<link rel="stylesheet" href="https://uni-guild.com/css/common-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/style-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/about-update-v1.0.css">
-<link rel="stylesheet" href="https://uni-guild.com/css/news-v1.0.css">
-<link rel="shortcut icon" href="https://uni-guild.com/images/server_icon.png" type="image/png">
-<!-- 全サイト共通JS -->
-<script src="https://uni-guild.com/js/include-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/day-count-v1.1.js" defer></script>
-<script src="https://uni-guild.com/js/slider-v1.0.js" defer></script>
-<script src="https://uni-guild.com/js/query/query-v2.1.2.js" defer></script>
-<!-- Contact 専用 -->
-<link rel="stylesheet" href="https://uni-guild.com/css/contact-v1.0.css"
-<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script></head>
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="/css/common-v1.0.1.css">
+    <link rel="stylesheet" href="/css/concept-v1.0.css">
+    <link rel="stylesheet" href="/css/contact-v1.0.css">
+    <link rel="stylesheet" href="/css/style-v1.0.css">
+    <link rel="stylesheet" href="/css/news-v1.0.css">
+    <link rel="stylesheet" href="/css/temp.css">
+    <!-- 共通Image -->
+    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+
+    <!-- 共通JS -->
+    <script src="/js/include-v1.1.js" defer></script>
+    <script src="/js/day-count-v1.1.js" defer></script>
+    <script src="/js/slider-v1.0.js" defer></script>
+
+    <!-- queryパラ取得 限定[js] -->
+    <script src="/js/query/query-google-api.js"></script>
+
+    <!-- ダークモード -->
+    <script src="/js/dark-mode.js" defer></script>
+    <link rel="stylesheet" href="/css/dark-mode.css">
+
+    <!--共通OGP-->
+    <meta property="og:image" content="https://hakoniwa-craft.com/images/ogp.png">
+    <meta property="og:locale" content="ja-JP">
+    <meta property="og:type" content="website">
+    <!-- ページ固有CSS -->
+    <link rel="stylesheet" href="/css/vote.css">
+</head>
 <body>
     <div id="header-placeholder"></div>
 
-    <main>
+ <!--   <main>
         <section class="hero" style="padding: 100px 20px;">
             <div class="hero-content">
                 <span class="badge">Contact</span>
@@ -60,18 +73,18 @@
                         </div>
 
                         <div class="notice-simple-box" style="margin-bottom: 20px; font-size: 0.8rem; padding: 15px; border-radius: 15px;">
-                            <p>送信前に<a href="../pages/terms-list.html" style="color: var(--primary-color); font-weight: bold;">規約・ガイドライン</a>をご確認ください。</p>
-                        </div>
+                            <p>送信前に<a href="/pages/terms-list.html" style="color: var(--primary-color); font-weight: bold;">規約・ガイドライン</a>をご確認ください。</p>
+                        </div> -->
 
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhECya27JA656wDaAg7tDSfrGMeqkxMcStMWCWsKBc2e3nXA/viewform?embedded=true" width="640" height="861" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
 
-
-<div class="form-group" style="display: flex; justify-content: center; margin-bottom: 20px;">
+<!-- test<div class="form-group" style="display: flex; justify-content: center; margin-bottom: 20px;">
     <div class="cf-turnstile" data-sitekey="0x4AAAAAACuYCgGwnWsvAE-_"></div>
 </div>
 
 <button type="submit" class="btn-nav btn-primary-nav login-submit-btn" style="border: none; width: 100%;">
     内容を送信する
-</button>
+</button> -->
                     </form>
 
                     <div class="login-footer-links">
