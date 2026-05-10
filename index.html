@@ -61,10 +61,11 @@
                 <h2>News<span>最新情報</span></h2>
             </header>
             <div id="news-list" class="news-list-container">
-                <p style="text-align: center; color: #999;">お知らせを読み込み中...</p>
+                <p style="text-align: center; color: #999;">調整中...[新ニュースサイトへ移行中]</p>
             </div>
             <div class="center-btn-area" style="text-align: center; margin-top: 40px;">
-                <a href="news/archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ</a>
+                <a class="btn-nav btn-outline-nav">調整中...</a>
+                <!--<a href="news/archive.html" class="btn-nav btn-outline-nav">ニュース一覧へ</a> -->
             </div>
         </section>
 
@@ -106,7 +107,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             const newsContainer = document.getElementById('news-list');
             try {
-                const response = await fetch('admin/news.json');
+                const response = await fetch('temp/admin/news.json');
                 if (!response.ok) throw new Error('News file not found');
                 const newsData = await response.json();
 
@@ -126,7 +127,7 @@
                 newsContainer.innerHTML = html;
             } catch (error) {
                 console.error('ニュースの読み込み失敗:', error);
-                newsContainer.innerHTML = '<p style="text-align:center; color:#e74c3c;">ニュースの読み込みに失敗しました。</p>';
+                newsContainer.innerHTML = '<p style="text-align:center; color:#e74c3c; text-font: 0.8rem;">調整中...[新ニュースサイトへ移行中]</p>';
             }
         });
     </script>
