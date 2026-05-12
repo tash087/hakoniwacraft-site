@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="/css/style-v1.0.css">
     <link rel="stylesheet" href="/css/news-v1.0.css">
     <link rel="stylesheet" href="/css/temp.css">
+    
     <!-- 共通Image -->
-    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <link rel="shortcut icon" href="/images/webp/server_icon.webp" type="image/webp">
 
     <!-- 共通JS -->
     <script src="/js/include-v1.1.js" defer></script>
@@ -26,15 +27,15 @@
     <!-- ダークモード -->
     <script src="/js/dark-mode.js" defer></script>
     <link rel="stylesheet" href="/css/dark-mode.css">
-
+    
     <!--共通OGP-->
-    <meta property="og:image" content="https://hakoniwa-craft.com/images/ogp.png">
+    <meta property="og:image" content="https://hakoniwa-craft.com/images/webp/ogp.webp">
     <meta property="og:locale" content="ja-JP">
     <meta property="og:type" content="website">
+    
     <!-- staff用CSS -->
     <link rel="stylesheet" href="data/staff-v1.3.css">
     <link rel="stylesheet" href="data/loading-screen-v1.1.1.css">
-    
     <style>
         /* メインスタイル */
         * {
@@ -533,7 +534,7 @@
                 <div class="staff-main-layout">
                     <aside class="staff-info-card">
                         <div class="staff-visual">
-                            <img src="../images/${escapeHtml(member.id)}_icon.png" 
+                            <img src="../images/webp/${escapeHtml(member.id)}_icon.webp" 
                                  alt="${escapeHtml(member.name)}" 
                                  class="staff-large-icon"
                                  onerror="this.src='https://placehold.co/150x150?text=No+Image'">
@@ -576,7 +577,7 @@
                 </div>
                 <nav class="button-area-flex">
                     <button id="prev-staff" class="btn-nav btn-primary-nav">← 前のメンバー</button>
-                    <a href="../pages/about.html" class="btn-nav btn-outline-nav">運営紹介一覧へ</a>
+                    <a href="/pages/about-operation.html#staff-introduction" class="btn-nav btn-outline-nav">運営紹介一覧へ</a>
                     <button id="next-staff" class="btn-nav btn-primary-nav">次のメンバー →</button>
                 </nav>
             `;

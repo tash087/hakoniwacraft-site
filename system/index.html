@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>接続情報・環境情報表示テスト</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            color: #2c3e50;
+        }
+        h2 {
+            margin-top: 30px;
+            color: #2980b9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            width: 40%;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .info-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ブラウザ・環境情報 取得デモ</h1>
+    <p class="info-box">
+        ブラウザのJavaScript機能を使用して、あなたのデバイスやブラウザから取得できる情報を表示しています。<br>
+        ※IPアドレスなどのサーバー側でしか判別できない情報は、公開されているAPI（ipify）を一部利用して補完しています。
+    </p>
+
+    <h2>あなたの通信に必要な情報</h2>
+    <table>
+        <tr>
+            <th>IPアドレス (グローバルIP)</th>
+            <td id="ip-address">取得中...</td>
+        </tr>
+        <tr>
+            <th>ユーザーエージェント (HTTP_USER_AGENT)</th>
+            <td id="user-agent">取得中...</td>
+        </tr>
+        <tr>
+            <th>ブラウザの言語 (language)</th>
+            <td id="language">取得中...</td>
+        </tr>
+    </table>
+
+    <h2>ブラウザや画面の情報（JavaScript経由）</h2>
+    <table>
+        <tr>
+            <th>モニタサイズ (screen.width × height)</th>
+            <td id="screen-size">取得中...</td>
+        </tr>
+        <tr>
+            <th>モニタ表示色 (screen.colorDepth)</th>
+            <td id="color-depth">取得中...</td>
+        </tr>
+        <tr>
+            <th>どこから来たか (document.referrer)</th>
+            <td id="referrer">取得中...</td>
+        </tr>
+        <tr>
+            <th>ブラウザ開発コード (appCodeName)</th>
+            <td id="app-code-name">取得中...</td>
+        </tr>
+        <tr>
+            <th>ブラウザ種類 (appName)</th>
+            <td id="app-name">取得中...</td>
+        </tr>
+        <tr>
+            <th>プラットフォーム (platform)</th>
+            <td id="platform">取得中...</td>
+        </tr>
+        <tr>
+            <th>クッキーの利用可否 (cookieEnabled)</th>
+            <td id="cookie-enabled">取得中...</td>
+        </tr>
+        <tr>
+            <th>Javaの利用可否 (javaEnabled)</th>
+            <td id="java-enabled">取得中...</td>
+        </tr>
+        <tr>
+            <th>パソコン（ブラウザ）の日時</th>
+            <td id="current-time">取得中...</td>
+        </tr>
+        <tr>
+            <th>インストールされているプラグイン数</th>
+            <td id="plugins-info">取得中...</td>
+        </tr>
+    </table>
+
+    <h2>位置情報の取得 (Geolocation API)</h2>
+    <div style="margin-bottom: 20px;">
+        <button id="get-location-btn">位置情報を取得する</button>
+    </div>
+    <table>
+        <tr>
+            <th>緯度 (Latitude)</th>
+            <td id="geo-latitude">-</td>
+        </tr>
+        <tr>
+            <th>経度 (Longitude)</th>
+            <td id="geo-longitude">-</td>
+        </tr>
+        <tr>
+            <th>ステータス</th>
+            <td id="geo-status">ボタンを押すと、ブラウザが許可を求めます。</td>
+        </tr>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>

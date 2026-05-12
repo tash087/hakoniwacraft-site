@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="/css/style-v1.0.css">
     <link rel="stylesheet" href="/css/news-v1.0.css">
     <link rel="stylesheet" href="/css/temp.css">
+
     <!-- 共通Image -->
-    <link rel="shortcut icon" href="/images/server_icon.png" type="image/png">
+    <link rel="shortcut icon" href="/images/webp/server_icon.webp" type="image/webp">
 
     <!-- 共通JS -->
     <script src="/js/include-v1.1.js" defer></script>
@@ -28,15 +29,22 @@
     <!-- ダークモード -->
     <script src="/js/dark-mode.js" defer></script>
     <link rel="stylesheet" href="/css/dark-mode.css">
+    
+    <!--共通OGP-->
+    <meta property="og:image" content="https://hakoniwa-craft.com/images/webp/ogp.webp">
+    <meta property="og:locale" content="ja-JP">
+    <meta property="og:type" content="website">
 
     <!-- OGP -->
     <meta property="og:title" content="箱庭クラフト | 共に育む小さな世界">
     <meta property="og:description" content="秩序ある美しき箱庭世界を共に作り上げる！/自由な創造、共有する喜び。共に育む、小さな世界。">
-    <meta property="og:type" content="website">
     <meta property="og:url" content="https://hakoniwa-craft.com/">
-    <meta property="og:image" content="https://hakoniwa-craft.com/images/ogp.png">
-    <meta property="og:locale" content="ja-JP">
+
+    <!-- index専用 js サーバーステータス取得 -->
+    <script src="/js/server-status.js"></script>
+    <!-- ブラウザトラッカー(実装予定) -->
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
@@ -49,12 +57,52 @@
                 <p>『箱庭クラフト』活動中！</p>
                 <div class="ip-container">
                     <span class="ip-label">SERVER IP</span>
-                    <span class="version">1.21.4 [推奨] ～ 26.1.2 [最新]</span><!-- ここはサーバーのIPアドレスを表示する部分 -->
+                    <span class="version">1.21.4 [推奨] ～ 1.26.2 [最新]</span>
                     <br>
-                    <code id="server-ip">play.uni-guild.com</code>
+                    <code id="server-ip">play.hknw.link / play.uni-guild.com</code>
                 </div>
             </div>
         </section>
+
+        <!-- サーバーステータスカード -->
+        <div class="server-status-card">
+            <div class="status-header">
+                <img id="server-icon" id="server-icon" alt="Server Icon"
+                    class="server-icon-img">
+                <div class="title-area">
+                    <h2>箱庭クラフト Network</h2>
+                    <div class="address" id="display-address">play.hknw.link</div>
+                    <div id="status-container">
+                        <span class="status-badge offline" id="status-text">読み込み中...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="motd-container" id="motd-box">
+                読み込み中...
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">プレイヤー数</div>
+                    <div class="info-value" id="player-count">- / -</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">バージョン</div>
+                    <div class="info-value" id="server-version">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">IPアドレス : ポート</div>
+                    <div class="info-value" id="server-ip-address">play.hknw.link:25565</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">ソフトウェア</div>
+                    <div class="info-value" id="server-software">-</div>
+                </div>
+            </div>
+
+            <button id="refresh-btn" class="refresh-status-btn">🔄 ステータスを更新</button>
+        </div>
 
         <section id="news" class="section container">
             <header class="section-title">

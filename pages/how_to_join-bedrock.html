@@ -107,6 +107,22 @@
             border-radius: 4px;
             font-weight: bold;
         }
+        .warning-box {
+            background: #fdecea;
+            border: 1px solid #f5c2c0;
+            color: #922b21;
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 25px;
+        }
+        .warning-box h2 {
+            margin: 0 0 10px;
+            font-size: 1.35rem;
+        }
+        .warning-box p {
+            margin: 0;
+            line-height: 1.7;
+        }
         @media (max-width: 768px) {
             .guide-card-section { padding: 30px 20px; }
             .step-block { flex-direction: column; gap: 10px; align-items: flex-start; }
@@ -125,8 +141,12 @@
 
         <section class="guide-card-section">
             <span class="method-label">METHOD 01：おすすめ</span>
+            <div class="warning-box">
+                <h2>現在調整中のため利用できません</h2>
+                <p>この方法は現在調整中です。復旧予定は未定で、廃止となる可能性があります。ご不便をおかけしますが、METHOD 02での接続をご利用ください。</p>
+            </div>
             <h2 style="font-size: 1.6rem; margin-bottom: 15px;">✨ フレンド追加で参加する</h2>
-            <p>SwitchやPS5などの「サーバー追加」が難しい機種でも、公式アカウントをフレンド登録するだけで、フレンド欄から直接参加できます。</p>
+            <p>SwitchやPS5などの「サーバー追加」が難しい機種でも、公式アカウントをフレンド登録することで、フレンド欄から直接参加できる予定です。</p>
 
             <div class="step-container">
                 <div class="step-block">

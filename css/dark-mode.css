@@ -752,3 +752,17 @@ header .dark-mode-toggle-btn,
         font-size: 0.85rem;
     }
 }
+
+/* ダークモード対応 */
+.dark-mode .server-status-card {
+    background: #16213e;
+    border-color: #2d2d44;
+}
+
+.dark-mode .motd-container {
+    background: #0f0f23;
+}
+
+.dark-mode .info-item {
+    background: #0f0f23;
+}

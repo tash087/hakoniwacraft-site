@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/tash087/hakoniwacraft-site/issues"
   },
-  "homepage": "https://github.com/tash087/hakoniwacraft-site#readme"
+  "homepage": "https://github.com/tash087/hakoniwacraft-site#readme",
+  "devDependencies": {
+    "wrangler": "^4.90.0"
+  }
 }
