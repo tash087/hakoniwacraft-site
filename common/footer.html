@@ -99,6 +99,62 @@
     }
 </style>
 
+<!-- style-急遽移動 -->
+<style>
+    .milestone-flash {
+        animation: milestoneGlow 0.3s ease-in-out;
+    }
+
+    @keyframes milestoneGlow {
+        0% {
+            text-shadow: 0 0 0px rgba(230, 126, 34, 0);
+            background-color: transparent;
+        }
+
+        50% {
+            text-shadow: 0 0 15px rgba(230, 126, 34, 0.8);
+            background-color: rgba(230, 126, 34, 0.15);
+            border-radius: 12px;
+        }
+
+        100% {
+            text-shadow: 0 0 0px rgba(230, 126, 34, 0);
+            background-color: transparent;
+        }
+    }
+
+    .counter-highlight {
+        font-weight: bold;
+        color: var(--primary-color, #e67e22);
+        font-size: 1.2em;
+        display: inline-block;
+        min-width: 60px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    #disp-datetime {
+        font-size: 0.8rem;
+        color: var(--light-text, #888);
+        margin-top: 8px;
+        text-align: center;
+        font-family: monospace;
+    }
+
+    .server-counter-box {
+        transition: all 0.3s ease;
+        padding: 4px 8px;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .server-counter-box small {
+        display: block;
+        margin-top: 4px;
+    }
+</style>
+
 <footer>
     <div class="footer-links">
         <div class="footer-group">
