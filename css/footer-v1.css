@@ -1,0 +1,245 @@
+/* =========================================
+   フッタースタイル
+   ========================================= */
+
+footer {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: #fcfaf7 !important;
+    padding: 60px 20px 40px !important;
+    text-align: center !important;
+    border-top: 1px solid #f0eee9 !important;
+    margin-top: 60px;
+}
+
+/* フッターリンクグループ */
+.footer-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 15px;
+    margin-bottom: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-group a {
+    color: #666 !important;
+    font-size: 0.85rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.footer-group a:hover {
+    color: #e67e22 !important;
+}
+
+.footer-separator {
+    color: #ddd;
+    user-select: none;
+}
+
+/* サーバーカウンターコンテナ */
+.server-history-container {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 500px;
+}
+
+/* カウンターボックス共通 */
+.server-counter-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: #ffffff;
+    border-radius: 50px;
+    border: 1px solid #e8e5e0;
+    font-weight: 500;
+    color: #555;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* 箱庭カウンター（特別枠） */
+.reborn-days {
+    border: 1.5px solid #e67e22 !important;
+    background: linear-gradient(135deg, #fff, #fffcf8);
+}
+
+/* ハイライト数字 */
+.counter-highlight {
+    font-weight: bold;
+    color: #e67e22;
+    font-size: 1.2rem;
+    margin: 0 4px;
+    display: inline-block;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* 詳細日時表示 */
+#disp-datetime {
+    font-size: 0.7rem;
+    color: #999;
+    margin-top: 4px;
+    font-family: 'Courier New', monospace;
+    opacity: 0.7;
+}
+
+/* カウンター内の小文字 */
+.server-counter-box small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+/* フッター著作権表示 */
+footer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+footer p small {
+    display: block;
+    font-size: 0.7rem;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+/* =========================================
+   演出アニメーション（カウンター用）
+   ========================================= */
+.milestone-flash {
+    animation: milestoneGlow 0.3s ease-in-out;
+}
+
+@keyframes milestoneGlow {
+    0% {
+        text-shadow: 0 0 0px rgba(230, 126, 34, 0);
+        background-color: transparent;
+    }
+
+    50% {
+        text-shadow: 0 0 15px rgba(230, 126, 34, 0.6);
+        background-color: rgba(230, 126, 34, 0.1);
+        border-radius: 40px;
+    }
+
+    100% {
+        text-shadow: 0 0 0px rgba(230, 126, 34, 0);
+        background-color: transparent;
+    }
+}
+
+/* =========================================
+   ダークモード対応
+   ========================================= */
+.dark-mode footer {
+    background-color: #0a0a14 !important;
+    border-top-color: #2d2d44 !important;
+}
+
+.dark-mode .footer-group a {
+    color: #b0b0c0 !important;
+}
+
+.dark-mode .footer-group a:hover {
+    color: #f39c12 !important;
+}
+
+.dark-mode .footer-separator {
+    color: #3a3a4a;
+}
+
+.dark-mode .server-counter-box {
+    background-color: #16213e;
+    border-color: #2d2d44;
+    color: #e0e0e8;
+}
+
+.dark-mode .reborn-days {
+    background: linear-gradient(135deg, #16213e, #1a2a4a);
+    border-color: #f39c12 !important;
+}
+
+.dark-mode .counter-highlight {
+    color: #f39c12;
+}
+
+.dark-mode #disp-datetime {
+    color: #8888aa;
+}
+
+.dark-mode footer p small {
+    color: #6b6b7a;
+}
+
+/* =========================================
+   レスポンシブ対応
+   ========================================= */
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 15px 30px !important;
+    }
+
+    .footer-group {
+        gap: 8px 12px;
+        margin-bottom: 25px;
+    }
+
+    .footer-group a {
+        font-size: 0.75rem;
+    }
+
+    .footer-separator {
+        display: none;
+    }
+
+    .server-history-container {
+        margin: 25px auto;
+    }
+
+    .server-counter-box {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    .counter-highlight {
+        font-size: 1rem;
+        min-width: 35px;
+    }
+
+    #disp-datetime {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-group {
+        gap: 6px 10px;
+    }
+
+    .footer-group a {
+        font-size: 0.7rem;
+    }
+
+    .server-counter-box {
+        font-size: 0.7rem;
+    }
+
+    .counter-highlight {
+        font-size: 0.9rem;
+        min-width: 30px;
+    }
+}

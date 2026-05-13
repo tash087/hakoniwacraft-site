@@ -18,3 +18,7 @@
 # 404ページ特別設定
 /404.html
   Cache-Control: public, max-age=86400
+
+# JSファイルのキャッシュを短く
+/js/*.js
+  Cache-Control: public, max-age=3600

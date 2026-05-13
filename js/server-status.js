@@ -4,11 +4,7 @@
 // =========================================
 
 const ServerStatus = {
-    // サーバーアドレス（環境に合わせて変更）
-    SERVER_ADDRESS: 'play.hknw.link',
-
-    // APIエンドポイント
-    API_URL: 'https://api.mcsrvstat.us/3/',
+    // サーバーアドレス（環境に合わせて変更）[memo:play.hknw.link]
 
     // 更新間隔（ミリ秒）- 1分
     UPDATE_INTERVAL: 60000,
@@ -51,7 +47,7 @@ const ServerStatus = {
             // ローディング表示
             this.setLoading(true);
 
-            const response = await fetch(`${this.API_URL}${this.SERVER_ADDRESS}`, {
+            const response = await fetch(`https://api.mcsrvstat.us/3/play.hknw.link`, {
                 headers: {
                     'User-Agent': 'HakoniwaCraft-Website/1.0'
                 }
