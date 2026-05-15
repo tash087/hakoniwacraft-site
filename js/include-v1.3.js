@@ -11,73 +11,73 @@ function closeBannerAnimation(el) {
     setTimeout(() => { el.remove(); }, 400);
 }
 
-// // --- 2. メニュー・ログイン関連関数 ---
-// // --- 2. メニュー・ログイン関連関数 ---
-// function initMobileMenu() {
-//     const menuToggle = document.getElementById('menu-toggle');
-//     const mainNav = document.getElementById('main-nav');
-//     
-//     if (menuToggle && mainNav) {
-//         menuToggle.onclick = function() {
-//             // aria-expanded の状態を反転（アクセシビリティ向上）
-//             const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-//             this.setAttribute('aria-expanded', !expanded);
-//             
-//             // CSSアニメーション用のクラス付与
-//             this.classList.toggle('active'); // 三本線の変形用
-//             mainNav.classList.toggle('open');  // メニュー表示用
-//             
-//             // メニューが開いている間は背景スクロールを禁止
-//             document.body.style.overflow = mainNav.classList.contains('open') ? 'hidden' : '';
-//         };
-//     }
-// }
+// --- 2. モバイルメニュー関連関数 ---
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
 
-// function loadLoginMenu() {
-//     const navUl = document.querySelector('#main-nav ul');
-//     if (!navUl) return;
+    if (menuToggle && mainNav) {
+        // 既存のイベントリスナーを削除して再設定（重複防止）
+        const newToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newToggle, menuToggle);
+        
+        newToggle.onclick = function (e) {
+            e.stopPropagation();
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            this.classList.toggle('active');
+            mainNav.classList.toggle('open');
+            
+            // メニューが開いている間は背景スクロールを禁止
+            document.body.style.overflow = mainNav.classList.contains('open') ? 'hidden' : '';
+        };
+        
+        // メニュー内のリンククリック時に閉じる
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.onclick = () => {
+                newToggle.classList.remove('active');
+                mainNav.classList.remove('open');
+                newToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            };
+        });
+    }
+}
 
-//     fetch('/common/login-infomation.html')
-//         .then(res => res.text())
-//         .then(htmlData => {
-//             const tempDiv = document.createElement('div');
-//             tempDiv.innerHTML = htmlData;
-//             const isLoggedIn = localStorage.getItem('isLoggedIn');
-//             const userRole = localStorage.getItem('userRole');
-//             const userName = localStorage.getItem('userName') || 'メンバー';
+// --- 3. ドロップダウンメニューのタッチ対応（スマホ用）---
+function initDropdowns() {
+    if (window.innerWidth > 768) return; // PCはホバーでOK
+    
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        const content = dropdown.querySelector('.dropdown-content');
+        
+        if (!link || !content) return;
+        
+        // タップでドロップダウンを開閉
+        link.onclick = (e) => {
+            e.preventDefault();
+            // 他のドロップダウンを閉じる
+            dropdowns.forEach(d => {
+                if (d !== dropdown) {
+                    d.classList.remove('open-dropdown');
+                }
+            });
+            dropdown.classList.toggle('open-dropdown');
+        };
+        
+        // ドロップダウン内のリンククリック時は閉じる
+        content.querySelectorAll('a').forEach(subLink => {
+            subLink.onclick = () => {
+                dropdown.classList.remove('open-dropdown');
+            };
+        });
+    });
+}
 
-//             let targetId = 'auth-guest';
-//             if (isLoggedIn === 'true') {
-//                 if (userRole === 'admin') targetId = 'auth-admin';
-//                 else if (userRole === 'donator') targetId = 'auth-donator';
-//             }
-
-//             const selectedMenu = tempDiv.querySelector(`#${targetId}`);
-//             if (selectedMenu) {
-//                 const nameSpan = selectedMenu.querySelector('.user-display-name');
-//                 if (nameSpan) nameSpan.textContent = userName + "さん";
-//                 navUl.querySelectorAll('.dynamic-auth').forEach(n => n.remove());
-//                 const fragment = document.createRange().createContextualFragment(selectedMenu.innerHTML);
-//                 Array.from(fragment.children).forEach(child => child.classList.add('dynamic-auth'));
-//                 navUl.appendChild(fragment);
-//             }
-//         }).catch(err => console.error("Login info error:", err));
-// }
-
-// --- 3. クッキー関連関数 ---
-// function loadExternalPerformanceScripts() {
-//    const GA_ID = 'G-XXXXXXXXXX'; // 自身のIDに
-//    if (!GA_ID.startsWith('G-')) return;
-//    const script = document.createElement('script');
-//    script.async = true;
-//    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-//    document.head.appendChild(script);
-//    window.dataLayer = window.dataLayer || [];
-//    function gtag(){dataLayer.push(arguments);}
-//    gtag('js', new Date());
-//    gtag('config', GA_ID);
-// }
-
+// --- 4. クッキー関連関数 ---
 function loadCookieUI(path) {
     fetch(path)
         .then(res => res.text())
@@ -88,25 +88,34 @@ function loadCookieUI(path) {
             tempDiv.innerHTML = data;
             const banner = tempDiv.firstElementChild;
             const placeholder = document.getElementById('cookie-placeholder') || document.body;
-            placeholder.appendChild(banner);
+            if (placeholder) placeholder.appendChild(banner);
 
-            document.getElementById('btn-cookie-accept').onclick = () => {
-                localStorage.setItem("cookie_accepted", "true");
-                localStorage.setItem("cookie_settings", JSON.stringify({ performance: true, updated: new Date() }));
-                closeBannerAnimation(banner);
-                loadExternalPerformanceScripts();
-            };
-            document.getElementById('btn-cookie-close').onclick = () => closeBannerAnimation(banner);
-            document.getElementById('btn-goto-settings').onclick = (e) => {
-                e.preventDefault();
-                window.location.href = '/pages/cookie-settings-page.html';
-            };
+            const acceptBtn = document.getElementById('btn-cookie-accept');
+            const closeBtn = document.getElementById('btn-cookie-close');
+            const settingsBtn = document.getElementById('btn-goto-settings');
+
+            if (acceptBtn) {
+                acceptBtn.onclick = () => {
+                    localStorage.setItem("cookie_accepted", "true");
+                    localStorage.setItem("cookie_settings", JSON.stringify({ performance: true, updated: new Date() }));
+                    closeBannerAnimation(banner);
+                };
+            }
+            if (closeBtn) closeBtn.onclick = () => closeBannerAnimation(banner);
+            if (settingsBtn) {
+                settingsBtn.onclick = (e) => {
+                    e.preventDefault();
+                    window.location.href = '/pages/cookie-settings-page.html';
+                };
+            }
         }).catch(err => console.error("Cookie UI error:", err));
 }
 
 function setupCookieBanner() {
     const settings = JSON.parse(localStorage.getItem("cookie_settings") || '{}');
-    if (settings.performance === true) loadExternalPerformanceScripts();
+    if (settings.performance === true) {
+        // loadExternalPerformanceScripts();
+    }
     if (localStorage.getItem("cookie_accepted") !== "true") {
         loadCookieUI('/common/cookie-process.html');
     }
@@ -121,46 +130,55 @@ function initCookieSettingsButtons() {
     });
 }
 
-// --- 3. カウンター初期化（フッター読み込み後）---
+// --- 5. カウンター初期化 ---
 function initServerCounter() {
-    // カウンター用のスクリプトが既に読み込まれているか確認
     if (typeof window.ServerCounter !== 'undefined') {
         window.ServerCounter.init();
     }
 }
 
-// --- 4. 実行セクション (DOMContentLoaded) ---
+// --- 6. ヘッダー読み込み後の処理 ---
+function onHeaderLoaded() {
+    initMobileMenu();
+    initDropdowns();
+}
+
+// --- 7. 実行セクション (DOMContentLoaded) ---
 document.addEventListener("DOMContentLoaded", function () {
-    // ヘッダー
-    fetch('/common/header-v1.0.html')
-        .then(res => res.text())
+    // ヘッダー読み込み
+    fetch('/common/header-v1.0.html?t=' + Date.now())
+        .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.text();
+        })
         .then(data => {
             const hp = document.getElementById('header-placeholder');
             if (hp) {
                 hp.innerHTML = data;
+                onHeaderLoaded(); // ヘッダー読み込み完了後に初期化
             }
-        }).catch(err => console.error("Header error:", err));
+        })
+        .catch(err => console.error("Header error:", err));
 
-    // フッター（修正版）
-    fetch('/common/footer-v1.0?cache=' + new Date().getTime())
-        .then(res => res.text())
+    // フッター読み込み
+    fetch('/common/footer-v1.0.html?t=' + Date.now())
+        .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.text();
+        })
         .then(data => {
             const fp = document.getElementById('footer-placeholder');
             if (fp) {
                 fp.innerHTML = data;
-
-                // フッター読み込み後にCookie設定ボタンを初期化
                 initCookieSettingsButtons();
-
-                // フッター読み込み後にカウンター初期化（必要に応じて）
                 initServerCounter();
             }
-        }).catch(err => console.error("Footer error:", err));
+        })
+        .catch(err => console.error("Footer error:", err));
 
-    // クッキーバナー（必要に応じて有効化）
+    // クッキーバナー（必要に応じて）
     // setupCookieBanner();
 });
-
 
 // グローバル関数
 window.logoutProcess = function () {
