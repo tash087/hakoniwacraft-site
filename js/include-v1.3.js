@@ -146,7 +146,7 @@ function onHeaderLoaded() {
 // --- 7. 実行セクション (DOMContentLoaded) ---
 document.addEventListener("DOMContentLoaded", function () {
     // ヘッダー読み込み
-    fetch('/common/header-v1.0.html?t=' + Date.now())
+    fetch('/common/header-v1.1.html')
         .then(res => {
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             return res.text();

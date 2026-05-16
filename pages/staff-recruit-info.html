@@ -34,73 +34,295 @@
     <meta property="og:image" content="https://hakoniwa-craft.com/images/ogp.png">
     <meta property="og:locale" content="ja-JP">
     <meta property="og:type" content="website">
+
+    <!-- Recuruit専用CSS -->
+    <style>
+        /* =========================================
+           採用情報ページ専用スタイル
+           ========================================= */
+
+        .careers-page .content-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 募集状況ボックス */
+        .status-box {
+            background: linear-gradient(135deg, #fff8f0, #fff0e0);
+            border-left: 5px solid #e67e22;
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .dark-mode .status-box {
+            background: linear-gradient(135deg, #1a2a3a, #16213e);
+            border-left-color: #f39c12;
+        }
+
+        /* 募集セクション */
+        .recruit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .recruit-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(230, 126, 34, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recruit-card:hover {
+            transform: translateY(-5px);
+            border-color: #e67e22;
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.1);
+        }
+
+        .dark-mode .recruit-card {
+            background: #16213e;
+            border-color: #2d2d44;
+        }
+
+        .dark-mode .recruit-card:hover {
+            border-color: #f39c12;
+        }
+
+        .recruit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .recruit-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+
+        .dark-mode .recruit-title {
+            color: #f39c12;
+        }
+
+        .recruit-desc {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* 応募エリア */
+        .apply-area {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 24px;
+            border: 2px dashed rgba(230, 126, 34, 0.3);
+        }
+
+        .dark-mode .apply-area {
+            background: #16213e;
+            border-color: rgba(243, 156, 18, 0.3);
+        }
+
+        .btn-area {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn-apply {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-apply:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: #e67e22;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #e67e22;
+        }
+
+        .btn-outline:hover {
+            background: #e67e22;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .dark-mode .btn-outline {
+            color: #f39c12;
+            border-color: #f39c12;
+        }
+
+        .dark-mode .btn-outline:hover {
+            background: #f39c12;
+            color: #12121c;
+        }
+
+        /* モットーカード群 */
+        .policy-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .careers-page .content-page {
+                padding: 20px 15px;
+            }
+
+            .status-box {
+                padding: 20px;
+            }
+
+            .recruit-grid {
+                gap: 15px;
+            }
+
+            .recruit-card {
+                padding: 20px;
+            }
+
+            .apply-area {
+                padding: 25px;
+            }
+
+            .btn-area {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .btn-apply,
+            .btn-outline {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body class="careers-page">
     <div id="header-placeholder"></div>
+
     <main class="container">
-        <section class="content-page">
+        <div class="content-page">
             <h1 class="page-title">🤝 運営チーム 採用情報</h1>
+
+            <!-- イントロダクション -->
             <section class="intro-section">
                 <p>箱庭クラフト運営チームは、プレイヤーの皆さんと共に「理想の箱庭」を創り上げる仲間を募集しています。</p>
-                <p>私たちは、<span
-                        class="text-highlight">「交流と創造の架け橋に」</span>なることを目指しています。技術力や知識以上に、「誰かの楽しみを支えたい」というホスピタリティを何よりも重視しています。
-                </p>
+                <p>私たちは、<span class="text-highlight">「交流と創造の架け橋に」</span>なることを目指しています。<br>
+                    技術力や知識以上に、「誰かの楽しみを支えたい」というホスピタリティを何よりも重視しています。</p>
+
+                <!-- モットーカード -->
                 <div class="policy-container">
                     <div class="policy-card">
                         <h3>⏳ 長期安定運営</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 0;">生活ワールドのリセットを行わず、皆さんが積み上げた時間を大切に守り続けます。</p>
+                        <p>生活ワールドのリセットを行わず、皆さんが積み上げた時間を大切に守り続けます。</p>
                     </div>
                     <div class="policy-card">
                         <h3>⚖️ 公平性の追求</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 0;">全てのプレイヤーに対し、ルールに基づいた公平かつ迅速なサポートを行います。</p>
+                        <p>全てのプレイヤーに対し、ルールに基づいた公平かつ迅速なサポートを行います。</p>
                     </div>
                     <div class="policy-card">
                         <h3>🛡️ 徹底した保護</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 0;">高度な復旧システムを運用し、荒らしを気にせず創造に没頭できる環境を維持します。</p>
+                        <p>高度な復旧システムを運用し、荒らしを気にせず創造に没頭できる環境を維持します。</p>
                     </div>
                 </div>
             </section>
+
+            <!-- 募集状況 -->
             <div class="status-box">
-                <h2 style="color: #d35400; font-size: 1.1rem; margin-top: 0;">📢 現在の募集状況について</h2>
+                <h2 style="color: #d35400; font-size: 1.1rem; margin-top: 0; margin-bottom: 15px;">📢 現在の募集状況について</h2>
                 <p><strong>募集状況は随時、下記の応募フォームにて更新しております。</strong></p>
                 <p style="margin-bottom: 0; font-size: 0.95rem;">各部門の詳細は以下のセクションをご確認ください。役職の兼任も可能です。</p>
             </div>
-            <section class="department-section">
-                <h2 class="department-title">Management【管理】</h2>
-                <p class="department-description">サーバー全体のルール整備、経済バランスの調整、人事管理など。</p>
-            </section>
-            <section class="department-section">
-                <h2 class="department-title">PR【広報】</h2>
-                <p class="department-description">SNSや投票サイトでの宣伝、イベント告知、新規プレイヤーへのアピールなど。</p>
-            </section>
-            <section class="department-section">
-                <h2 class="department-title">Creative【建築】</h2>
-                <p class="department-description">公式施設やイベント会場の設計・建築、ワールドの景観維持など。</p>
-            </section>
-            <section class="department-section">
-                <h2 class="department-title">Engineer【エンジニア】</h2>
-                <p class="department-description">独自プラグインの開発、サーバーシステムの保守・管理、コマンド構築など。</p>
-            </section>
-            <section class="department-section">
-                <h2 class="department-title">Product Manager【企画】</h2>
-                <p class="department-description">新規コンテンツの立案、アップデートの仕様策定、プロジェクト管理など。</p>
-            </section>
-            <section class="department-section">
-                <h2 class="department-title">Support【サポート】</h2>
-                <p class="department-description">住民からの質問対応、トラブルの仲裁、初心者案内など。</p>
-            </section>
-            <section class="department-section" style="text-align: center; border-bottom: none;">
-                <h2 style="font-size: 1.2rem; margin-bottom: 20px;">応募にあたって</h2>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 30px;">
+
+            <!-- 募集部門一覧（カード形式） -->
+            <div class="recruit-grid">
+                <div class="recruit-card">
+                    <div class="recruit-icon">📋</div>
+                    <h3 class="recruit-title">Management</h3>
+                    <p class="recruit-desc">サーバー全体のルール整備、経済バランスの調整、人事管理など。</p>
+                </div>
+                <div class="recruit-card">
+                    <div class="recruit-icon">📢</div>
+                    <h3 class="recruit-title">PR / 広報</h3>
+                    <p class="recruit-desc">SNSや投票サイトでの宣伝、イベント告知、新規プレイヤーへのアピールなど。</p>
+                </div>
+                <div class="recruit-card">
+                    <div class="recruit-icon">🎨</div>
+                    <h3 class="recruit-title">Creative / 建築</h3>
+                    <p class="recruit-desc">公式施設やイベント会場の設計・建築、ワールドの景観維持など。</p>
+                </div>
+                <div class="recruit-card">
+                    <div class="recruit-icon">⚙️</div>
+                    <h3 class="recruit-title">Engineer</h3>
+                    <p class="recruit-desc">独自プラグインの開発、サーバーシステムの保守・管理、コマンド構築など。</p>
+                </div>
+                <div class="recruit-card">
+                    <div class="recruit-icon">💡</div>
+                    <h3 class="recruit-title">Product Manager</h3>
+                    <p class="recruit-desc">新規コンテンツの立案、アップデートの仕様策定、プロジェクト管理など。</p>
+                </div>
+                <div class="recruit-card">
+                    <div class="recruit-icon">💬</div>
+                    <h3 class="recruit-title">Support</h3>
+                    <p class="recruit-desc">住民からの質問対応、トラブルの仲裁、初心者案内など。</p>
+                </div>
+            </div>
+
+            <!-- 応募エリア -->
+            <div class="apply-area">
+                <h2 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-color);">✨ 応募にあたって</h2>
+                <p style="font-size: 0.95rem; color: var(--light-text); margin-bottom: 20px;">
                     応募の際は必ず「箱庭クラフト 運営規約」を事前にご確認ください。<br>
                     応募フォームの送信をもって、規約に同意したものとみなします。
                 </p>
                 <div class="btn-area">
-                    <a href="staff-terms.html" class="btn-outline">箱庭クラフト 運営規約</a>
-                    <a href="https://forms.gle/TvQuENouLozFnMso7" class="btn-apply" target="_blank">運営応募フォームへ移動</a>
+                    <a href="https://docs.hakoniwa-craft.com/docs/staff-terms" class="btn-outline">📜 箱庭クラフト 運営規約</a>
+                    <a href="https://forms.gle/TvQuENouLozFnMso7" class="btn-apply" target="_blank" rel="noopener noreferrer">
+                        ✨ 運営応募フォームへ移動
+                    </a>
                 </div>
-            </section>
-        </section>
+            </div>
+        </div>
     </main>
+
     <div id="footer-placeholder"></div>
+</body>
+
+</html>
